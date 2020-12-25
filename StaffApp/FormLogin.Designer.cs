@@ -40,24 +40,24 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.signInButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new FontAwesome.Sharp.IconPictureBox();
             this.btnMaximize = new FontAwesome.Sharp.IconPictureBox();
             this.btnMinimize = new FontAwesome.Sharp.IconPictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconUserLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPasswordLogin)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -196,33 +196,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1049, 729);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconUserLogin);
-            this.panel1.Controls.Add(this.panelLoginLine);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.iconPasswordLogin);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.signInButton);
-            this.panel1.Controls.Add(this.panelPasswordLine);
-            this.panel1.Controls.Add(this.textBoxPassword);
-            this.panel1.Controls.Add(this.textBoxLogin);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(527, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(519, 683);
-            this.panel1.TabIndex = 12;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(524, 40);
-            this.panel2.TabIndex = 15;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
@@ -303,6 +276,33 @@
             this.btnMinimize.TabIndex = 5;
             this.btnMinimize.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(524, 40);
+            this.panel2.TabIndex = 15;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.iconUserLogin);
+            this.panel1.Controls.Add(this.panelLoginLine);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.iconPasswordLogin);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.signInButton);
+            this.panel1.Controls.Add(this.panelPasswordLine);
+            this.panel1.Controls.Add(this.textBoxPassword);
+            this.panel1.Controls.Add(this.textBoxLogin);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(527, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(519, 683);
+            this.panel1.TabIndex = 12;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -319,13 +319,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconUserLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPasswordLogin)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

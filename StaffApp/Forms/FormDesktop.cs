@@ -12,9 +12,15 @@ namespace StaffApp.Forms
 {
     public partial class FormDesktop : Form
     {
-        public FormDesktop()
+        private DB database;
+        public FormDesktop(DB db)
         {
             InitializeComponent();
+
+             
+            database = db;
+           
         }
+
     }
 }

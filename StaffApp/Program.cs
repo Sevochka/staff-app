@@ -16,7 +16,9 @@ namespace StaffApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPanelMenu());
+
+            DB database = new DB();
+            Application.Run(new FormPanelMenu(database));
         }
     }
 }

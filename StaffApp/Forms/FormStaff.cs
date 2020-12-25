@@ -15,25 +15,15 @@ namespace StaffApp.Forms
     public partial class FormStaff : Form
     {
         private DataTable table;
-        public FormStaff()
+
+        public void getEmployes()
         {
-            InitializeComponent();
-
-            DB db = new DB();
-
-            table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT personal_number AS 'Таб.номер', name AS 'Имя', surname AS 'Фамилия' FROM `employee`", db.getConnection());
+            
 
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-           
+            bunifuDataGridView1.DataSource = database.getEmployees();
 
-            bunifuDataGridView1.DataSource = table;
-
+            
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.HeaderText = "Удаление";
             btn.Name = "Удалить";
@@ -46,6 +36,16 @@ namespace StaffApp.Forms
             btn.DefaultCellStyle.SelectionBackColor = Color.Red;
             btn.DefaultCellStyle.SelectionForeColor = Color.White;
             bunifuDataGridView1.Columns.Add(btn);
+        }
+
+        private FormPanelMenu formParent;
+        private DB database;
+        public FormStaff(FormPanelMenu parentForm, DB db)
+        {
+            InitializeComponent();
+            formParent = parentForm;
+            database = db;
+            getEmployes();
 
         }
 
@@ -57,7 +57,11 @@ namespace StaffApp.Forms
 
         private void bunifuDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show(e.RowIndex.ToString());
+            if(e.RowIndex == -1)
+            {
+                return;
+            }
+            
             this.Hide();
             FormDocs form = new FormDocs();
             form.Show();
@@ -66,24 +70,18 @@ namespace StaffApp.Forms
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-
-
-            //MessageBox.Show(bunifuDataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-
-
-
-            if (bunifuDataGridView1.Columns[e.ColumnIndex].Name == "Удалить")
+            if (bunifuDataGridView1.Columns[e.ColumnIndex].Name == "Удалить" && e.RowIndex != -1)
             {
                 if(MessageBox.Show("Вы уверены, что хотите удалить сотрудника?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DB db = new DB();
-                   
+                    
+
                     string personal_number = bunifuDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     
-                    MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", db.getConnection());
-                   command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = personal_number;
+                    MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", database.getConnection());
+                    command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = personal_number;
 
-                    db.openConnection();
+                    database.openConnection();
 
                     if (command.ExecuteNonQuery() == 1)
                     {
@@ -93,9 +91,19 @@ namespace StaffApp.Forms
                     {
                         MessageBox.Show("Что-то пошло не так");
                     }
-                    db.closeConnection();
+                    database.closeConnection();
+                    bunifuDataGridView1.DataSource = null;
+                    bunifuDataGridView1.Columns.Clear();
+                    bunifuDataGridView1.Refresh();
+                    getEmployes();
                 }
             }
+        }
+
+        private void btnAddEmp_Click(object sender, EventArgs e)
+        {
+            //FormPanelMenu d = new FormPanelMenu();
+            formParent.OpenChildForm(new FormAddStaff(database));
         }
     }
 }

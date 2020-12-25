@@ -14,9 +14,11 @@ namespace StaffApp
 {
     public partial class FormLogin : Form
     {
-        public FormLogin()
+        private DB database;
+        public FormLogin(DB db)
         {
             InitializeComponent();
+            database = db;
         }
 
 
@@ -30,13 +32,11 @@ namespace StaffApp
             String loginUser = textBoxLogin.Text;
             String passUser = textBoxPassword.Text;
 
-            DB db = new DB();
-
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `employee` WHERE `personal_number` = @uL AND `autorization_pass` = @uP", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `employee` WHERE `personal_number` = @uL AND `autorization_pass` = @uP", database.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
 
@@ -47,7 +47,7 @@ namespace StaffApp
             {
                 MessageBox.Show("Удачная авторизация! Добро пожаловать!");
                 this.Hide();
-                FormPanelMenu panelMenu = new FormPanelMenu();
+                FormPanelMenu panelMenu = new FormPanelMenu(database);
                 panelMenu.Show();
             }
             else

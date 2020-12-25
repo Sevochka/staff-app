@@ -43,8 +43,8 @@
             this.btnMaximize = new FontAwesome.Sharp.IconPictureBox();
             this.btnMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.panelActiveTab = new System.Windows.Forms.Panel();
-            this.labelTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            this.labelTitleChildForm = new System.Windows.Forms.Label();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.FormMainMenu.SuspendLayout();
@@ -297,24 +297,14 @@
             // 
             // panelActiveTab
             // 
-            this.panelActiveTab.Controls.Add(this.labelTitleChildForm);
             this.panelActiveTab.Controls.Add(this.iconCurrentChildForm);
+            this.panelActiveTab.Controls.Add(this.labelTitleChildForm);
             this.panelActiveTab.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelActiveTab.Location = new System.Drawing.Point(0, 0);
             this.panelActiveTab.Name = "panelActiveTab";
-            this.panelActiveTab.Size = new System.Drawing.Size(180, 75);
+            this.panelActiveTab.Size = new System.Drawing.Size(400, 75);
             this.panelActiveTab.TabIndex = 2;
-            // 
-            // labelTitleChildForm
-            // 
-            this.labelTitleChildForm.AutoSize = true;
-            this.labelTitleChildForm.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTitleChildForm.Location = new System.Drawing.Point(74, 27);
-            this.labelTitleChildForm.Name = "labelTitleChildForm";
-            this.labelTitleChildForm.Size = new System.Drawing.Size(74, 21);
-            this.labelTitleChildForm.TabIndex = 1;
-            this.labelTitleChildForm.Text = "Главная";
+            this.panelActiveTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelActiveTab_MouseDown);
             // 
             // iconCurrentChildForm
             // 
@@ -329,6 +319,17 @@
             this.iconCurrentChildForm.Size = new System.Drawing.Size(45, 44);
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
+            // 
+            // labelTitleChildForm
+            // 
+            this.labelTitleChildForm.AutoSize = true;
+            this.labelTitleChildForm.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelTitleChildForm.Location = new System.Drawing.Point(74, 27);
+            this.labelTitleChildForm.Name = "labelTitleChildForm";
+            this.labelTitleChildForm.Size = new System.Drawing.Size(74, 21);
+            this.labelTitleChildForm.TabIndex = 1;
+            this.labelTitleChildForm.Text = "Главная";
             // 
             // panelShadow
             // 

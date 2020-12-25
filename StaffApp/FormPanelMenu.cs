@@ -19,21 +19,23 @@ namespace StaffApp
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private DB database;
 
-        public FormPanelMenu()
+        public FormPanelMenu(DB db)
         {
             InitializeComponent();
+            database = db;
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
             Reset();
-
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
 
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
         }
         //Structs
         //Colors for active buttons
@@ -85,7 +87,7 @@ namespace StaffApp
             }
         }
 
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
                 currentChildForm.Close();
@@ -100,10 +102,11 @@ namespace StaffApp
             labelTitleChildForm.Text = childForm.Text;
         }
 
+
         private void Reset()
         {
             ActivateButton(btnMenu, RGBColors.color1);
-            OpenChildForm(new Forms.FormDesktop());
+            OpenChildForm(new Forms.FormDesktop(database));
             
         }
 
@@ -115,7 +118,7 @@ namespace StaffApp
         private void btnStaff_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Forms.FormStaff());
+            OpenChildForm(new Forms.FormStaff(this, database));
         }
 
         private void btnPosition_Click(object sender, EventArgs e)
@@ -199,6 +202,12 @@ namespace StaffApp
         private void btnMinimize_MouseLeave(object sender, EventArgs e)
         {
             ResetBtnColor(btnMinimize);
+        }
+
+        private void panelActiveTab_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
