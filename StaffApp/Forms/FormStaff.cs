@@ -14,16 +14,12 @@ namespace StaffApp.Forms
 {
     public partial class FormStaff : Form
     {
-        private DataTable table;
+        private DataTable employees;
 
         public void getEmployes()
         {
-            
-
-
-            bunifuDataGridView1.DataSource = database.getEmployees();
-
-            
+            employees = database.getEmployees();
+            bunifuDataGridView1.DataSource = employees;
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.HeaderText = "Удаление";
             btn.Name = "Удалить";
@@ -46,7 +42,6 @@ namespace StaffApp.Forms
             formParent = parentForm;
             database = db;
             getEmployes();
-
         }
 
 
@@ -61,10 +56,9 @@ namespace StaffApp.Forms
             {
                 return;
             }
-            
-            this.Hide();
-            FormDocs form = new FormDocs();
-            form.Show();
+            uint empId = employees.Rows[e.RowIndex].Field<UInt32>(0);
+
+            formParent.OpenChildForm(new FormEmployeeCard(formParent, this, database, empId));
         }
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -103,7 +97,7 @@ namespace StaffApp.Forms
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
             //FormPanelMenu d = new FormPanelMenu();
-            formParent.OpenChildForm(new FormAddStaff(database));
+            formParent.OpenChildForm(new FormAddStaff(database, formParent));
         }
     }
 }

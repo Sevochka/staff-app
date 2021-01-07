@@ -124,13 +124,13 @@ namespace StaffApp
         private void btnPosition_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new Forms.FormPosition());
+            OpenChildForm(new Forms.FormPosition(this, database));
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new Forms.FormDocs());
+            OpenChildForm(new Forms.FormDocs(this, database));
         }
 
         private void btnLogo_Click(object sender, EventArgs e)

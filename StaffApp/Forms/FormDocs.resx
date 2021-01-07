@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnReportAllEmployees.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAfoAAAAsCAYAAACNBXrPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFiSURBVHhe7dWxTcRQFETR34jXlEIFtGYjyiAmpZRtYCMa
+        +GZXmtANeHRGOsnTy+8wMzOz8q3b8bbu8/u2HwcAcHGf8+fV9mR+jNs2f08fAYBLWrZ5T+afoT95AACu
+        LZkXegBolMwLPQA0SuaFHgAaJfNCDwCNknmhB4BGybzQA0CjZF7oAaBRMi/0ANAomRd6AGiUzAs9ADRK
+        5oUeABol80IPAI2SeaEHgEbJvNADQKNkXugBoFEyL/QA0CiZF3oAaJTMCz0ANErmhR4AGiXzQg8AjZJ5
+        oQeARsm80ANAo2Re6AGgUTIv9ADQKJkXegBolMwLPQA0SuaFHgAaJfNCDwCNknmhB4BGybzQA0CjZF7o
+        AaBRMi/0ANAomRd6AGiUzAs9ADRK5oUeABol80IPAI2SeaEHgEbJ/BjLNu9nDwDANS37/Evmx1i34/15
+        eJw9AgDX8or88jU/knkzMzPr3Bj/Qm72mVqOco8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="laEmployee.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 1.2px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
+  </data>
 </root>
