@@ -52,6 +52,7 @@ namespace StaffApp.Forms
 
         private void btnCreateEmp_Click(object sender, EventArgs e)
         {
+
             //deppos id
             Int32 depposCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(1);
             UInt32 departmentCode = departmentsTable.Rows[dropDepartment.SelectedIndex].Field<UInt32>(0);
@@ -63,9 +64,18 @@ namespace StaffApp.Forms
             String sex = dropSex.Text;
             String family = dropFamily.Text;
             String education = dropEducation.Text;
+            if(inputSeniority.Text == "")
+            {
+                inputSeniority.Text = "0";
+            }
             int seniority = Int32.Parse(inputSeniority.Text);
-            database.addEmployee(name, surname, patronymic, sex, family, education, seniority, depposCode, departmentCode, positionCode);
-            parentForm.OpenChildForm(new FormStaff(parentForm, database));
+
+            parentForm.OpenChildForm(new FormAddStaff_PassData(
+                name, surname, patronymic, 
+                sex, family, education, seniority, 
+                depposCode, departmentCode, positionCode,
+                database, parentForm
+                ));
         }
     }
 }

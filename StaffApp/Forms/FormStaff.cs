@@ -32,6 +32,9 @@ namespace StaffApp.Forms
             btn.DefaultCellStyle.SelectionBackColor = Color.Red;
             btn.DefaultCellStyle.SelectionForeColor = Color.White;
             bunifuDataGridView1.Columns.Add(btn);
+            bunifuDataGridView1.Columns[bunifuDataGridView1.Columns.Count-1].Width = 100;
+
+            bunifuDataGridView1.Columns[0].Width = 40;
         }
 
         private FormPanelMenu formParent;
@@ -56,7 +59,7 @@ namespace StaffApp.Forms
             {
                 return;
             }
-            int empId = employees.Rows[e.RowIndex].Field<Int32>("Таб.номер");
+            int empId = employees.Rows[e.RowIndex].Field<Int32>("№");
             formParent.OpenChildForm(new FormEmployeeCard(formParent, this, database, empId));
         }
 

@@ -33,8 +33,17 @@ namespace StaffApp
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT personal_number AS 'Таб.номер', name AS 'Имя', surname AS 'Фамилия' FROM `employee`", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT " +
+                "e.personal_number AS '№', " +
+                "e.name AS 'Имя', " +
+                "e.surname AS 'Фамилия', " +
+                "p.name AS 'Должность', " +
+                "d.name as 'Отдел' " +
+                "FROM `employee` e " +
+                "JOIN position p ON e.position_code = p.position_code " +
+                "JOIN department d ON e.department_code = d.department_code", this.getConnection());
             this.openConnection();
+            
             adapter.SelectCommand = command;
             adapter.Fill(table);
             this.closeConnection();
@@ -42,13 +51,22 @@ namespace StaffApp
         }
 
         public void addEmployee(string name, string surname, string patronymic, string sex, 
-            string family, string education, int seniority, int deppos_code, uint department_code, int position_code)
+            string family, string education, 
+            int seniority, int deppos_code, 
+            uint department_code, int position_code,
+            string series, string number, DateTime date, 
+            string body, string address
+            )
         {
+            string sqlFormattedDate = date.Date.ToString("yyyy-MM-dd HH:mm:ss");
+
             MySqlCommand command = new MySqlCommand("INSERT INTO `employee` " +
                 "(`name`, `surname`, `patronymic`, `sex`, " +
-                "`family_status`, `education`, `seniority`, `deppos_id`, `department_code`, `position_code`) " +
+                "`family_status`, `education`, `seniority`, `deppos_id`, `department_code`, `position_code`, " +
+                "pass_series, pass_num, pass_body, reg_address, pass_date) " +
                 "VALUES (@name, @surname, @patronymic, @sex, @family_status, @education, " +
-                "@seniority, @deppos_id, @department_code, @position_code);", this.getConnection());
+                "@seniority, @deppos_id, @department_code, @position_code, " +
+                "@series, @number, @body, @address, @date);", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname;
@@ -60,6 +78,12 @@ namespace StaffApp
             command.Parameters.Add("@deppos_id", MySqlDbType.VarChar).Value = deppos_code;
             command.Parameters.Add("@department_code", MySqlDbType.VarChar).Value = department_code;
             command.Parameters.Add("@position_code", MySqlDbType.VarChar).Value = position_code;
+
+            command.Parameters.Add("@series", MySqlDbType.VarChar).Value = series;
+            command.Parameters.Add("@number", MySqlDbType.VarChar).Value = number;
+            command.Parameters.Add("@body", MySqlDbType.VarChar).Value = body;
+            command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
+            command.Parameters.Add("@date", MySqlDbType.VarChar).Value = sqlFormattedDate;
 
             this.openConnection();
 

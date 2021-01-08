@@ -52,6 +52,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
@@ -188,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="Documents.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +221,18 @@
     </Compile>
     <Compile Include="Forms\FormAddStaff.Designer.cs">
       <DependentUpon>FormAddStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_Documents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_Documents.Designer.cs">
+      <DependentUpon>FormAddStaff_Documents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_PassData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_PassData.Designer.cs">
+      <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormDesktop.cs">
       <SubType>Form</SubType>
@@ -270,6 +286,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff.resx">
       <DependentUpon>FormAddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddStaff_Documents.resx">
+      <DependentUpon>FormAddStaff_Documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddStaff_PassData.resx">
+      <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDesktop.resx">
       <DependentUpon>FormDesktop.cs</DependentUpon>

@@ -68,25 +68,25 @@ namespace StaffApp.Forms
                 string positionName = dtRow["positionName"].ToString();
                 string departmentName = dtRow["departmentName"].ToString();
 
-                string employeeWord = GetDeclension(length, "сотрудник", "сотрудника", "сотрудников");
 
                 tableEvent.AddRow(
                     new FieldContent("personalNumber", personalNumber),
                     new FieldContent("Full Name", surname + " " + name),
                     new FieldContent("Role", positionName),
-                    new FieldContent("department", departmentName),
-                    new FieldContent("Count", length.ToString() + " " + employeeWord)
+                    new FieldContent("department", departmentName)
                 );
             }
 
+            string employeeWord = GetDeclension(length, "сотрудник", "сотрудника", "сотрудников");
             var valuesToFill = new TemplateEngine.Docx.Content(
                 tableEvent,
-                new FieldContent("Report date", mainDate)
+                new FieldContent("Report date", mainDate),
+                new FieldContent("Count", length.ToString() + " " + employeeWord)
              );
 
             string destinationFolderPath = @"D:\Documents\Отчеты о составе команды";
             string templatePath = @"D:\Documents Templates\Отчет о сотрудниках.docx";
-            string newFilePath = @"D:\Documents\Отчеты о составе команды\Отчет о составе команды от " + mainData + ".docx";
+            string newFilePath = @"D:\Documents\Отчеты о составе команды\Отчет о составе команды от " + mainDate + ".docx";
 
             if (!Directory.Exists(destinationFolderPath))
             {
