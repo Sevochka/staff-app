@@ -17,7 +17,7 @@ namespace StaffApp.Forms
         private DB database;
         private bool editFlag = false;
 
-        public FormEmployeeCard(FormPanelMenu gpf, FormStaff pf, DB db, uint id)
+        public FormEmployeeCard(FormPanelMenu gpf, FormStaff pf, DB db, int id)
         {
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -27,12 +27,12 @@ namespace StaffApp.Forms
             setEmployeeInfo(id);
         }
 
-        public void setEmployeeInfo(uint id)
+        public void setEmployeeInfo(int id)
         {
             DataTable table = database.getEmployeeInfo(id);
 
             DataRow row = table.Rows[0];
-            uint personal_num = row.Field<uint>(0);
+            int personal_num = row.Field<int>(0);
             string name = row.Field<string>(1);
             string surname = row.Field<string>(2);
             string patr = row.Field<string>(3);

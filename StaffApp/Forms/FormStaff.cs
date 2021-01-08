@@ -56,8 +56,7 @@ namespace StaffApp.Forms
             {
                 return;
             }
-            uint empId = employees.Rows[e.RowIndex].Field<UInt32>(0);
-
+            int empId = employees.Rows[e.RowIndex].Field<Int32>("Таб.номер");
             formParent.OpenChildForm(new FormEmployeeCard(formParent, this, database, empId));
         }
 

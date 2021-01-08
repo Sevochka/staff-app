@@ -74,12 +74,12 @@ namespace StaffApp
             this.closeConnection();
         }
 
-        public DataTable getEmployeeInfo(uint id)
+        public DataTable getEmployeeInfo(int id)
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `employee` WHERE `personal_number` = @personalCode", this.getConnection());
-            command.Parameters.Add("@personalCode", MySqlDbType.UInt32).Value = id;
+            command.Parameters.Add("@personalCode", MySqlDbType.Int32).Value = id;
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -294,7 +294,7 @@ namespace StaffApp
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT personal_number AS 'Таб.номер', name AS 'Имя', surname AS 'Фамилия' FROM `employee`", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT e.personal_number, e.name, e.surname, e.patronymic, p.name as positionName, p.salary, d.name as departmentName, d.phone as departmentPhone FROM employee e INNER JOIN position p ON e.position_code = p.position_code JOIN department d ON e.department_code = d.department_code", this.getConnection());
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
