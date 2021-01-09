@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddStaff_Documents));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
@@ -35,20 +38,13 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.btnCreateEmp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.btnAgrement = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.btnLaborContract = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.dpDocument = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.btnAgrement = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnCreateEmp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +72,107 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 63);
             this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // dpDocument
+            // 
+            this.dpDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dpDocument.BackColor = System.Drawing.Color.SeaGreen;
+            this.dpDocument.BorderRadius = 0;
+            this.dpDocument.ForeColor = System.Drawing.Color.White;
+            this.dpDocument.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dpDocument.FormatCustom = null;
+            this.dpDocument.Location = new System.Drawing.Point(174, 94);
+            this.dpDocument.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dpDocument.Name = "dpDocument";
+            this.dpDocument.Size = new System.Drawing.Size(454, 55);
+            this.dpDocument.TabIndex = 18;
+            this.dpDocument.Value = new System.DateTime(2021, 1, 8, 18, 50, 55, 971);
+            // 
+            // bunifuLabel4
+            // 
+            this.bunifuLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuLabel4.AutoEllipsis = true;
+            this.bunifuLabel4.AutoSize = false;
+            this.bunifuLabel4.CursorType = null;
+            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel4.Location = new System.Drawing.Point(12, 12);
+            this.bunifuLabel4.Name = "bunifuLabel4";
+            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel4.Size = new System.Drawing.Size(776, 74);
+            this.bunifuLabel4.TabIndex = 19;
+            this.bunifuLabel4.Text = "Перед формирование документов, \r\nвведите дату приема на работу: (по умолчанию сег" +
+    "одня) ";
+            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // btnAgrement
+            // 
+            this.btnAgrement.AllowToggling = false;
+            this.btnAgrement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgrement.AnimationSpeed = 200;
+            this.btnAgrement.AutoGenerateColors = false;
+            this.btnAgrement.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgrement.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.btnAgrement.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgrement.BackgroundImage")));
+            this.btnAgrement.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAgrement.ButtonText = "Согласие на обработку персональных данных";
+            this.btnAgrement.ButtonTextMarginLeft = 0;
+            this.btnAgrement.ColorContrastOnClick = 45;
+            this.btnAgrement.ColorContrastOnHover = 45;
+            this.btnAgrement.Cursor = System.Windows.Forms.Cursors.Hand;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.btnAgrement.CustomizableEdges = borderEdges3;
+            this.btnAgrement.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAgrement.DisabledBorderColor = System.Drawing.Color.Empty;
+            this.btnAgrement.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnAgrement.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnAgrement.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnAgrement.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.btnAgrement.ForeColor = System.Drawing.Color.White;
+            this.btnAgrement.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgrement.IconMarginLeft = 11;
+            this.btnAgrement.IconPadding = 10;
+            this.btnAgrement.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgrement.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgrement.IdleBorderRadius = 3;
+            this.btnAgrement.IdleBorderThickness = 1;
+            this.btnAgrement.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgrement.IdleIconLeftImage = null;
+            this.btnAgrement.IdleIconRightImage = null;
+            this.btnAgrement.IndicateFocus = false;
+            this.btnAgrement.Location = new System.Drawing.Point(160, 188);
+            this.btnAgrement.Name = "btnAgrement";
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties5.BorderRadius = 3;
+            stateProperties5.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties5.ForeColor = System.Drawing.Color.White;
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.btnAgrement.onHoverState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.BorderRadius = 3;
+            stateProperties6.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            stateProperties6.BorderThickness = 1;
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.ForeColor = System.Drawing.Color.White;
+            stateProperties6.IconLeftImage = null;
+            stateProperties6.IconRightImage = null;
+            this.btnAgrement.OnPressedState = stateProperties6;
+            this.btnAgrement.Size = new System.Drawing.Size(477, 57);
+            this.btnAgrement.TabIndex = 16;
+            this.btnAgrement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAgrement.TextMarginLeft = 0;
+            this.btnAgrement.UseDefaultRadiusAndThickness = true;
+            this.btnAgrement.Click += new System.EventHandler(this.btnAgrement_Click);
             // 
             // btnCancel
             // 
@@ -151,7 +248,7 @@
             this.btnCreateEmp.BackColor1 = System.Drawing.Color.DodgerBlue;
             this.btnCreateEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateEmp.BackgroundImage")));
             this.btnCreateEmp.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnCreateEmp.ButtonText = "Провести и закрыть";
+            this.btnCreateEmp.ButtonText = "Далее";
             this.btnCreateEmp.ButtonTextMarginLeft = 0;
             this.btnCreateEmp.ColorContrastOnClick = 45;
             this.btnCreateEmp.ColorContrastOnHover = 45;
@@ -208,174 +305,6 @@
             this.btnCreateEmp.UseDefaultRadiusAndThickness = true;
             this.btnCreateEmp.Click += new System.EventHandler(this.btnCreateEmp_Click);
             // 
-            // btnAgrement
-            // 
-            this.btnAgrement.AllowToggling = false;
-            this.btnAgrement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgrement.AnimationSpeed = 200;
-            this.btnAgrement.AutoGenerateColors = false;
-            this.btnAgrement.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgrement.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.btnAgrement.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgrement.BackgroundImage")));
-            this.btnAgrement.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAgrement.ButtonText = "Согласие на обработку персональных данных";
-            this.btnAgrement.ButtonTextMarginLeft = 0;
-            this.btnAgrement.ColorContrastOnClick = 45;
-            this.btnAgrement.ColorContrastOnHover = 45;
-            this.btnAgrement.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.btnAgrement.CustomizableEdges = borderEdges3;
-            this.btnAgrement.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAgrement.DisabledBorderColor = System.Drawing.Color.Empty;
-            this.btnAgrement.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAgrement.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnAgrement.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnAgrement.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.btnAgrement.ForeColor = System.Drawing.Color.White;
-            this.btnAgrement.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgrement.IconMarginLeft = 11;
-            this.btnAgrement.IconPadding = 10;
-            this.btnAgrement.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgrement.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnAgrement.IdleBorderRadius = 3;
-            this.btnAgrement.IdleBorderThickness = 1;
-            this.btnAgrement.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.btnAgrement.IdleIconLeftImage = null;
-            this.btnAgrement.IdleIconRightImage = null;
-            this.btnAgrement.IndicateFocus = false;
-            this.btnAgrement.Location = new System.Drawing.Point(160, 188);
-            this.btnAgrement.Name = "btnAgrement";
-            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties5.BorderRadius = 3;
-            stateProperties5.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            stateProperties5.BorderThickness = 1;
-            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties5.ForeColor = System.Drawing.Color.White;
-            stateProperties5.IconLeftImage = null;
-            stateProperties5.IconRightImage = null;
-            this.btnAgrement.onHoverState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties6.BorderRadius = 3;
-            stateProperties6.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            stateProperties6.BorderThickness = 1;
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties6.ForeColor = System.Drawing.Color.White;
-            stateProperties6.IconLeftImage = null;
-            stateProperties6.IconRightImage = null;
-            this.btnAgrement.OnPressedState = stateProperties6;
-            this.btnAgrement.Size = new System.Drawing.Size(477, 57);
-            this.btnAgrement.TabIndex = 16;
-            this.btnAgrement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAgrement.TextMarginLeft = 0;
-            this.btnAgrement.UseDefaultRadiusAndThickness = true;
-            this.btnAgrement.Click += new System.EventHandler(this.btnAgrement_Click);
-            // 
-            // btnLaborContract
-            // 
-            this.btnLaborContract.AllowToggling = false;
-            this.btnLaborContract.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLaborContract.AnimationSpeed = 200;
-            this.btnLaborContract.AutoGenerateColors = false;
-            this.btnLaborContract.BackColor = System.Drawing.Color.Transparent;
-            this.btnLaborContract.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.btnLaborContract.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLaborContract.BackgroundImage")));
-            this.btnLaborContract.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnLaborContract.ButtonText = "Трудовой договор";
-            this.btnLaborContract.ButtonTextMarginLeft = 0;
-            this.btnLaborContract.ColorContrastOnClick = 45;
-            this.btnLaborContract.ColorContrastOnHover = 45;
-            this.btnLaborContract.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.btnLaborContract.CustomizableEdges = borderEdges4;
-            this.btnLaborContract.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLaborContract.DisabledBorderColor = System.Drawing.Color.Empty;
-            this.btnLaborContract.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnLaborContract.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnLaborContract.Enabled = false;
-            this.btnLaborContract.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnLaborContract.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.btnLaborContract.ForeColor = System.Drawing.Color.White;
-            this.btnLaborContract.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLaborContract.IconMarginLeft = 11;
-            this.btnLaborContract.IconPadding = 10;
-            this.btnLaborContract.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLaborContract.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnLaborContract.IdleBorderRadius = 3;
-            this.btnLaborContract.IdleBorderThickness = 1;
-            this.btnLaborContract.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.btnLaborContract.IdleIconLeftImage = null;
-            this.btnLaborContract.IdleIconRightImage = null;
-            this.btnLaborContract.IndicateFocus = false;
-            this.btnLaborContract.Location = new System.Drawing.Point(202, 278);
-            this.btnLaborContract.Name = "btnLaborContract";
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.BorderRadius = 3;
-            stateProperties7.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            stateProperties7.BorderThickness = 1;
-            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.ForeColor = System.Drawing.Color.White;
-            stateProperties7.IconLeftImage = null;
-            stateProperties7.IconRightImage = null;
-            this.btnLaborContract.onHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties8.BorderRadius = 3;
-            stateProperties8.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            stateProperties8.BorderThickness = 1;
-            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties8.ForeColor = System.Drawing.Color.White;
-            stateProperties8.IconLeftImage = null;
-            stateProperties8.IconRightImage = null;
-            this.btnLaborContract.OnPressedState = stateProperties8;
-            this.btnLaborContract.Size = new System.Drawing.Size(394, 57);
-            this.btnLaborContract.TabIndex = 17;
-            this.btnLaborContract.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnLaborContract.TextMarginLeft = 0;
-            this.btnLaborContract.UseDefaultRadiusAndThickness = true;
-            this.btnLaborContract.Click += new System.EventHandler(this.btnLaborContract_Click);
-            // 
-            // dpDocument
-            // 
-            this.dpDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dpDocument.BackColor = System.Drawing.Color.SeaGreen;
-            this.dpDocument.BorderRadius = 0;
-            this.dpDocument.ForeColor = System.Drawing.Color.White;
-            this.dpDocument.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dpDocument.FormatCustom = null;
-            this.dpDocument.Location = new System.Drawing.Point(174, 94);
-            this.dpDocument.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dpDocument.Name = "dpDocument";
-            this.dpDocument.Size = new System.Drawing.Size(454, 55);
-            this.dpDocument.TabIndex = 18;
-            this.dpDocument.Value = new System.DateTime(2021, 1, 8, 18, 50, 55, 971);
-            // 
-            // bunifuLabel4
-            // 
-            this.bunifuLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuLabel4.AutoEllipsis = true;
-            this.bunifuLabel4.AutoSize = false;
-            this.bunifuLabel4.CursorType = null;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel4.Location = new System.Drawing.Point(12, 12);
-            this.bunifuLabel4.Name = "bunifuLabel4";
-            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(776, 74);
-            this.bunifuLabel4.TabIndex = 19;
-            this.bunifuLabel4.Text = "Перед формирование документов, \r\nвведите дату приема на работу: (по умолчанию сег" +
-    "одня) ";
-            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // FormAddStaff_Documents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -384,7 +313,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bunifuLabel4);
             this.Controls.Add(this.dpDocument);
-            this.Controls.Add(this.btnLaborContract);
             this.Controls.Add(this.btnAgrement);
             this.Controls.Add(this.panel1);
             this.Name = "FormAddStaff_Documents";
@@ -402,7 +330,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnCancel;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnCreateEmp;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnAgrement;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnLaborContract;
         private Bunifu.Framework.UI.BunifuDatepicker dpDocument;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
     }

@@ -58,6 +58,9 @@ namespace StaffApp.Forms
             UInt32 departmentCode = departmentsTable.Rows[dropDepartment.SelectedIndex].Field<UInt32>(0);
             Int32 positionCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(0);
 
+            String position = dropPosition.SelectedItem.ToString();
+            String department = dropDepartment.SelectedItem.ToString();
+
             String name = inputName.Text;
             String surname = inputSurname.Text;
             String patronymic = inputPatronymic.Text;
@@ -74,7 +77,8 @@ namespace StaffApp.Forms
                 name, surname, patronymic, 
                 sex, family, education, seniority, 
                 depposCode, departmentCode, positionCode,
-                database, parentForm
+                database, parentForm,
+                position, department
                 ));
         }
     }

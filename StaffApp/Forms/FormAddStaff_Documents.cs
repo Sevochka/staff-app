@@ -30,6 +30,9 @@ namespace StaffApp.Forms
         private DB database;
         private FormPanelMenu panelMenu;
 
+        private string position;
+        private string department;
+
         public FormAddStaff_Documents(
              String n,
              String sn,
@@ -47,7 +50,9 @@ namespace StaffApp.Forms
              string bo,
              string add,
              DB db,
-             FormPanelMenu pm
+             FormPanelMenu pm,
+             String pos,
+             String dep
             )
         {
             name = n;
@@ -68,6 +73,9 @@ namespace StaffApp.Forms
             body = bo;
             address = add;
 
+            position = pos;
+            department = dep;
+
             InitializeComponent();
         }
 
@@ -79,7 +87,19 @@ namespace StaffApp.Forms
                 depposCode, departmentCode,
                 positionCode, series, number, date, body, address);
 
-            panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
+            panelMenu.OpenChildForm(new FormAddStaff_LaborContract(
+                "Сотрудник",
+                surname + " " + name + " " + patronymic,
+                department,
+                position,
+                series,
+                number,
+                body,
+                address,
+                date,
+                panelMenu,
+                database
+                ));
         }
 
         private void btnAgrement_Click(object sender, EventArgs e)
@@ -93,7 +113,8 @@ namespace StaffApp.Forms
                 date,
                 body
                 );
-            btnLaborContract.Enabled = true;
+
+            btnCreateEmp.Enabled = true;
         }
 
         private void btnLaborContract_Click(object sender, EventArgs e)

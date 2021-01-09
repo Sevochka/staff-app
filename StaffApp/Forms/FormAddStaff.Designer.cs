@@ -55,20 +55,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tlContent = new System.Windows.Forms.TableLayoutPanel();
-            this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.dropPosition = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.dropEducation = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.dropDepartment = new Bunifu.UI.WinForms.BunifuDropdown();
             this.dropSex = new Bunifu.UI.WinForms.BunifuDropdown();
             this.dropFamily = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.dropEducation = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.dropDepartment = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.dropPosition = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnCreateEmp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.inputPatronymic = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -155,85 +155,125 @@
             this.tlContent.Size = new System.Drawing.Size(641, 409);
             this.tlContent.TabIndex = 12;
             // 
-            // bunifuLabel5
+            // bunifuLabel9
             // 
-            this.bunifuLabel5.AutoEllipsis = false;
-            this.bunifuLabel5.CursorType = null;
-            this.bunifuLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel5.Location = new System.Drawing.Point(3, 183);
-            this.bunifuLabel5.Name = "bunifuLabel5";
-            this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel5.Size = new System.Drawing.Size(282, 38);
-            this.bunifuLabel5.TabIndex = 7;
-            this.bunifuLabel5.Text = "Семейное положение:";
-            this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel5.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel9.AutoEllipsis = false;
+            this.bunifuLabel9.CursorType = null;
+            this.bunifuLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel9.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel9.Location = new System.Drawing.Point(3, 363);
+            this.bunifuLabel9.Name = "bunifuLabel9";
+            this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel9.Size = new System.Drawing.Size(148, 38);
+            this.bunifuLabel9.TabIndex = 13;
+            this.bunifuLabel9.Text = "Должность:";
+            this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuLabel4
+            // dropPosition
             // 
-            this.bunifuLabel4.AutoEllipsis = false;
-            this.bunifuLabel4.CursorType = null;
-            this.bunifuLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel4.Location = new System.Drawing.Point(3, 138);
-            this.bunifuLabel4.Name = "bunifuLabel4";
-            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(59, 38);
-            this.bunifuLabel4.TabIndex = 6;
-            this.bunifuLabel4.Text = "Пол:";
-            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.dropPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropPosition.BorderRadius = 1;
+            this.dropPosition.Color = System.Drawing.Color.Gainsboro;
+            this.dropPosition.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.dropPosition.DisabledColor = System.Drawing.Color.Gray;
+            this.dropPosition.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dropPosition.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dropPosition.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.dropPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropPosition.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.dropPosition.FillDropDown = false;
+            this.dropPosition.FillIndicator = false;
+            this.dropPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dropPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropPosition.ForeColor = System.Drawing.Color.Gainsboro;
+            this.dropPosition.FormattingEnabled = true;
+            this.dropPosition.Icon = null;
+            this.dropPosition.IndicatorColor = System.Drawing.Color.Gainsboro;
+            this.dropPosition.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.dropPosition.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropPosition.ItemBorderColor = System.Drawing.Color.White;
+            this.dropPosition.ItemForeColor = System.Drawing.Color.Gainsboro;
+            this.dropPosition.ItemHeight = 26;
+            this.dropPosition.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
+            this.dropPosition.Location = new System.Drawing.Point(323, 363);
+            this.dropPosition.Name = "dropPosition";
+            this.dropPosition.Size = new System.Drawing.Size(315, 32);
+            this.dropPosition.TabIndex = 9;
+            this.dropPosition.Tag = "0";
+            this.dropPosition.Text = "Должность";
             // 
-            // bunifuLabel3
+            // dropEducation
             // 
-            this.bunifuLabel3.AutoEllipsis = false;
-            this.bunifuLabel3.CursorType = null;
-            this.bunifuLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel3.Location = new System.Drawing.Point(3, 93);
-            this.bunifuLabel3.Name = "bunifuLabel3";
-            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(122, 38);
-            this.bunifuLabel3.TabIndex = 5;
-            this.bunifuLabel3.Text = "Отчество:";
-            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.dropEducation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropEducation.BorderRadius = 1;
+            this.dropEducation.Color = System.Drawing.Color.Gainsboro;
+            this.dropEducation.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.dropEducation.DisabledColor = System.Drawing.Color.Gray;
+            this.dropEducation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dropEducation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dropEducation.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.dropEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropEducation.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.dropEducation.FillDropDown = false;
+            this.dropEducation.FillIndicator = false;
+            this.dropEducation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dropEducation.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropEducation.ForeColor = System.Drawing.Color.Gainsboro;
+            this.dropEducation.FormattingEnabled = true;
+            this.dropEducation.Icon = null;
+            this.dropEducation.IndicatorColor = System.Drawing.Color.Gainsboro;
+            this.dropEducation.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.dropEducation.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropEducation.ItemBorderColor = System.Drawing.Color.White;
+            this.dropEducation.ItemForeColor = System.Drawing.Color.Gainsboro;
+            this.dropEducation.ItemHeight = 26;
+            this.dropEducation.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
+            this.dropEducation.Items.AddRange(new object[] {
+            "Среднее",
+            "Высшее",
+            "Послевузовское"});
+            this.dropEducation.Location = new System.Drawing.Point(323, 228);
+            this.dropEducation.Name = "dropEducation";
+            this.dropEducation.Size = new System.Drawing.Size(315, 32);
+            this.dropEducation.TabIndex = 6;
+            this.dropEducation.Tag = "0";
+            this.dropEducation.Text = null;
             // 
-            // bunifuLabel2
+            // dropDepartment
             // 
-            this.bunifuLabel2.AutoEllipsis = false;
-            this.bunifuLabel2.CursorType = null;
-            this.bunifuLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel2.Location = new System.Drawing.Point(3, 48);
-            this.bunifuLabel2.Name = "bunifuLabel2";
-            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(123, 38);
-            this.bunifuLabel2.TabIndex = 4;
-            this.bunifuLabel2.Text = "Фамилия:";
-            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.CursorType = null;
-            this.bunifuLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel1.Location = new System.Drawing.Point(3, 3);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(62, 38);
-            this.bunifuLabel1.TabIndex = 3;
-            this.bunifuLabel1.Text = "Имя:";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.dropDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropDepartment.BorderRadius = 1;
+            this.dropDepartment.Color = System.Drawing.Color.Gainsboro;
+            this.dropDepartment.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.dropDepartment.DisabledColor = System.Drawing.Color.Gray;
+            this.dropDepartment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dropDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dropDepartment.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.dropDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropDepartment.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.dropDepartment.FillDropDown = false;
+            this.dropDepartment.FillIndicator = false;
+            this.dropDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dropDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropDepartment.ForeColor = System.Drawing.Color.Gainsboro;
+            this.dropDepartment.FormattingEnabled = true;
+            this.dropDepartment.Icon = null;
+            this.dropDepartment.IndicatorColor = System.Drawing.Color.Gainsboro;
+            this.dropDepartment.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.dropDepartment.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.dropDepartment.ItemBorderColor = System.Drawing.Color.White;
+            this.dropDepartment.ItemForeColor = System.Drawing.Color.Gainsboro;
+            this.dropDepartment.ItemHeight = 26;
+            this.dropDepartment.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
+            this.dropDepartment.Location = new System.Drawing.Point(323, 318);
+            this.dropDepartment.Name = "dropDepartment";
+            this.dropDepartment.Size = new System.Drawing.Size(315, 32);
+            this.dropDepartment.TabIndex = 8;
+            this.dropDepartment.Tag = "0";
+            this.dropDepartment.Text = "Департамент";
+            this.dropDepartment.SelectedIndexChanged += new System.EventHandler(this.dropSeniority_SelectedIndexChanged);
             // 
             // dropSex
             // 
@@ -309,108 +349,21 @@
             this.dropFamily.Tag = "0";
             this.dropFamily.Text = null;
             // 
-            // dropEducation
+            // bunifuLabel1
             // 
-            this.dropEducation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropEducation.BorderRadius = 1;
-            this.dropEducation.Color = System.Drawing.Color.Gainsboro;
-            this.dropEducation.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.dropEducation.DisabledColor = System.Drawing.Color.Gray;
-            this.dropEducation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dropEducation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.dropEducation.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.dropEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dropEducation.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.dropEducation.FillDropDown = false;
-            this.dropEducation.FillIndicator = false;
-            this.dropEducation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropEducation.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dropEducation.ForeColor = System.Drawing.Color.Gainsboro;
-            this.dropEducation.FormattingEnabled = true;
-            this.dropEducation.Icon = null;
-            this.dropEducation.IndicatorColor = System.Drawing.Color.Gainsboro;
-            this.dropEducation.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.dropEducation.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropEducation.ItemBorderColor = System.Drawing.Color.White;
-            this.dropEducation.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropEducation.ItemHeight = 26;
-            this.dropEducation.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
-            this.dropEducation.Items.AddRange(new object[] {
-            "Среднее",
-            "Высшее",
-            "Послевузовское"});
-            this.dropEducation.Location = new System.Drawing.Point(323, 228);
-            this.dropEducation.Name = "dropEducation";
-            this.dropEducation.Size = new System.Drawing.Size(315, 32);
-            this.dropEducation.TabIndex = 6;
-            this.dropEducation.Tag = "0";
-            this.dropEducation.Text = null;
-            // 
-            // bunifuLabel7
-            // 
-            this.bunifuLabel7.AutoEllipsis = false;
-            this.bunifuLabel7.CursorType = null;
-            this.bunifuLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel7.Location = new System.Drawing.Point(3, 273);
-            this.bunifuLabel7.Name = "bunifuLabel7";
-            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(71, 38);
-            this.bunifuLabel7.TabIndex = 9;
-            this.bunifuLabel7.Text = "Стаж:";
-            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel6
-            // 
-            this.bunifuLabel6.AutoEllipsis = false;
-            this.bunifuLabel6.CursorType = null;
-            this.bunifuLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel6.Location = new System.Drawing.Point(3, 228);
-            this.bunifuLabel6.Name = "bunifuLabel6";
-            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel6.Size = new System.Drawing.Size(175, 38);
-            this.bunifuLabel6.TabIndex = 8;
-            this.bunifuLabel6.Text = "Образование:";
-            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // dropDepartment
-            // 
-            this.dropDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropDepartment.BorderRadius = 1;
-            this.dropDepartment.Color = System.Drawing.Color.Gainsboro;
-            this.dropDepartment.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.dropDepartment.DisabledColor = System.Drawing.Color.Gray;
-            this.dropDepartment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dropDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.dropDepartment.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.dropDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dropDepartment.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.dropDepartment.FillDropDown = false;
-            this.dropDepartment.FillIndicator = false;
-            this.dropDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dropDepartment.ForeColor = System.Drawing.Color.Gainsboro;
-            this.dropDepartment.FormattingEnabled = true;
-            this.dropDepartment.Icon = null;
-            this.dropDepartment.IndicatorColor = System.Drawing.Color.Gainsboro;
-            this.dropDepartment.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.dropDepartment.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropDepartment.ItemBorderColor = System.Drawing.Color.White;
-            this.dropDepartment.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropDepartment.ItemHeight = 26;
-            this.dropDepartment.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
-            this.dropDepartment.Location = new System.Drawing.Point(323, 318);
-            this.dropDepartment.Name = "dropDepartment";
-            this.dropDepartment.Size = new System.Drawing.Size(315, 32);
-            this.dropDepartment.TabIndex = 8;
-            this.dropDepartment.Tag = "0";
-            this.dropDepartment.Text = "Департамент";
-            this.dropDepartment.SelectedIndexChanged += new System.EventHandler(this.dropSeniority_SelectedIndexChanged);
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = null;
+            this.bunifuLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel1.Location = new System.Drawing.Point(3, 3);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(62, 38);
+            this.bunifuLabel1.TabIndex = 3;
+            this.bunifuLabel1.Text = "Имя:";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel8
             // 
@@ -428,54 +381,101 @@
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // dropPosition
+            // bunifuLabel2
             // 
-            this.dropPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropPosition.BorderRadius = 1;
-            this.dropPosition.Color = System.Drawing.Color.Gainsboro;
-            this.dropPosition.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.dropPosition.DisabledColor = System.Drawing.Color.Gray;
-            this.dropPosition.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dropPosition.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.dropPosition.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.dropPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dropPosition.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.dropPosition.FillDropDown = false;
-            this.dropPosition.FillIndicator = false;
-            this.dropPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dropPosition.ForeColor = System.Drawing.Color.Gainsboro;
-            this.dropPosition.FormattingEnabled = true;
-            this.dropPosition.Icon = null;
-            this.dropPosition.IndicatorColor = System.Drawing.Color.Gainsboro;
-            this.dropPosition.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.dropPosition.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.dropPosition.ItemBorderColor = System.Drawing.Color.White;
-            this.dropPosition.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropPosition.ItemHeight = 26;
-            this.dropPosition.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
-            this.dropPosition.Location = new System.Drawing.Point(323, 363);
-            this.dropPosition.Name = "dropPosition";
-            this.dropPosition.Size = new System.Drawing.Size(315, 32);
-            this.dropPosition.TabIndex = 9;
-            this.dropPosition.Tag = "0";
-            this.dropPosition.Text = "Должность";
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.CursorType = null;
+            this.bunifuLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel2.Location = new System.Drawing.Point(3, 48);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(123, 38);
+            this.bunifuLabel2.TabIndex = 4;
+            this.bunifuLabel2.Text = "Фамилия:";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuLabel9
+            // bunifuLabel3
             // 
-            this.bunifuLabel9.AutoEllipsis = false;
-            this.bunifuLabel9.CursorType = null;
-            this.bunifuLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.bunifuLabel9.Location = new System.Drawing.Point(3, 363);
-            this.bunifuLabel9.Name = "bunifuLabel9";
-            this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel9.Size = new System.Drawing.Size(148, 38);
-            this.bunifuLabel9.TabIndex = 13;
-            this.bunifuLabel9.Text = "Должность:";
-            this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel3.AutoEllipsis = false;
+            this.bunifuLabel3.CursorType = null;
+            this.bunifuLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel3.Location = new System.Drawing.Point(3, 93);
+            this.bunifuLabel3.Name = "bunifuLabel3";
+            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel3.Size = new System.Drawing.Size(122, 38);
+            this.bunifuLabel3.TabIndex = 5;
+            this.bunifuLabel3.Text = "Отчество:";
+            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel7
+            // 
+            this.bunifuLabel7.AutoEllipsis = false;
+            this.bunifuLabel7.CursorType = null;
+            this.bunifuLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel7.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel7.Location = new System.Drawing.Point(3, 273);
+            this.bunifuLabel7.Name = "bunifuLabel7";
+            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel7.Size = new System.Drawing.Size(71, 38);
+            this.bunifuLabel7.TabIndex = 9;
+            this.bunifuLabel7.Text = "Стаж:";
+            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel4
+            // 
+            this.bunifuLabel4.AutoEllipsis = false;
+            this.bunifuLabel4.CursorType = null;
+            this.bunifuLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel4.Location = new System.Drawing.Point(3, 138);
+            this.bunifuLabel4.Name = "bunifuLabel4";
+            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel4.Size = new System.Drawing.Size(59, 38);
+            this.bunifuLabel4.TabIndex = 6;
+            this.bunifuLabel4.Text = "Пол:";
+            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel6
+            // 
+            this.bunifuLabel6.AutoEllipsis = false;
+            this.bunifuLabel6.CursorType = null;
+            this.bunifuLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel6.Location = new System.Drawing.Point(3, 228);
+            this.bunifuLabel6.Name = "bunifuLabel6";
+            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel6.Size = new System.Drawing.Size(175, 38);
+            this.bunifuLabel6.TabIndex = 8;
+            this.bunifuLabel6.Text = "Образование:";
+            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel5
+            // 
+            this.bunifuLabel5.AutoEllipsis = false;
+            this.bunifuLabel5.CursorType = null;
+            this.bunifuLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bunifuLabel5.Location = new System.Drawing.Point(3, 183);
+            this.bunifuLabel5.Name = "bunifuLabel5";
+            this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel5.Size = new System.Drawing.Size(282, 38);
+            this.bunifuLabel5.TabIndex = 7;
+            this.bunifuLabel5.Text = "Семейное положение:";
+            this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.bunifuLabel5.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // btnCancel
             // 

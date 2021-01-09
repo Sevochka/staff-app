@@ -24,6 +24,8 @@ namespace StaffApp.Forms
         private Int32 positionCode;
         private DB database;
         private FormPanelMenu panelMenu;
+        private string position;
+        private string department;
 
         public FormAddStaff_PassData(
              String n,
@@ -37,7 +39,9 @@ namespace StaffApp.Forms
              UInt32 departmentC,
              Int32 positionC,
              DB db,
-             FormPanelMenu pm
+             FormPanelMenu pm,
+             String pos,
+             String dep
             )
         {
             name = n;
@@ -52,6 +56,9 @@ namespace StaffApp.Forms
             positionCode = positionC;
             database = db;
             panelMenu = pm;
+
+            position = pos;
+            department = dep;
 
             InitializeComponent();
         }
@@ -71,7 +78,8 @@ namespace StaffApp.Forms
                 sex, family, education, seniority,
                 depposCode, departmentCode, positionCode,
                 series, number, date, body, address,
-                database, panelMenu
+                database, panelMenu,
+                position, department
                 ));
         }
     }

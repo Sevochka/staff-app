@@ -228,6 +228,12 @@
     <Compile Include="Forms\FormAddStaff_Documents.Designer.cs">
       <DependentUpon>FormAddStaff_Documents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAddStaff_LaborContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_LaborContract.Designer.cs">
+      <DependentUpon>FormAddStaff_LaborContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddStaff_PassData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff_Documents.resx">
       <DependentUpon>FormAddStaff_Documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddStaff_LaborContract.resx">
+      <DependentUpon>FormAddStaff_LaborContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff_PassData.resx">
       <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
