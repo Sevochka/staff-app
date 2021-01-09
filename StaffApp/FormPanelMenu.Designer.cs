@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPanelMenu));
             this.FormMainMenu = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.btnDocuments = new FontAwesome.Sharp.IconButton();
             this.btnPosition = new FontAwesome.Sharp.IconButton();
             this.btnStaff = new FontAwesome.Sharp.IconButton();
@@ -73,6 +74,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnDocuments);
             this.panelMenu.Controls.Add(this.btnPosition);
             this.panelMenu.Controls.Add(this.btnStaff);
@@ -82,6 +84,31 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 442);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            this.btnSettings.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSettings.IconSize = 42;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(0, 240);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnSettings.Size = new System.Drawing.Size(220, 60);
+            this.btnSettings.TabIndex = 9;
+            this.btnSettings.Text = "Настройка ИС";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Visible = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnDocuments
             // 
@@ -105,6 +132,7 @@
             this.btnDocuments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDocuments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDocuments.UseVisualStyleBackColor = true;
+            this.btnDocuments.Visible = false;
             this.btnDocuments.Click += new System.EventHandler(this.btnDocuments_Click);
             // 
             // btnPosition
@@ -129,6 +157,7 @@
             this.btnPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPosition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPosition.UseVisualStyleBackColor = true;
+            this.btnPosition.Visible = false;
             this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
             // 
             // btnStaff
@@ -153,6 +182,7 @@
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStaff.UseVisualStyleBackColor = true;
+            this.btnStaff.Visible = false;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // btnMenu
@@ -177,6 +207,7 @@
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Visible = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panelLogo
@@ -397,6 +428,7 @@
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnSettings;
     }
 }
 

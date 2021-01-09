@@ -11,6 +11,10 @@ namespace StaffApp
 {
     public class DB
     {
+        public static DataRow currentEmployee;
+        public static string access;
+        public static Boolean isLogged = false;
+
         readonly MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is-staff");
         public void openConnection()
         {
@@ -50,23 +54,42 @@ namespace StaffApp
             return table;
         }
 
+
+        public DataTable getEmployeesShort()
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT " +
+                "e.personal_number AS '№', " +
+                "e.name AS 'Имя', " +
+                "e.surname AS 'Фамилия' " +
+                "FROM `employee` e ", this.getConnection());
+            this.openConnection();
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public void addEmployee(string name, string surname, string patronymic, string sex, 
             string family, string education, 
             int seniority, int deppos_code, 
             uint department_code, int position_code,
             string series, string number, DateTime date, 
-            string body, string address
+            string body, string address, string access,
+            string password
             )
         {
             string sqlFormattedDate = date.Date.ToString("yyyy-MM-dd HH:mm:ss");
 
             MySqlCommand command = new MySqlCommand("INSERT INTO `employee` " +
                 "(`name`, `surname`, `patronymic`, `sex`, " +
-                "`family_status`, `education`, `seniority`, `deppos_id`, `department_code`, `position_code`, " +
-                "pass_series, pass_num, pass_body, reg_address, pass_date) " +
+                "`family_status`, `education`, `seniority`, `autorization_pass`, `deppos_id`, `department_code`, `position_code`, " +
+                "pass_series, pass_num, pass_body, reg_address, pass_date, access) " +
                 "VALUES (@name, @surname, @patronymic, @sex, @family_status, @education, " +
-                "@seniority, @deppos_id, @department_code, @position_code, " +
-                "@series, @number, @body, @address, @date);", this.getConnection());
+                "@seniority, @password, @deppos_id, @department_code, @position_code, " +
+                "@series, @number, @body, @address, @date, @access)", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname;
@@ -75,6 +98,7 @@ namespace StaffApp
             command.Parameters.Add("@family_status", MySqlDbType.VarChar).Value = family;
             command.Parameters.Add("@education", MySqlDbType.VarChar).Value = education;
             command.Parameters.Add("@seniority", MySqlDbType.VarChar).Value = seniority;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
             command.Parameters.Add("@deppos_id", MySqlDbType.VarChar).Value = deppos_code;
             command.Parameters.Add("@department_code", MySqlDbType.VarChar).Value = department_code;
             command.Parameters.Add("@position_code", MySqlDbType.VarChar).Value = position_code;
@@ -85,11 +109,13 @@ namespace StaffApp
             command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
             command.Parameters.Add("@date", MySqlDbType.VarChar).Value = sqlFormattedDate;
 
+            command.Parameters.Add("@access", MySqlDbType.VarChar).Value = access;
+
             this.openConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                MessageBox.Show("Добавлено успешно");
+                
             }
             else
             {
@@ -104,6 +130,29 @@ namespace StaffApp
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `employee` WHERE `personal_number` = @personalCode", this.getConnection());
             command.Parameters.Add("@personalCode", MySqlDbType.Int32).Value = id;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
+        public DataTable getEmployeeIdByInfo(
+            string name,
+            string surname,
+            string series,
+            string number
+            )
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT personal_number FROM `employee` WHERE `name` = @name AND " +
+                "`surname` = @surname AND `pass_series` = @series AND `pass_num` = @number", this.getConnection());
+            command.Parameters.Add("@name", MySqlDbType.Text).Value = name;
+            command.Parameters.Add("@surname", MySqlDbType.Text).Value = surname;
+            command.Parameters.Add("@series", MySqlDbType.Text).Value = series;
+            command.Parameters.Add("@number", MySqlDbType.Text).Value = number;
+
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -297,7 +346,7 @@ namespace StaffApp
 
         public void updateDepartment(uint code, string name, string phone)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `department` SET `name` = @name, `phone` = @phone WHERE `department_code` = @code", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE department SET name = @name, phone = @phone WHERE department_code = @code", this.getConnection());
             
             command.Parameters.Add("@name", MySqlDbType.String).Value = name;
             command.Parameters.Add("@phone", MySqlDbType.String).Value = phone;
@@ -305,7 +354,25 @@ namespace StaffApp
             this.openConnection();
             if (command.ExecuteNonQuery() == 1)
             {
-                
+              
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
+
+        public void changePassword(string password)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `employee` SET `autorization_pass` = @pass WHERE `personal_number` = @pNum", this.getConnection());
+
+            command.Parameters.Add("@pass", MySqlDbType.String).Value = password;
+            command.Parameters.Add("@pNum", MySqlDbType.String).Value = DB.currentEmployee.Field<int>("personal_number");
+            this.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Пароль успешно изменен!");
             }
             else
             {

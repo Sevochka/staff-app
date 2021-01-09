@@ -240,6 +240,12 @@
     <Compile Include="Forms\FormAddStaff_PassData.Designer.cs">
       <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,12 @@
     <Compile Include="Forms\FormEmployeeCard.Designer.cs">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormPersonalCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPersonalCard.Designer.cs">
+      <DependentUpon>FormPersonalCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +287,12 @@
     </Compile>
     <Compile Include="Forms\FormStaff.Designer.cs">
       <DependentUpon>FormStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSystemSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSystemSettings.Designer.cs">
+      <DependentUpon>FormSystemSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,6 +320,9 @@
     <EmbeddedResource Include="Forms\FormAddStaff_PassData.resx">
       <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDesktop.resx">
       <DependentUpon>FormDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,11 +335,17 @@
     <EmbeddedResource Include="Forms\FormEmployeeCard.resx">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPersonalCard.resx">
+      <DependentUpon>FormPersonalCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosition.resx">
       <DependentUpon>FormPosition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSystemSettings.resx">
+      <DependentUpon>FormSystemSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

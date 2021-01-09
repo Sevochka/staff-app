@@ -172,11 +172,6 @@ namespace StaffApp.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(inputName.Text == name || inputPhone.Text == phone)
-            {
-                setPreviousPage();
-                return;
-            }
             database.updateDepartment(id, inputName.Text, inputPhone.Text);
             setPreviousPage();
         }

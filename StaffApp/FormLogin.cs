@@ -15,10 +15,12 @@ namespace StaffApp
     public partial class FormLogin : Form
     {
         private DB database;
-        public FormLogin(DB db)
+        private FormPanelMenu panelMenu;
+        public FormLogin(DB db, FormPanelMenu pM)
         {
             InitializeComponent();
             database = db;
+            panelMenu = pM;
         }
 
 
@@ -36,7 +38,7 @@ namespace StaffApp
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `employee` WHERE `personal_number` = @uL AND `autorization_pass` = @uP", database.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT e.personal_number, e.name, e.surname, e.patronymic, e.sex, e.family_status, e.education, e.seniority, e.autorization_pass, e.deppos_id, e.position_code, e.department_code, e.pass_series,e.pass_num,e.pass_body,e.reg_address,e.pass_date,e.access,d.name as 'department_name',d.phone as 'department_phone',p.name as 'position_name',p.salary as 'position_salary'FROM employee e JOIN position p ON e.position_code = p.position_code JOIN department d ON e.department_code = d.department_code WHERE e.personal_number = @uL AND e.autorization_pass = @uP", database.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
 
@@ -46,66 +48,18 @@ namespace StaffApp
             if (table.Rows.Count > 0)
             {
                 MessageBox.Show("Удачная авторизация! Добро пожаловать!");
-                this.Hide();
-                FormPanelMenu panelMenu = new FormPanelMenu(database);
-                panelMenu.Show();
+                DB.currentEmployee = table.Rows[0];
+                DB.isLogged = true;
+                panelMenu.InitializeSignIn();
+               // this.Hide();
+                //FormPanelMenu panelMenu = new FormPanelMenu(database);
+                //panelMenu.Show();
             }
             else
                 MessageBox.Show("Проверьте правильность вводимых данных");
         }
 
         //Control buttons
-        private void ResetBtnColor(IconPictureBox button)
-        {
-            button.ForeColor = Color.Gainsboro;
-        }
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-
-        private void btnClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnClose.ForeColor = Color.Red;
-        }
-
-        private void btnClose_MouseLeave(object sender, EventArgs e)
-        {
-            ResetBtnColor(btnClose);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMaximize_MouseEnter(object sender, EventArgs e)
-        {
-            btnMaximize.ForeColor = Color.FromArgb(17, 135, 221);
-        }
-
-        private void btnMaximize_MouseLeave(object sender, EventArgs e)
-        {
-            ResetBtnColor(btnMaximize);
-        }
-
-        private void btnMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            btnMinimize.ForeColor = Color.FromArgb(9, 203, 203);
-        }
-
-        private void btnMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            ResetBtnColor(btnMinimize);
-        }
+       
     }
 }

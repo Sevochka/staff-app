@@ -20,7 +20,13 @@ namespace StaffApp.Forms
         {
             employees = database.getEmployees();
             bunifuDataGridView1.DataSource = employees;
+            bunifuDataGridView1.Columns[0].Width = 40;
+            if (DB.access == "USER")
+            {
+                return;
+            }
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            
             btn.HeaderText = "Удаление";
             btn.Name = "Удалить";
             btn.Text = "Удалить";
@@ -32,9 +38,7 @@ namespace StaffApp.Forms
             btn.DefaultCellStyle.SelectionBackColor = Color.Red;
             btn.DefaultCellStyle.SelectionForeColor = Color.White;
             bunifuDataGridView1.Columns.Add(btn);
-            bunifuDataGridView1.Columns[bunifuDataGridView1.Columns.Count-1].Width = 100;
-
-            bunifuDataGridView1.Columns[0].Width = 40;
+            bunifuDataGridView1.Columns[bunifuDataGridView1.Columns.Count-1].Width = 100; 
         }
 
         private FormPanelMenu formParent;
@@ -44,6 +48,10 @@ namespace StaffApp.Forms
             InitializeComponent();
             formParent = parentForm;
             database = db;
+            if(DB.access == "USER")
+            {
+                btnAddEmp.Visible = false;
+            }
             getEmployes();
         }
 
@@ -65,15 +73,20 @@ namespace StaffApp.Forms
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (DB.access == "USER")
+            {
+                return;
+            }
 
             if (bunifuDataGridView1.Columns[e.ColumnIndex].Name == "Удалить" && e.RowIndex != -1)
             {
                 if(MessageBox.Show("Вы уверены, что хотите удалить сотрудника?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    //string personal_number2 = bunifuDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                    string personal_number = employees.Rows[e.RowIndex].Field<int>("№").ToString();
                     
 
-                    string personal_number = bunifuDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    
                     MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", database.getConnection());
                     command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = personal_number;
 

@@ -28,14 +28,14 @@ namespace StaffApp
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-            Reset();
+            
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
 
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-
+            openLoginForm();
         }
         //Structs
         //Colors for active buttons
@@ -74,6 +74,7 @@ namespace StaffApp
             }
         }
 
+ 
         private void DisableButton()
         {
             if(currentBtn != null)
@@ -103,12 +104,42 @@ namespace StaffApp
         }
 
 
-        private void Reset()
+        public void Reset()
         {
             ActivateButton(btnMenu, RGBColors.color1);
-            OpenChildForm(new Forms.FormDesktop(database));
-            
+            OpenChildForm(new Forms.FormDesktop(database, this));
         }
+        public void InitializeSignIn()
+        {
+            DB.access = DB.currentEmployee.Field<string>("access");
+            string access = DB.access;
+            if (access == "USER+" || access == "ADMIN")
+            {
+                if (access == "ADMIN")
+                {
+                    btnSettings.Visible = true;
+                }
+                btnDocuments.Visible = true;
+                btnPosition.Visible = true;
+                btnStaff.Visible = true;
+                btnMenu.Visible = true;
+                
+            }
+            if (access == "USER")
+            {
+                btnMenu.Visible = true;
+                btnStaff.Visible = true;
+            }
+
+           
+            Reset();
+        }
+
+        private void openLoginForm()
+        {
+            OpenChildForm(new FormLogin(database, this));
+        }
+
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -133,8 +164,18 @@ namespace StaffApp
             OpenChildForm(new Forms.FormDocs(this, database));
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new Forms.FormSystemSettings(this, database));
+        }
+
         private void btnLogo_Click(object sender, EventArgs e)
         {
+            if (!DB.isLogged)
+            {
+                return;
+            }
             Reset();
         }
 
@@ -209,5 +250,7 @@ namespace StaffApp
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+    
     }
 }

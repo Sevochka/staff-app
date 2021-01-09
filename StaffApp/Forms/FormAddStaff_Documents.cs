@@ -33,6 +33,9 @@ namespace StaffApp.Forms
         private string position;
         private string department;
 
+        private String personalNumber;
+        private String password;
+
         public FormAddStaff_Documents(
              String n,
              String sn,
@@ -81,12 +84,7 @@ namespace StaffApp.Forms
 
         private void btnCreateEmp_Click(object sender, EventArgs e)
         {
-            database.addEmployee(
-                name, surname, patronymic,
-                sex, family, education, seniority,
-                depposCode, departmentCode,
-                positionCode, series, number, date, body, address);
-
+            
             panelMenu.OpenChildForm(new FormAddStaff_LaborContract(
                 "Сотрудник",
                 surname + " " + name + " " + patronymic,
@@ -102,6 +100,18 @@ namespace StaffApp.Forms
                 ));
         }
 
+        public string CreatePassword(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
+
         private void btnAgrement_Click(object sender, EventArgs e)
         {
             Documents.createСonsentProcessingOfPersonalData(
@@ -114,7 +124,14 @@ namespace StaffApp.Forms
                 body
                 );
 
-            btnCreateEmp.Enabled = true;
+            password = CreatePassword(5);
+            database.addEmployee(
+                name, surname, patronymic,
+                sex, family, education, seniority,
+                depposCode, departmentCode,
+                positionCode, series, number, date, body, address, "USER", password);
+
+            bunifuButton1.Enabled = true;
         }
 
         private void btnLaborContract_Click(object sender, EventArgs e)
@@ -125,6 +142,21 @@ namespace StaffApp.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            DataTable table = database.getEmployeeIdByInfo(name, surname, series, number);
+
+            personalNumber = table.Rows[0].Field<int>("personal_number").ToString();
+
+            Documents.CreatedataToLogin(
+                surname + " " + name + " " + patronymic,
+                personalNumber,
+                password
+                );
+
+            btnCreateEmp.Enabled = true;
         }
     }
 }

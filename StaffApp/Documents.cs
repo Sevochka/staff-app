@@ -45,7 +45,11 @@ namespace StaffApp
                 Directory.CreateDirectory(destinationFolderPath);
             }
 
-            File.Delete(newFilePath);
+            if (File.Exists(newFilePath))
+            {
+                File.Delete(newFilePath);
+            }
+
             File.Copy(templatePath, newFilePath);
 
             using (var outputDocument = new TemplateProcessor(newFilePath)
@@ -129,6 +133,44 @@ namespace StaffApp
 
             Process.Start(newFilePath);
         }
+
+        static public void CreatedataToLogin(
+           string fullName, string personalNumb, string password
+            )
+        {
+            
+            var valuesToFill1 = new TemplateEngine.Docx.Content(
+                new FieldContent("FIO", fullName),
+                new FieldContent("tab", personalNumb),
+                new FieldContent("pass", password)
+             );
+
+            string destinationFolderPath = @"D:\Documents\Сотрудники\" + fullName;
+            string templatePath = @"D:\Documents Templates\Данные для входа.docx";
+            string newFilePath = @"D:\Documents\Сотрудники\" + fullName + "\\Данные для входа.docx";
+
+            if (!Directory.Exists(destinationFolderPath))
+            {
+                Directory.CreateDirectory(destinationFolderPath);
+            }
+
+            if (File.Exists(newFilePath))
+            {
+                File.Delete(newFilePath);
+            }
+
+            File.Copy(templatePath, newFilePath);
+
+            using (var outputDocument = new TemplateProcessor(newFilePath)
+                .SetRemoveContentControls(true))
+            {
+                outputDocument.FillContent(valuesToFill1);
+                outputDocument.SaveChanges();
+            }
+
+            Process.Start(newFilePath);
+        }
+
     }
 
 
