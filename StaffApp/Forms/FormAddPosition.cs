@@ -52,11 +52,43 @@ namespace StaffApp.Forms
             uint positionId = position.Rows[0].Field<uint>(0);
             database.addDepPos(departmentId, positionId);
             fillDataGridPositions();
+            inputName.Text = "";
+            inputSalary.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panelMenu.OpenChildForm(new FormPosition(panelMenu, database));
+        }
+
+        private void checkInputs()
+        {
+            string name = inputName.Text;
+            string salary = inputSalary.Text;
+
+            if (!string.IsNullOrWhiteSpace(name) &&
+                !string.IsNullOrWhiteSpace(salary) 
+                )
+            {
+                int a;
+                if (int.TryParse(salary, out a))
+                {
+                    btnCreatePosition.Enabled = true;
+                    return;
+                }
+
+            }
+            btnCreatePosition.Enabled = false;
+        }
+
+        private void inputName_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputSalary_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
         }
     }
 }

@@ -34,11 +34,45 @@ namespace StaffApp.Forms
         {
             database.addDepartment(inputName.Text, inputPhone.Text);
             getDepartments();
+            inputName.Text = "";
+            inputPhone.Text = "+7";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panelMenu.OpenChildForm(new FormPosition(panelMenu, database));
+        }
+
+        private bool isValid(string phone)
+        {
+            return (!string.IsNullOrEmpty(phone) && phone.Length == 12);
+        }
+
+        private void checkInputs()
+        {
+            string name = inputName.Text;
+            string phone = inputPhone.Text;
+
+
+            if (string.IsNullOrWhiteSpace(name) ||
+                !isValid(phone)
+                )
+            {
+                btnCreate.Enabled = false;
+                return;
+            }
+            btnCreate.Enabled = true;
+
+        }
+
+        private void inputName_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputPhone_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
         }
     }
 }

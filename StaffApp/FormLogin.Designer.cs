@@ -86,7 +86,6 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(261, 41);
             this.textBoxLogin.TabIndex = 7;
-            this.textBoxLogin.Text = "15";
             // 
             // textBoxPassword
             // 
@@ -99,7 +98,6 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(261, 41);
             this.textBoxPassword.TabIndex = 8;
-            this.textBoxPassword.Text = "12345";
             // 
             // tableLayoutPanel2
             // 

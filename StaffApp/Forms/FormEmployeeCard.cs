@@ -16,6 +16,9 @@ namespace StaffApp.Forms
         private FormStaff parentForm;
         private DB database;
         private bool editFlag = false;
+        private DataTable departmentsTable;
+        private DataTable positionsCodes;
+        private DataRow employee;
 
         public FormEmployeeCard(FormPanelMenu gpf, FormStaff pf, DB db, int id)
         {
@@ -24,22 +27,35 @@ namespace StaffApp.Forms
             grandParentForm = gpf;
             parentForm = pf;
             database = db;
+
+            departmentsTable = database.getDepartments();
+
+            foreach (DataRow dr in departmentsTable.Rows)
+            {
+                dropDep.Items.Add(dr.Field<string>(1));
+            }
+            
+
             setEmployeeInfo(id);
         }
 
         public void setEmployeeInfo(int id)
         {
-            DataTable table = database.getEmployeeInfo(id);
+            DataTable table = database.getEmployeeFullInfo(id);
 
-            DataRow row = table.Rows[0];
-            int personal_num = row.Field<int>(0);
-            string name = row.Field<string>(1);
-            string surname = row.Field<string>(2);
-            string patr = row.Field<string>(3);
-            string sex = row.Field<string>(4);
-            string family = row.Field<string>(5);
-            string education = row.Field<string>(6);
-            int seniority = row.Field<int>(7);
+            employee = table.Rows[0];
+           
+            int personal_num = employee.Field<int>(0);
+            string name = employee.Field<string>(1);
+            string surname = employee.Field<string>(2);
+            string patr = employee.Field<string>(3);
+            string sex = employee.Field<string>(4);
+            string family = employee.Field<string>(5);
+            string education = employee.Field<string>(6);
+            int seniority = employee.Field<int>(7);
+
+            string department = employee.Field<string>("department_name");
+            string position = employee.Field<string>("position_name");
 
             this.Text = "Карточка сотрудника #"+personal_num.ToString();
             laEmployee.Text = surname + " " + name + " " + patr;
@@ -52,6 +68,9 @@ namespace StaffApp.Forms
             dropFamily.SelectedIndex = dropFamily.Items.IndexOf(family);
             dropEducation.SelectedIndex = dropEducation.Items.IndexOf(education);
             inputSeniority.Text = seniority.ToString();
+
+            dropDep.SelectedIndex = dropDep.Items.IndexOf(department);
+            dropPos.SelectedIndex = dropPos.Items.IndexOf(position);
         }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
@@ -117,10 +136,55 @@ namespace StaffApp.Forms
             dropSex.Enabled = editFlag;
             dropEducation.Enabled = editFlag;
             dropFamily.Enabled = editFlag;
+            dropDep.Enabled = editFlag;
+            dropPos.Enabled = editFlag;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            grandParentForm.OpenChildForm(new FormStaff(grandParentForm, database));
+        }
+
+        private void dropDep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                UInt32 id = departmentsTable.Rows[dropDep.SelectedIndex].Field<UInt32>(0);
+
+                positionsCodes = database.getPositionsByDepartmentCode(id);
+                dropPos.Items.Clear();
+                foreach (DataRow dr in positionsCodes.Rows)
+                {
+                    int code = dr.Field<int>(0);
+                    DataTable positionName = database.getPositionByCode(code);
+                    dropPos.Items.Add(positionName.Rows[0].Field<string>(0));
+                }
+            dropPos.SelectedIndex = 0;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            UInt32 depCode = departmentsTable.Rows[dropDep.SelectedIndex].Field<UInt32>(0);
+            int posCode = positionsCodes.Rows[dropPos.SelectedIndex].Field<int>(0);
+
+            DataTable deppostable = database.getDepPosByCodes(depCode, posCode);
+
+            int depposId = deppostable.Rows[0].Field<int>(0);
+
+            string name = inputName.Text;
+            string surname = inputSurname.Text;
+            string patr = inputPatr.Text;
+            string sex = dropSex.Text;
+            string family = dropFamily.Text;
+            string edu = dropEducation.Text;
+            string seniority = inputSeniority.Text;
+
+            int personal_num = employee.Field<int>(0);
+
+            database.updateEmployee(
+                personal_num,
+                name, surname, patr, sex, family, edu, seniority, depCode, posCode, depposId
+                );
+
             grandParentForm.OpenChildForm(new FormStaff(grandParentForm, database));
         }
     }

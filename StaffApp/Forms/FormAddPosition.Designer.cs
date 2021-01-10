@@ -141,6 +141,7 @@
             this.inputName.TextPlaceholder = "Название";
             this.inputName.UseSystemPasswordChar = false;
             this.inputName.WordWrap = true;
+            this.inputName.TextChange += new System.EventHandler(this.inputName_TextChange);
             // 
             // laDepartment
             // 
@@ -299,6 +300,7 @@
             this.btnCreatePosition.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnCreatePosition.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnCreatePosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreatePosition.Enabled = false;
             this.btnCreatePosition.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnCreatePosition.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.btnCreatePosition.ForeColor = System.Drawing.Color.White;
@@ -502,6 +504,7 @@
             this.inputSalary.TextPlaceholder = "Оклад";
             this.inputSalary.UseSystemPasswordChar = false;
             this.inputSalary.WordWrap = true;
+            this.inputSalary.TextChange += new System.EventHandler(this.inputSalary_TextChange);
             // 
             // bunifuLabel1
             // 

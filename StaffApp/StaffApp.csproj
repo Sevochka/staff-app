@@ -270,6 +270,18 @@
     <Compile Include="Forms\FormEmployeeCard.Designer.cs">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormLeave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLeave.Designer.cs">
+      <DependentUpon>FormLeave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLeaveOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLeaveOrder.Designer.cs">
+      <DependentUpon>FormLeaveOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPersonalCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEmployeeCard.resx">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLeave.resx">
+      <DependentUpon>FormLeave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLeaveOrder.resx">
+      <DependentUpon>FormLeaveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPersonalCard.resx">
       <DependentUpon>FormPersonalCard.cs</DependentUpon>

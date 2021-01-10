@@ -128,11 +128,20 @@ namespace StaffApp
             if (access == "USER")
             {
                 btnMenu.Visible = true;
+                btnDocuments.Visible = true;
                 btnStaff.Visible = true;
             }
-
            
             Reset();
+        }
+
+        public void hideAll()
+        {
+            btnSettings.Visible = false;
+            btnDocuments.Visible = false;
+            btnPosition.Visible = false;
+            btnStaff.Visible = false;
+            btnMenu.Visible = false;
         }
 
         private void openLoginForm()

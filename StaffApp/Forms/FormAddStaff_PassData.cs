@@ -82,5 +82,50 @@ namespace StaffApp.Forms
                 position, department
                 ));
         }
+        private void checkInputs()
+        {
+            string series = inputSeries.Text;
+            string number = inputNumber.Text;
+            string body = inputBody.Text;
+            string address = inputAddress.Text;
+
+            
+            if (!string.IsNullOrWhiteSpace(address) &&
+                !string.IsNullOrWhiteSpace(body) &&
+                series.Length == 4 &&
+                number.Length == 6
+                )
+            {
+                int a;
+                int b;
+                if(int.TryParse(series, out a) && int.TryParse(number, out b))
+                {
+                    btnCreateEmp.Enabled = true;
+                    return;
+                }
+                
+            }
+            btnCreateEmp.Enabled = false;
+        }
+
+        private void inputSeries_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputNumber_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputBody_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputAddress_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
     }
 }

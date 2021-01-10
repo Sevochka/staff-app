@@ -86,7 +86,7 @@ namespace StaffApp.Forms
         {
             
             panelMenu.OpenChildForm(new FormAddStaff_LaborContract(
-                "Сотрудник",
+                DB.currentEmployee.Field<string>("surname") + " "+ DB.currentEmployee.Field<string>("name") + " " + DB.currentEmployee.Field<string>("patronymic"),
                 surname + " " + name + " " + patronymic,
                 department,
                 position,

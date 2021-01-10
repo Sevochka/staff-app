@@ -171,6 +171,111 @@ namespace StaffApp
             Process.Start(newFilePath);
         }
 
+
+        static public void CreateLeave(
+           string fullName, string position, string department, DateTime date_when, string reason, 
+           DateTime currentDate
+            )
+        {
+
+            string formattedWhen = date_when.Date.ToString("dd.MM.yyyy");
+            string formattedCurrent = currentDate.Date.ToString("dd.MM.yyyy");
+
+            var valuesToFill = new TemplateEngine.Docx.Content(
+                new FieldContent("POS", position),
+                new FieldContent("de", department),
+                new FieldContent("FIO", fullName),
+                new FieldContent("DATE_WHEN", formattedWhen),
+                new FieldContent("re", reason),
+                new FieldContent("CURR_DATE", formattedCurrent)
+             );
+
+            string destinationFolderPath = @"D:\Documents\Сотрудники\" + fullName;
+            string templatePath = @"D:\Documents Templates\Заявление об увольнении.docx";
+            string newFilePath = @"D:\Documents\Сотрудники\" + fullName + "\\Заявление об увольнении.docx";
+
+            if (!Directory.Exists(destinationFolderPath))
+            {
+                Directory.CreateDirectory(destinationFolderPath);
+            }
+
+            if (File.Exists(newFilePath))
+            {
+                File.Delete(newFilePath);
+            }
+
+            File.Copy(templatePath, newFilePath);
+
+            using (var outputDocument = new TemplateProcessor(newFilePath)
+                .SetRemoveContentControls(true))
+            {
+                outputDocument.FillContent(valuesToFill);
+                outputDocument.SaveChanges();
+            }
+
+            Process.Start(newFilePath);
+        }
+
+        static public void CreateLeaveOrder(
+           DateTime creationDate, DateTime dateLaborContract, DateTime whenKick, 
+           int personal_number, string fullName, string department, string position, string reason,
+           string osn
+            )
+        {
+
+            string formattedCreationDate = creationDate.Date.ToString("dd.MM.yyyy");
+            //Labor
+            string dLabor = dateLaborContract.Date.ToString("dd");
+            string mLabor = dateLaborContract.Date.ToString("MMMM");
+            string yLabor = dateLaborContract.Date.ToString("yy");
+
+            //whenKick
+            string dKick = dateLaborContract.Date.ToString("dd");
+            string mKick = dateLaborContract.Date.ToString("MMMM");
+            string yKick = dateLaborContract.Date.ToString("yy");
+
+            var valuesToFill = new TemplateEngine.Docx.Content(
+                new FieldContent("crdate", formattedCreationDate),
+                new FieldContent("day1", dLabor),
+                new FieldContent("m1", mLabor),
+                new FieldContent("year1", yLabor),
+                new FieldContent("day2", dKick),
+                new FieldContent("m2", mKick),
+                new FieldContent("year2", yKick),
+                new FieldContent("tab", personal_number.ToString()),
+                new FieldContent("FIO_S", fullName),
+                new FieldContent("de", department),
+                new FieldContent("po", position),
+                new FieldContent("res", reason),
+                new FieldContent("osn", osn)
+             );
+
+            string destinationFolderPath = @"D:\Documents\Сотрудники\" + fullName;
+            string templatePath = @"D:\Documents Templates\Приказ об увольнении.docx";
+            string newFilePath = @"D:\Documents\Сотрудники\" + fullName + "\\Приказ об увольнении.docx";
+
+            if (!Directory.Exists(destinationFolderPath))
+            {
+                Directory.CreateDirectory(destinationFolderPath);
+            }
+
+            if (File.Exists(newFilePath))
+            {
+                File.Delete(newFilePath);
+            }
+
+            File.Copy(templatePath, newFilePath);
+
+            using (var outputDocument = new TemplateProcessor(newFilePath)
+                .SetRemoveContentControls(true))
+            {
+                outputDocument.FillContent(valuesToFill);
+                outputDocument.SaveChanges();
+            }
+
+            Process.Start(newFilePath);
+        }
+
     }
 
 

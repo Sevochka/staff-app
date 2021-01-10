@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="laEmployee.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 1.2px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnLeave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAfoAAAAsCAYAAACNBXrPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFfSURBVHhe7dexbQMxFERBlqJSXIFbIvtxrNSlqAFFbuDO
+        FLDhNXCLWWAS4ucPHGZmZla+c87HsdbPudYJANzbbvrz0/Zkfoz98Ht1CADc0277K5nfP/qLAwDg3pJ5
+        oQeARsm80ANAo2Re6AGgUTIv9ADQKJkXegBolMwLPQA0SuaFHgAaJfNCDwCNknmhB4BGybzQA0CjZF7o
+        AaBRMi/0ANAomRd6AGiUzAs9ADRK5oUeABol80IPAI2SeaEHgEbJvNADQKNkXugBoFEyL/QA0CiZF3oA
+        aJTMCz0ANErmhR4AGiXzQg8AjZJ5oQeARsm80ANAo2Re6AGgUTIv9ADQKJkXegBolMwLPQA0SuaFHgAa
+        JfNCDwCNknmhB4BGybzQA0CjZF7oAaBRMi/0ANAomRd6AGiUzI9xrPW6OgAA7mm3/S+Z3z/6Ob/2w/vq
+        EAC4l0/kjzm/k3kzMzPr3Bj/kKJ0iq8izQYAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnReportAllEmployees.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfoAAAAsCAYAAACNBXrPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -129,8 +144,5 @@
         AaBRMi/0ANAomRd6AGiUzAs9ADRK5oUeABol80IPAI2SeaEHgEbJ/BjLNu9nDwDANS37/Evmx1i34/15
         eJw9AgDX8or88jU/knkzMzPr3Bj/Qm72mVqOco8AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="laEmployee.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 1.2px; font-family: 'Segoe UI Semibold'; font-size: 20pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
   </data>
 </root>

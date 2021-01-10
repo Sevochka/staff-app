@@ -27,9 +27,9 @@ namespace StaffApp.Forms
             }
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             
-            btn.HeaderText = "Удаление";
-            btn.Name = "Удалить";
-            btn.Text = "Удалить";
+            btn.HeaderText = "Увол.";
+            btn.Name = "Уволить";
+            btn.Text = "Уволить";
             btn.UseColumnTextForButtonValue = true;
             btn.FlatStyle = FlatStyle.Flat;
 
@@ -63,7 +63,7 @@ namespace StaffApp.Forms
 
         private void bunifuDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex == -1)
+            if(e.RowIndex == -1 || DB.currentEmployee.Field<string>("access") == "USER")
             {
                 return;
             }
@@ -78,33 +78,33 @@ namespace StaffApp.Forms
                 return;
             }
 
-            if (bunifuDataGridView1.Columns[e.ColumnIndex].Name == "Удалить" && e.RowIndex != -1)
+            if (bunifuDataGridView1.Columns[e.ColumnIndex].Name == "Уволить" && e.RowIndex != -1)
             {
                 if(MessageBox.Show("Вы уверены, что хотите удалить сотрудника?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //string personal_number2 = bunifuDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    string personal_number = employees.Rows[e.RowIndex].Field<int>("№").ToString();
+                    int personal_number = employees.Rows[e.RowIndex].Field<int>("№");
+                    DataTable table = database.getEmployeeInfo(personal_number);
+
+                    string fullName = employees.Rows[e.RowIndex].Field<string>("Фамилия") +" "+ employees.Rows[e.RowIndex].Field<string>("Имя") + " " + table.Rows[0].Field<string>("patronymic");
+                    string position = employees.Rows[e.RowIndex].Field<string>("Должность");
+                    string department = employees.Rows[e.RowIndex].Field<string>("Отдел");
+
+                    formParent.OpenChildForm(new FormLeaveOrder(
+                        personal_number,
+                        fullName,
+                        department,
+                        position,
+                        formParent,
+                        database
+                        ));
+
                     
-
-                    MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", database.getConnection());
-                    command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = personal_number;
-
-                    database.openConnection();
-
-                    if (command.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("Удалено успешно");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Что-то пошло не так");
-                    }
-                    database.closeConnection();
-                    bunifuDataGridView1.DataSource = null;
-                    bunifuDataGridView1.Columns.Clear();
-                    bunifuDataGridView1.Refresh();
-                    getEmployes();
+                    //bunifuDataGridView1.DataSource = null;
+                    //bunifuDataGridView1.Columns.Clear();
+                    //bunifuDataGridView1.Refresh();
+                    //getEmployes();
                 }
             }
         }

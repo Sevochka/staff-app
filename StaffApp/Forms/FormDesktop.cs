@@ -29,6 +29,7 @@ namespace StaffApp.Forms
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
+            panelMenu.hideAll();
             panelMenu.OpenChildForm(new FormLogin(database, panelMenu));
         }
 

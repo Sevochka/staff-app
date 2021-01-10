@@ -35,6 +35,9 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -43,27 +46,24 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.laDepartment = new Bunifu.UI.WinForms.BunifuLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnCreate = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridDepartments = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.inputPhone = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.inputName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.dataGridDepartments = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDepartments)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // laDepartment
@@ -106,15 +106,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(877, 50);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.laDepartment);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 75);
-            this.panel1.TabIndex = 18;
             // 
             // btnCancel
             // 
@@ -205,6 +196,7 @@
             this.btnCreate.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnCreate.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreate.Enabled = false;
             this.btnCreate.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
             this.btnCreate.ForeColor = System.Drawing.Color.White;
@@ -246,6 +238,15 @@
             this.btnCreate.UseDefaultRadiusAndThickness = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.laDepartment);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(877, 75);
+            this.panel1.TabIndex = 18;
+            // 
             // bunifuLabel1
             // 
             this.bunifuLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -280,6 +281,68 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(877, 446);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
+            // dataGridDepartments
+            // 
+            this.dataGridDepartments.AllowCustomTheming = false;
+            this.dataGridDepartments.AllowUserToAddRows = false;
+            this.dataGridDepartments.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridDepartments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridDepartments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridDepartments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridDepartments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridDepartments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridDepartments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridDepartments.ColumnHeadersHeight = 40;
+            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridDepartments.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.dataGridDepartments.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridDepartments.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridDepartments.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridDepartments.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridDepartments.CurrentTheme.Name = null;
+            this.dataGridDepartments.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridDepartments.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridDepartments.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridDepartments.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridDepartments.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridDepartments.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridDepartments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridDepartments.EnableHeadersVisualStyles = false;
+            this.dataGridDepartments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridDepartments.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridDepartments.HeaderBgColor = System.Drawing.Color.Empty;
+            this.dataGridDepartments.HeaderForeColor = System.Drawing.Color.White;
+            this.dataGridDepartments.Location = new System.Drawing.Point(441, 3);
+            this.dataGridDepartments.Name = "dataGridDepartments";
+            this.dataGridDepartments.ReadOnly = true;
+            this.dataGridDepartments.RowHeadersVisible = false;
+            this.dataGridDepartments.RowHeadersWidth = 62;
+            this.dataGridDepartments.RowTemplate.Height = 40;
+            this.dataGridDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridDepartments.Size = new System.Drawing.Size(433, 440);
+            this.dataGridDepartments.TabIndex = 2;
+            this.dataGridDepartments.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.inputPhone);
@@ -309,7 +372,7 @@
             this.inputPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputPhone.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.inputPhone.DefaultText = "";
+            this.inputPhone.DefaultText = "+7";
             this.inputPhone.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.inputPhone.ForeColor = System.Drawing.Color.Silver;
             this.inputPhone.HideSelection = true;
@@ -318,7 +381,8 @@
             this.inputPhone.IconPadding = 10;
             this.inputPhone.IconRight = null;
             this.inputPhone.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputPhone.Lines = new string[0];
+            this.inputPhone.Lines = new string[] {
+        "+7"};
             this.inputPhone.Location = new System.Drawing.Point(12, 183);
             this.inputPhone.MaxLength = 32767;
             this.inputPhone.MinimumSize = new System.Drawing.Size(100, 35);
@@ -347,12 +411,12 @@
             this.inputPhone.OnIdleState = stateProperties8;
             this.inputPhone.PasswordChar = '\0';
             this.inputPhone.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.inputPhone.PlaceholderText = "Телефон";
+            this.inputPhone.PlaceholderText = "";
             this.inputPhone.ReadOnly = false;
             this.inputPhone.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.inputPhone.SelectedText = "";
             this.inputPhone.SelectionLength = 0;
-            this.inputPhone.SelectionStart = 0;
+            this.inputPhone.SelectionStart = 2;
             this.inputPhone.ShortcutsEnabled = true;
             this.inputPhone.Size = new System.Drawing.Size(404, 41);
             this.inputPhone.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
@@ -361,9 +425,10 @@
             this.inputPhone.TextMarginBottom = 0;
             this.inputPhone.TextMarginLeft = 5;
             this.inputPhone.TextMarginTop = 0;
-            this.inputPhone.TextPlaceholder = "Телефон";
+            this.inputPhone.TextPlaceholder = "";
             this.inputPhone.UseSystemPasswordChar = false;
             this.inputPhone.WordWrap = true;
+            this.inputPhone.TextChange += new System.EventHandler(this.inputPhone_TextChange);
             // 
             // inputName
             // 
@@ -439,68 +504,7 @@
             this.inputName.TextPlaceholder = "Название";
             this.inputName.UseSystemPasswordChar = false;
             this.inputName.WordWrap = true;
-            // 
-            // dataGridDepartments
-            // 
-            this.dataGridDepartments.AllowCustomTheming = false;
-            this.dataGridDepartments.AllowUserToAddRows = false;
-            this.dataGridDepartments.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridDepartments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridDepartments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridDepartments.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridDepartments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridDepartments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDepartments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridDepartments.ColumnHeadersHeight = 40;
-            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataGridDepartments.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridDepartments.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.dataGridDepartments.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataGridDepartments.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridDepartments.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridDepartments.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridDepartments.CurrentTheme.Name = null;
-            this.dataGridDepartments.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridDepartments.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridDepartments.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridDepartments.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataGridDepartments.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridDepartments.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridDepartments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridDepartments.EnableHeadersVisualStyles = false;
-            this.dataGridDepartments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataGridDepartments.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridDepartments.HeaderBgColor = System.Drawing.Color.Empty;
-            this.dataGridDepartments.HeaderForeColor = System.Drawing.Color.White;
-            this.dataGridDepartments.Location = new System.Drawing.Point(441, 3);
-            this.dataGridDepartments.Name = "dataGridDepartments";
-            this.dataGridDepartments.ReadOnly = true;
-            this.dataGridDepartments.RowHeadersVisible = false;
-            this.dataGridDepartments.RowHeadersWidth = 62;
-            this.dataGridDepartments.RowTemplate.Height = 40;
-            this.dataGridDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridDepartments.Size = new System.Drawing.Size(433, 440);
-            this.dataGridDepartments.TabIndex = 2;
-            this.dataGridDepartments.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.inputName.TextChange += new System.EventHandler(this.inputName_TextChange);
             // 
             // FormAddDepartment
             // 
@@ -519,8 +523,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDepartments)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

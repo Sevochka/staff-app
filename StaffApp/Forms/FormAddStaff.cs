@@ -50,11 +50,39 @@ namespace StaffApp.Forms
            // MessageBox.Show(dropDepartment.SelectedIndex.ToString());
         }
 
+        private void checkInputs()
+        {
+            string name = inputName.Text;
+            string surname = inputSurname.Text;
+            string patr = inputPatronymic.Text;
+            string seniority = inputSeniority.Text;
+
+            
+            if (string.IsNullOrWhiteSpace(name) ||
+                string.IsNullOrWhiteSpace(surname) ||
+                string.IsNullOrWhiteSpace(patr) ||
+                string.IsNullOrWhiteSpace(seniority)
+                )
+            {
+                btnCreateEmp.Enabled = false;
+            }
+            else
+            {
+                btnCreateEmp.Enabled = true;
+            }
+        }
         private void btnCreateEmp_Click(object sender, EventArgs e)
         {
+            int a;
 
-            //deppos id
-            Int32 depposCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(1);
+            if (!int.TryParse(inputSeniority.Text, out a))
+            {
+                MessageBox.Show("Значение в поле стаж не может быть преобразовано в число");
+                return;
+            }
+
+                //deppos id
+                Int32 depposCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(1);
             UInt32 departmentCode = departmentsTable.Rows[dropDepartment.SelectedIndex].Field<UInt32>(0);
             Int32 positionCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(0);
 
@@ -67,10 +95,8 @@ namespace StaffApp.Forms
             String sex = dropSex.Text;
             String family = dropFamily.Text;
             String education = dropEducation.Text;
-            if(inputSeniority.Text == "")
-            {
-                inputSeniority.Text = "0";
-            }
+
+            
             int seniority = Int32.Parse(inputSeniority.Text);
 
             parentForm.OpenChildForm(new FormAddStaff_PassData(
@@ -80,6 +106,26 @@ namespace StaffApp.Forms
                 database, parentForm,
                 position, department
                 ));
+        }
+
+        private void inputName_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputSurname_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputPatronymic_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void inputSeniority_TextChange(object sender, EventArgs e)
+        {
+            checkInputs();
         }
     }
 }

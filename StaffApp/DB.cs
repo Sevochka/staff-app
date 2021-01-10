@@ -62,7 +62,8 @@ namespace StaffApp
             MySqlCommand command = new MySqlCommand("SELECT " +
                 "e.personal_number AS '№', " +
                 "e.name AS 'Имя', " +
-                "e.surname AS 'Фамилия' " +
+                "e.surname AS 'Фамилия', " +
+                "e.access AS 'Уровень доступа' " +
                 "FROM `employee` e ", this.getConnection());
             this.openConnection();
 
@@ -153,6 +154,29 @@ namespace StaffApp
             command.Parameters.Add("@series", MySqlDbType.Text).Value = series;
             command.Parameters.Add("@number", MySqlDbType.Text).Value = number;
 
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
+        public DataTable getEmployeeFullInfo(
+            int persNumber
+            )
+        {
+
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT e.personal_number, e.name, e.surname, e.patronymic, " +
+                "e.sex, e.family_status, e.education, e.seniority, e.autorization_pass, e.deppos_id, " +
+                "e.position_code, e.department_code, e.pass_series,e.pass_num,e.pass_body,e.reg_address," +
+                "e.pass_date,e.access,d.name as 'department_name',d.phone as 'department_phone',p.name " +
+                "as 'position_name',p.salary as 'position_salary'FROM employee e JOIN position p ON e.position_code = " +
+                "p.position_code JOIN department d ON e.department_code = d.department_code WHERE e.personal_number = " +
+                "@uL", this.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = persNumber;
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -319,6 +343,66 @@ namespace StaffApp
             this.closeConnection();
         }
 
+        public void updateEmployee(
+            int personalCode,
+            string name,
+            string surname,
+            string patr,
+            string sex,
+            string family,
+            string education,
+            string seniority,
+            uint departmentCode,
+            int positionCode,
+            int deppos_id
+            )
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE employee " +
+                "SET name = @name, surname = @surname, " +
+                "patronymic = @patr, sex = @sex, " +
+                "family_status = @family, education = @education, " +
+                "seniority = @seniority, department_code = @departmentCode, " +
+                "position_code = @positionCode, deppos_id = @deppos_id " +
+                "WHERE personal_number = @code", this.getConnection());
+
+            command.Parameters.Add("@name", MySqlDbType.String).Value = name;
+            command.Parameters.Add("@surname", MySqlDbType.String).Value = surname;
+            command.Parameters.Add("@patr", MySqlDbType.String).Value = patr;
+            command.Parameters.Add("@sex", MySqlDbType.String).Value = sex;
+            command.Parameters.Add("@family", MySqlDbType.String).Value = family;
+            command.Parameters.Add("@education", MySqlDbType.String).Value = education;
+            command.Parameters.Add("@seniority", MySqlDbType.String).Value = seniority;
+            command.Parameters.Add("@departmentCode", MySqlDbType.UInt32).Value = departmentCode;
+            command.Parameters.Add("@positionCode", MySqlDbType.UInt32).Value = positionCode;
+            command.Parameters.Add("@deppos_id", MySqlDbType.UInt32).Value = deppos_id;
+            command.Parameters.Add("@code", MySqlDbType.UInt32).Value = personalCode;
+
+            this.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Успешно обновлено!");
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
+
+        public DataTable getDepPosByCodes(uint departmentCode, int positionCode)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT id FROM `deppos` WHERE `department_code` = @depCode AND `position_id` = @posCode", this.getConnection());
+            command.Parameters.Add("@depCode", MySqlDbType.VarChar).Value = departmentCode;
+            command.Parameters.Add("@posCode", MySqlDbType.VarChar).Value = positionCode;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public void deleteAllDepPosByPositionCode(uint code)
         {
             MySqlCommand command = new MySqlCommand("DELETE from `deppos` WHERE `position_id` = @ul", this.getConnection());
@@ -381,6 +465,61 @@ namespace StaffApp
             this.closeConnection();
         }
 
+        public void updateAccess(string access, int personal_number)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `employee` SET `access` = @access WHERE `personal_number` = @pNum", this.getConnection());
+
+            command.Parameters.Add("@access", MySqlDbType.String).Value = access;
+            command.Parameters.Add("@pNum", MySqlDbType.String).Value = personal_number;
+            this.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Уровень доступа был изменен!");
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
+        public void clearAllData()
+        {
+            MySqlCommand command = new MySqlCommand("DELETE FROM deppos", this.getConnection());
+            MySqlCommand command2 = new MySqlCommand("DELETE FROM employee", this.getConnection());
+            MySqlCommand command3 = new MySqlCommand("DELETE FROM position", this.getConnection());
+            MySqlCommand command4 = new MySqlCommand("DELETE FROM department", this.getConnection());
+
+            this.openConnection();
+
+            if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1 &&
+                command3.ExecuteNonQuery() == 1 && command4.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("База полностью очищена!");
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
+
+        public void removeUser(int personal_number)
+        {
+            MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", this.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.Int32).Value = personal_number;
+
+            this.openConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Удалено успешно");
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
         public DataTable getEmployeesForReport()
         {
             DataTable table = new DataTable();

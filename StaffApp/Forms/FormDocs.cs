@@ -23,6 +23,10 @@ namespace StaffApp.Forms
             panelMenu = pM;
             database = db;
             InitializeComponent();
+            if (DB.currentEmployee.Field<string>("access") == "USER")
+            {
+                btnReportAllEmployees.Visible = false;
+            }
         }
 
         private string getMainDate()
@@ -104,6 +108,11 @@ namespace StaffApp.Forms
             }
             Process.Start(newFilePath);
 
+        }
+
+        private void btnLeave_Click(object sender, EventArgs e)
+        {
+            panelMenu.OpenChildForm(new FormLeave(panelMenu, database));
         }
     }
 }
