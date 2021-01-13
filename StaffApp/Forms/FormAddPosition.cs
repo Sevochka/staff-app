@@ -29,16 +29,15 @@ namespace StaffApp.Forms
 
         private void fillDataGridPositions()
         {
-            DataTable positionsIds = database.getPositionsByDepartmentCode(departmentId);
+            DataTable positions = database.getPositionsByDepartmentCode(departmentId, false);
             dataGridPositions.Rows.Clear();
 
-            foreach (DataRow dr in positionsIds.Rows)
+            foreach (DataRow dr in positions.Rows)
             {
-                int code = dr.Field<int>(0);
-                DataTable posName = database.getPositionByCode(code);
+                
                 object[] values = new object[] {
-                    posName.Rows[0].Field<string>(0),
-                    posName.Rows[0].Field<int>(1).ToString()
+                    dr.Field<string>("name"),
+                    dr.Field<int>("salary").ToString()
                 };
                 dataGridPositions.Rows.Add(values);
             }

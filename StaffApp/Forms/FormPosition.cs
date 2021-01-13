@@ -13,7 +13,13 @@ namespace StaffApp.Forms
 {
     public partial class FormPosition : Form
     {
-         
+        private DataTable departments;
+        private FormPanelMenu formParent;
+        private DB database;
+        private uint SelectedDepartmentID;
+        private string SelectedDepartmentName;
+        private bool isEditable;
+
         public FormPosition(FormPanelMenu parentForm, DB db, Boolean isEdit)
         {
             formParent = parentForm;
@@ -21,9 +27,11 @@ namespace StaffApp.Forms
             InitializeComponent();
             dataGridPositions.Columns.Add("Название", "Название");
             dataGridPositions.Columns.Add("Оклад", "Оклад");
-            getDepartments();
             isEditable = isEdit;
+            getDepartments();
+           
 
+            
             if (isEditable)
             {
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -40,6 +48,11 @@ namespace StaffApp.Forms
                 dataGridPositions.Columns.Add(btn);
                 dataGridPositions.Columns[1].Width = 100;
                 dataGridPositions.Columns[2].Width = 180;
+            }
+            else
+            {
+                btnAddDepartment.Visible = false;
+                btnAddPosition.Visible = false;
             }
             
             //Значение должностей из первого row
@@ -67,17 +80,12 @@ namespace StaffApp.Forms
             }
         }
 
-        private DataTable departments;
-        private FormPanelMenu formParent;
-        private DB database;
-        private uint SelectedDepartmentID;
-        private string SelectedDepartmentName;
-        private bool isEditable;
+        
 
         public void getDepartments()
         {
-            
-            departments = database.getPretifyDepartments();
+           
+            departments = database.getPretifyDepartments(!isEditable);
             dataGridDepartments.DataSource = departments;
 
             dataGridDepartments.Columns[0].Width = 50;
@@ -114,17 +122,14 @@ namespace StaffApp.Forms
 
         private void fillPositionGrid()
         {
-            DataTable positionsIds = database.getPositionsByDepartmentCode(SelectedDepartmentID);
+            DataTable positions = database.getPositionsByDepartmentCode(SelectedDepartmentID, !isEditable);
             dataGridPositions.Rows.Clear();
 
-
-            foreach (DataRow dr in positionsIds.Rows)
+            foreach (DataRow dr in positions.Rows)
             {
-                int code = dr.Field<int>(0);
-                DataTable posName = database.getPositionByCode(code);
                 object[] values = new object[] {
-                    posName.Rows[0].Field<string>(0),
-                    posName.Rows[0].Field<int>(1).ToString()
+                    dr.Field<string>("name"),
+                    dr.Field<int>("salary").ToString()
                 };
                 dataGridPositions.Rows.Add(values);
             }
@@ -138,6 +143,7 @@ namespace StaffApp.Forms
                     string depId = dataGridDepartments.Rows[e.RowIndex].Cells[1].Value.ToString();
                     database.deleteAllDepPosByDepartmentCode(depId);
                     database.deleteDepartmentByDepartmentCode(depId);
+                    database.deletePositionsByDepartmenCode(depId);
 
                     departments = database.getPretifyDepartments();
                     dataGridDepartments.DataSource = departments;

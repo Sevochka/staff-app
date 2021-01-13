@@ -32,6 +32,10 @@ namespace StaffApp
         {
             return connection;
         }
+        public string convertBoolToStr(bool flag)
+        {
+            return flag ? "1" : "0";
+        }
 
         public DataTable getEmployees(Boolean isHidden)
         {
@@ -198,24 +202,29 @@ namespace StaffApp
             return table;
         }
 
-        public DataTable getPretifyDepartments()
+        public DataTable getPretifyDepartments(bool isHidden = false)
         {
             this.openConnection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT department_code as №, name as Имя, phone as Телефон FROM `department`", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT department_code as №, name as Имя, phone as Телефон FROM `department` WHERE hidden = "+ convertBoolToStr(isHidden), this.getConnection());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             this.closeConnection();
             return table;
         }
 
-        public DataTable getPositionsByDepartmentCode(UInt32 code)
+        public DataTable getPositionsByDepartmentCode(UInt32 code, bool isHidden = false)
         {
+            
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT d.id, p.position_code, p.name, p.salary FROM deppos d JOIN position p ON p.position_code = d.position_id WHERE `department_code` = @uCode", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT d.id, p.position_code, " +
+                "p.name, p.salary FROM deppos d JOIN position p " +
+                "ON p.position_code = d.position_id WHERE " +
+                "`department_code` = @uCode AND p.hidden = @hidden AND d.hidden = @hidden", this.getConnection());
             command.Parameters.Add("@uCode", MySqlDbType.VarChar).Value = code;
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(isHidden);
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -322,7 +331,7 @@ namespace StaffApp
 
         public void deleteAllDepPosByDepartmentCode(string code)
         {
-            MySqlCommand command = new MySqlCommand("DELETE from `deppos` WHERE `department_code` = @ul", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `deppos` SET hidden = 1 WHERE `department_code` = @ul", this.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = code;
             this.openConnection();
             command.ExecuteNonQuery();
@@ -331,7 +340,7 @@ namespace StaffApp
 
         public void deleteDepartmentByDepartmentCode(string code)
         {
-            MySqlCommand command = new MySqlCommand("DELETE from `department` WHERE `department_code` = @ul", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `department` SET hidden = 1 WHERE `department_code` = @ul", this.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = code;
             this.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -344,6 +353,7 @@ namespace StaffApp
             }
             this.closeConnection();
         }
+
 
         public void updateEmployee(
             int personalCode,
@@ -407,8 +417,17 @@ namespace StaffApp
 
         public void deleteAllDepPosByPositionCode(uint code)
         {
-            MySqlCommand command = new MySqlCommand("DELETE from `deppos` WHERE `position_id` = @ul", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `deppos` d SET d.hidden = 1 WHERE `position_id` = @ul", this.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.UInt32).Value = code;
+            this.openConnection();
+            command.ExecuteNonQuery();
+            this.closeConnection();
+        }
+
+        public void deletePositionsByDepartmenCode(string code)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE position p JOIN deppos d ON p.position_code = d.position_id SET p.hidden = 1 WHERE d.department_code = @uCode", this.getConnection());
+            command.Parameters.Add("@uCode", MySqlDbType.UInt32).Value = code;
             this.openConnection();
             command.ExecuteNonQuery();
             this.closeConnection();
@@ -416,7 +435,7 @@ namespace StaffApp
 
         public void deletePositionByCode(uint code)
         {
-            MySqlCommand command = new MySqlCommand("DELETE from `position` WHERE `position_code` = @ul", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `position` SET hidden = 1 WHERE `position_code` = @ul", this.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.UInt32).Value = code;
             this.openConnection();
             if (command.ExecuteNonQuery() == 1)
