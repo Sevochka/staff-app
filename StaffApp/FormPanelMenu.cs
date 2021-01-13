@@ -45,6 +45,8 @@ namespace StaffApp
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 251);
+            public static Color color5 = Color.FromArgb(208, 108, 235);
+            public static Color color6 = Color.FromArgb(107, 139, 207);
         }
 
         //Methods
@@ -119,6 +121,7 @@ namespace StaffApp
                 {
                     btnSettings.Visible = true;
                 }
+                btnArchive.Visible = true;
                 btnDocuments.Visible = true;
                 btnPosition.Visible = true;
                 btnStaff.Visible = true;
@@ -142,6 +145,12 @@ namespace StaffApp
             btnPosition.Visible = false;
             btnStaff.Visible = false;
             btnMenu.Visible = false;
+            btnArchive.Visible = false;
+        }
+
+        public Boolean isBtnsAreEqual(object sender)
+        {
+            return ((IconButton)sender == currentBtn);
         }
 
         private void openLoginForm()
@@ -152,31 +161,49 @@ namespace StaffApp
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
+            if (isBtnsAreEqual(sender))
+                return;
             Reset();
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
+            if (isBtnsAreEqual(sender))
+                return;
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Forms.FormStaff(this, database));
         }
 
         private void btnPosition_Click(object sender, EventArgs e)
         {
+            if (isBtnsAreEqual(sender))
+                return;
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new Forms.FormPosition(this, database));
+            OpenChildForm(new Forms.FormPosition(this, database, true));
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)
         {
+            if (isBtnsAreEqual(sender))
+                return;
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new Forms.FormDocs(this, database));
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            if (isBtnsAreEqual(sender))
+                return;
+            ActivateButton(sender, RGBColors.color5);
             OpenChildForm(new Forms.FormSystemSettings(this, database));
+        }
+
+        private void btnArchive_Click(object sender, EventArgs e)
+        {
+            if (isBtnsAreEqual(sender))
+                return;
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Forms.FormArchive(this, database));
         }
 
         private void btnLogo_Click(object sender, EventArgs e)
@@ -260,6 +287,5 @@ namespace StaffApp
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-    
     }
 }

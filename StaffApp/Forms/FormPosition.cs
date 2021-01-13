@@ -14,7 +14,7 @@ namespace StaffApp.Forms
     public partial class FormPosition : Form
     {
          
-        public FormPosition(FormPanelMenu parentForm, DB db)
+        public FormPosition(FormPanelMenu parentForm, DB db, Boolean isEdit)
         {
             formParent = parentForm;
             database = db;
@@ -22,23 +22,26 @@ namespace StaffApp.Forms
             dataGridPositions.Columns.Add("Название", "Название");
             dataGridPositions.Columns.Add("Оклад", "Оклад");
             getDepartments();
+            isEditable = isEdit;
 
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.HeaderText = "Удаление";
-            btn.Name = "Удалить";
-            btn.Text = "Удалить";
-            btn.UseColumnTextForButtonValue = true;
-            btn.FlatStyle = FlatStyle.Flat;
+            if (isEditable)
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.HeaderText = "Удаление";
+                btn.Name = "Удалить";
+                btn.Text = "Удалить";
+                btn.UseColumnTextForButtonValue = true;
+                btn.FlatStyle = FlatStyle.Flat;
 
-            //btn.DefaultCellStyle.ForeColor = Color.White;
-            //btn.DefaultCellStyle.BackColor = Color.Red;
-            btn.DefaultCellStyle.SelectionBackColor = Color.Red;
-            btn.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridPositions.Columns.Add(btn);
-            dataGridPositions.Columns[1].Width = 100;
-            dataGridPositions.Columns[2].Width = 180;
-
-
+                //btn.DefaultCellStyle.ForeColor = Color.White;
+                //btn.DefaultCellStyle.BackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionBackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionForeColor = Color.White;
+                dataGridPositions.Columns.Add(btn);
+                dataGridPositions.Columns[1].Width = 100;
+                dataGridPositions.Columns[2].Width = 180;
+            }
+            
             //Значение должностей из первого row
 
             if(departments.Rows.Count == 0)
@@ -69,25 +72,31 @@ namespace StaffApp.Forms
         private DB database;
         private uint SelectedDepartmentID;
         private string SelectedDepartmentName;
+        private bool isEditable;
 
         public void getDepartments()
         {
+            
             departments = database.getPretifyDepartments();
             dataGridDepartments.DataSource = departments;
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.HeaderText = "Удаление";
-            btn.Name = "Удалить";
-            btn.Text = "Удалить";
-            btn.UseColumnTextForButtonValue = true;
-            btn.FlatStyle = FlatStyle.Flat;
 
-            //btn.DefaultCellStyle.ForeColor = Color.White;
-            //btn.DefaultCellStyle.BackColor = Color.Red;
-            btn.DefaultCellStyle.SelectionBackColor = Color.Red;
-            btn.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridDepartments.Columns.Add(btn);
             dataGridDepartments.Columns[0].Width = 50;
-            dataGridDepartments.Columns[3].Width = 180;
+            if (isEditable)
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.HeaderText = "Удаление";
+                btn.Name = "Удалить";
+                btn.Text = "Удалить";
+                btn.UseColumnTextForButtonValue = true;
+                btn.FlatStyle = FlatStyle.Flat;
+
+                //btn.DefaultCellStyle.ForeColor = Color.White;
+                //btn.DefaultCellStyle.BackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionBackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionForeColor = Color.White;
+                dataGridDepartments.Columns.Add(btn);
+                dataGridDepartments.Columns[3].Width = 180;
+            }
         }
 
         private void dataGridDepartments_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -33,7 +33,7 @@ namespace StaffApp
             return connection;
         }
 
-        public DataTable getEmployees()
+        public DataTable getEmployees(Boolean isHidden)
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -45,7 +45,8 @@ namespace StaffApp
                 "d.name as 'Отдел' " +
                 "FROM `employee` e " +
                 "JOIN position p ON e.position_code = p.position_code " +
-                "JOIN department d ON e.department_code = d.department_code", this.getConnection());
+                "JOIN department d ON e.department_code = d.department_code " +
+                "WHERE e.hidden = "+isHidden, this.getConnection());
             this.openConnection();
             
             adapter.SelectCommand = command;
@@ -87,10 +88,10 @@ namespace StaffApp
             MySqlCommand command = new MySqlCommand("INSERT INTO `employee` " +
                 "(`name`, `surname`, `patronymic`, `sex`, " +
                 "`family_status`, `education`, `seniority`, `autorization_pass`, `deppos_id`, `department_code`, `position_code`, " +
-                "pass_series, pass_num, pass_body, reg_address, pass_date, access) " +
+                "pass_series, pass_num, pass_body, reg_address, pass_date, access, hidden) " +
                 "VALUES (@name, @surname, @patronymic, @sex, @family_status, @education, " +
                 "@seniority, @password, @deppos_id, @department_code, @position_code, " +
-                "@series, @number, @body, @address, @date, @access)", this.getConnection());
+                "@series, @number, @body, @address, @date, @access, @hidden)", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname;
@@ -111,6 +112,7 @@ namespace StaffApp
             command.Parameters.Add("@date", MySqlDbType.VarChar).Value = sqlFormattedDate;
 
             command.Parameters.Add("@access", MySqlDbType.VarChar).Value = access;
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = 0;
 
             this.openConnection();
 
@@ -212,7 +214,7 @@ namespace StaffApp
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT position_id, id  FROM `deppos` WHERE `department_code` = @uCode", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT d.id, p.position_code, p.name, p.salary FROM deppos d JOIN position p ON p.position_code = d.position_id WHERE `department_code` = @uCode", this.getConnection());
             command.Parameters.Add("@uCode", MySqlDbType.VarChar).Value = code;
             this.openConnection();
             adapter.SelectCommand = command;
@@ -503,16 +505,17 @@ namespace StaffApp
             this.closeConnection();
         }
 
-        public void removeUser(int personal_number)
+        public void removeUser(int personal_number, string fullName = "")
         {
-            MySqlCommand command = new MySqlCommand("DELETE from `employee` WHERE `personal_number` = @ul", this.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE `employee` SET hidden = 1 WHERE `personal_number` = @ul", this.getConnection());
             command.Parameters.Add("@uL", MySqlDbType.Int32).Value = personal_number;
 
             this.openConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                MessageBox.Show("Удалено успешно");
+                if(fullName != "")
+                    MessageBox.Show("Пользователь "+ fullName+", с табельным номером №"+personal_number+" успешно уволен!");
             }
             else
             {

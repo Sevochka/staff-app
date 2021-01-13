@@ -51,10 +51,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(33, 154);
+            this.label1.Location = new System.Drawing.Point(134, 267);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(405, 23);
             this.label1.TabIndex = 2;
@@ -62,42 +63,48 @@
             // 
             // panelLoginLine
             // 
+            this.panelLoginLine.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelLoginLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.panelLoginLine.Location = new System.Drawing.Point(80, 258);
+            this.panelLoginLine.Location = new System.Drawing.Point(173, 369);
             this.panelLoginLine.Name = "panelLoginLine";
             this.panelLoginLine.Size = new System.Drawing.Size(300, 1);
             this.panelLoginLine.TabIndex = 3;
             // 
             // panelPasswordLine
             // 
+            this.panelPasswordLine.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelPasswordLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.panelPasswordLine.Location = new System.Drawing.Point(80, 339);
+            this.panelPasswordLine.Location = new System.Drawing.Point(173, 450);
             this.panelPasswordLine.Name = "panelPasswordLine";
             this.panelPasswordLine.Size = new System.Drawing.Size(300, 1);
             this.panelPasswordLine.TabIndex = 6;
             // 
             // textBoxLogin
             // 
+            this.textBoxLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.textBoxLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLogin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxLogin.Location = new System.Drawing.Point(119, 216);
+            this.textBoxLogin.Location = new System.Drawing.Point(212, 327);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(261, 41);
             this.textBoxLogin.TabIndex = 7;
+            this.textBoxLogin.Text = "15";
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxPassword.Location = new System.Drawing.Point(119, 298);
+            this.textBoxPassword.Location = new System.Drawing.Point(212, 409);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(261, 41);
             this.textBoxPassword.TabIndex = 8;
+            this.textBoxPassword.Text = "12345";
             // 
             // tableLayoutPanel2
             // 
@@ -134,12 +141,13 @@
             // 
             // iconUserLogin
             // 
+            this.iconUserLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconUserLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.iconUserLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
             this.iconUserLogin.IconChar = FontAwesome.Sharp.IconChar.User;
             this.iconUserLogin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
             this.iconUserLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconUserLogin.Location = new System.Drawing.Point(80, 220);
+            this.iconUserLogin.Location = new System.Drawing.Point(173, 331);
             this.iconUserLogin.Name = "iconUserLogin";
             this.iconUserLogin.Size = new System.Drawing.Size(32, 32);
             this.iconUserLogin.TabIndex = 4;
@@ -148,8 +156,9 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(145, 35);
+            this.pictureBox2.Location = new System.Drawing.Point(238, 146);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(136, 97);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,12 +167,13 @@
             // 
             // iconPasswordLogin
             // 
+            this.iconPasswordLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconPasswordLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.iconPasswordLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
             this.iconPasswordLogin.IconChar = FontAwesome.Sharp.IconChar.Key;
             this.iconPasswordLogin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
             this.iconPasswordLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPasswordLogin.Location = new System.Drawing.Point(80, 301);
+            this.iconPasswordLogin.Location = new System.Drawing.Point(173, 412);
             this.iconPasswordLogin.Name = "iconPasswordLogin";
             this.iconPasswordLogin.Size = new System.Drawing.Size(32, 32);
             this.iconPasswordLogin.TabIndex = 5;
@@ -171,6 +181,7 @@
             // 
             // signInButton
             // 
+            this.signInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.signInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(91)))), ((int)(((byte)(226)))));
             this.signInButton.FlatAppearance.BorderSize = 0;
             this.signInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -181,7 +192,7 @@
             this.signInButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.signInButton.IconSize = 55;
             this.signInButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.signInButton.Location = new System.Drawing.Point(80, 386);
+            this.signInButton.Location = new System.Drawing.Point(173, 497);
             this.signInButton.Name = "signInButton";
             this.signInButton.Size = new System.Drawing.Size(300, 45);
             this.signInButton.TabIndex = 9;

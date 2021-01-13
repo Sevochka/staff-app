@@ -40,7 +40,7 @@ namespace StaffApp.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            panelMenu.OpenChildForm(new FormPosition(panelMenu, database));
+            panelMenu.OpenChildForm(new FormPosition(panelMenu, database, true));
         }
 
         private bool isValid(string phone)

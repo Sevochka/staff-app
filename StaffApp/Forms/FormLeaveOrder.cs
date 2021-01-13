@@ -48,7 +48,7 @@ namespace StaffApp.Forms
                         );
 
 
-            database.removeUser(personalNumber);
+            database.removeUser(personalNumber, fullName);
             panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
         }
 

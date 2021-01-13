@@ -131,7 +131,7 @@ namespace StaffApp.Forms
 
         private void setPreviousPage()
         {
-            panelMenu.OpenChildForm(new FormPosition(panelMenu, database));
+            panelMenu.OpenChildForm(new FormPosition(panelMenu, database, true));
         }
 
         private void fillPositionGrid()

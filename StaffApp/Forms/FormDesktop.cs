@@ -40,7 +40,7 @@ namespace StaffApp.Forms
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            panelMenu.OpenChildForm(new FormPersonalCard(panelMenu));
+            panelMenu.OpenChildForm(new FormPersonalCard(panelMenu, database, 15));
         }
     }
 }

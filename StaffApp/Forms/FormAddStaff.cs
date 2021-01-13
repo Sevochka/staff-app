@@ -13,7 +13,7 @@ namespace StaffApp.Forms
     public partial class FormAddStaff : Form
     {
         private DataTable departmentsTable;
-        private DataTable positionsCodes;
+        private DataTable positions;
         private DB database;
         private FormPanelMenu parentForm;
         public FormAddStaff(DB db, FormPanelMenu pF)
@@ -37,17 +37,23 @@ namespace StaffApp.Forms
         {
             UInt32 id = departmentsTable.Rows[dropDepartment.SelectedIndex].Field<UInt32>(0);
             
-            positionsCodes = database.getPositionsByDepartmentCode(id);
+            positions = database.getPositionsByDepartmentCode(id);
             dropPosition.Items.Clear();
-            foreach (DataRow dr in positionsCodes.Rows)
+            if (positions.Rows.Count == 0)
+            {
+                laPos.Visible = true;
+                dropPosition.Visible = false;
+                return;
+            }
+            foreach (DataRow dr in positions.Rows)
             {
                 int code = dr.Field<int>(0);
-                DataTable positionName = database.getPositionByCode(code);
-                dropPosition.Items.Add(positionName.Rows[0].Field<string>(0));
+                //DataTable positionName = database.getPositionByCode(code);
+                dropPosition.Items.Add(positions.Rows[0].Field<string>("name"));
             }
-
+            laPos.Visible = false;
+            dropPosition.Visible = true;
             dropPosition.SelectedIndex = 0;
-           // MessageBox.Show(dropDepartment.SelectedIndex.ToString());
         }
 
         private void checkInputs()
@@ -82,9 +88,9 @@ namespace StaffApp.Forms
             }
 
                 //deppos id
-                Int32 depposCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(1);
+                Int32 depposCode = positions.Rows[dropPosition.SelectedIndex].Field<Int32>("id");
             UInt32 departmentCode = departmentsTable.Rows[dropDepartment.SelectedIndex].Field<UInt32>(0);
-            Int32 positionCode = positionsCodes.Rows[dropPosition.SelectedIndex].Field<Int32>(0);
+            Int32 positionCode = positions.Rows[dropPosition.SelectedIndex].Field<Int32>("position_code");
 
             String position = dropPosition.SelectedItem.ToString();
             String department = dropDepartment.SelectedItem.ToString();

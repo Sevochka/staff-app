@@ -240,6 +240,12 @@
     <Compile Include="Forms\FormAddStaff_PassData.Designer.cs">
       <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormArchive.Designer.cs">
+      <DependentUpon>FormArchive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff_PassData.resx">
       <DependentUpon>FormAddStaff_PassData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormArchive.resx">
+      <DependentUpon>FormArchive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPanelMenu));
             this.FormMainMenu = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnArchive = new FontAwesome.Sharp.IconButton();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.btnDocuments = new FontAwesome.Sharp.IconButton();
             this.btnPosition = new FontAwesome.Sharp.IconButton();
@@ -74,6 +75,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.Controls.Add(this.btnArchive);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnDocuments);
             this.panelMenu.Controls.Add(this.btnPosition);
@@ -84,6 +86,31 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 504);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchive.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnArchive.FlatAppearance.BorderSize = 0;
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchive.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnArchive.IconChar = FontAwesome.Sharp.IconChar.Box;
+            this.btnArchive.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnArchive.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnArchive.IconSize = 42;
+            this.btnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchive.Location = new System.Drawing.Point(0, 300);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnArchive.Size = new System.Drawing.Size(220, 60);
+            this.btnArchive.TabIndex = 10;
+            this.btnArchive.Text = "Архив";
+            this.btnArchive.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchive.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnArchive.UseVisualStyleBackColor = true;
+            this.btnArchive.Visible = false;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
             // btnSettings
             // 
@@ -429,6 +456,7 @@
         private FontAwesome.Sharp.IconPictureBox btnClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnSettings;
+        private FontAwesome.Sharp.IconButton btnArchive;
     }
 }
 

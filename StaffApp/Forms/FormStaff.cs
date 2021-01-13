@@ -18,7 +18,7 @@ namespace StaffApp.Forms
 
         public void getEmployes()
         {
-            employees = database.getEmployees();
+            employees = database.getEmployees(false);
             bunifuDataGridView1.DataSource = employees;
             bunifuDataGridView1.Columns[0].Width = 40;
             if (DB.access == "USER")

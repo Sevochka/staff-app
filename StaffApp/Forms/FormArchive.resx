@@ -117,62 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="laDepartment.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 1.2px; font-family: 'Microsoft Sans Serif'; font-size: 20pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
-  </data>
-  <data name="laDepName.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 1.2px; font-family: 'Microsoft Sans Serif'; font-size: 20pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
+  <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 1.2px; margin: auto; padding-top: 4px;font-family: 'Segoe UI Semibold'; font-size: 25pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnArchivePositionsDepartments.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAbkAAAAsCAYAAAD4iMZsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFWSURBVHhe7dWxTcRQAETBn53dBaWQEZwPCiUmpRFkuwAi
-        KgBZbOgGvJqVJtv8DTMzs+rtt7enfXq8b/PyCwCXNi0fR9eSuDG2+f55egSAi1n/bUncEbnzIwBcVRIn
-        cgD0SeJEDoA+SZzIAdAniRM5APokcSIHQJ8kTuQA6JPEiRwAfZI4kQOgTxIncgD0SeJEDoA+SZzIAdAn
-        iRM5APokcSIHQJ8kTuQA6JPEiRwAfZI4kQOgTxIncgD0SeJEDoA+SZzIAdAniRM5APokcSIHQJ8kTuQA
-        6JPEiRwAfZI4kQOgTxIncgD0SeJEDoA+SZzIAdAniRM5APokcSIHQJ8kTuQA6JPEiRwAfZI4kQOgTxIn
-        cgD0SeJEDoA+SZzIAdAniRM5APokcSIHQJ8kbox1XrazAwBc0TotP0ncGPvt/rxOj++zIwBcyRG4r/nl
-        NYkzMzNr3Bh/Sxkh4cNYHQQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnCreatePosition.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAbgAAAAsCAYAAAAXSq1SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFXSURBVHhe7dWxTcRQFETR34jXlEIFtGYjyiAmpZRtYCMa
-        +GZXmtANeHRGOsnTy+8wMzOr3bodb+s+v2/7cQDAZX3On1fTkrcxbtv8PX0EgItZtnlP3p6BO3kAgKtK
-        3gQOgC7Jm8AB0CV5EzgAuiRvAgdAl+RN4ADokrwJHABdkjeBA6BL8iZwAHRJ3gQOgC7Jm8AB0CV5EzgA
-        uiRvAgdAl+RN4ADokrwJHABdkjeBA6BL8iZwAHRJ3gQOgC7Jm8AB0CV5EzgAuiRvAgdAl+RN4ADokrwJ
-        HABdkjeBA6BL8iZwAHRJ3gQOgC7Jm8AB0CV5EzgAuiRvAgdAl+RN4ADokrwJHABdkjeBA6BL8iZwAHRJ
-        3gQOgC7Jm8AB0CV5EzgAuiRvAgdAl+RN4ADokryNsWzzfvYAAFez7PMveRtj3Y735+Fx9ggAV/GK2/I1
-        P5I3MzOzto3xD60OBoXNdhvRAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="inputSalary.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAZwAAAApCAYAAAABMZ9LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFgSURBVHhe7dgxSsNQHMfxNzp6BHVpd130CC5dXQTHHsDR
-        xUXP0F7AqaN4BKcGbQk2UMgBnAQX6RATyVLI1Nj/9PnBh8DjZf7CS2ZmZqFbr9c3y2X+WX8rAOiraUqe
-        53dlWR60qUmpPridzV6+L86vq5PjSwDorWnKZPL0k2WLaZublOoKfZ2dXnX+AAC7Gg5GVbEqNm1u/p7T
-        Oi8CQF9NY9rcCA4A+yM4AIQQHABCCA4AIQQHgBCCA0AIwQEghOAAEEJwAAghOACEEBwAQggOACEEB4AQ
-        ggNACMEBIITgABBCcAAIITgAhBAcAEIIDgAhBAeAEIIDQAjBASCE4AAQQnAACCE4AIQQHABCCA4AIQQH
-        gBCCA0AIwQEghOAAEGIrOMWq2AwHo86LANDHVnCybDF9fJhsui4CwK7G4/tqPn97bXOTUlmWh/XBc1Mh
-        APgvWfb+UTfmqM2NmZnZvpfSL2C6s4pOoM9iAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 1.2px; font-family: 'Microsoft Sans Serif'; font-size: 16pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: Gainsboro; text-align: center; }</value>
-  </data>
-  <data name="inputName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAZwAAAApCAYAAAABMZ9LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFgSURBVHhe7dgxSsNQHMfxNzp6BHVpd130CC5dXQTHHsDR
-        xUXP0F7AqaN4BKcGbQk2UMgBnAQX6RATyVLI1Nj/9PnBh8DjZf7CS2ZmZqFbr9c3y2X+WX8rAOiraUqe
-        53dlWR60qUmpPridzV6+L86vq5PjSwDorWnKZPL0k2WLaZublOoKfZ2dXnX+AAC7Gg5GVbEqNm1u/p7T
-        Oi8CQF9NY9rcCA4A+yM4AIQQHABCCA4AIQQHgBCCA0AIwQEghOAAEEJwAAghOACEEBwAQggOACEEB4AQ
-        ggNACMEBIITgABBCcAAIITgAhBAcAEIIDgAhBAeAEIIDQAjBASCE4AAQQnAACCE4AIQQHABCCA4AIQQH
-        gBCCA0AIwQEghOAAEGIrOMWq2AwHo86LANDHVnCybDF9fJhsui4CwK7G4/tqPn97bXOTUlmWh/XBc1Mh
-        APgvWfb+UTfmqM2NmZnZvpfSL2C6s4pOoM9iAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAA4AAAAA0CAYAAADbh1apAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHvSURBVHhe7dexTcRQFETR34jXlEIFtGYjyiAmpZRtgIgG
+        vtmVJnQDHs5IJ3l6DdxhZmZmZmZm/2jrdrys+/y87ccBAABAkff59Wy+5N8Yt21+nz4CAABwecs278m/
+        RwCePAAAANAj+ScAAQAA2iX/BCAAAEC75J8ABAAAaJf8E4AAAADtkn8CEAAAoF3yTwACAAC0S/4JQAAA
+        gHbJPwEIAADQLvknAAEAANol/wQgAABAu+SfAAQAAGiX/BOAAAAA7ZJ/AhAAAKBd8k8AAgAAtEv+CUAA
+        AIB2yT8BCAAA0C75JwABAADaJf8EIAAAQLvknwAEAABol/wTgAAAAO2SfwIQAACgXfJPAAIAALRL/glA
+        AACAdsk/AQgAANAu+ScAAQAA2iX/BCAAAEC75J8ABAAAaJf8E4AAAADtkn8CEAAAoF3yTwACAAC0S/4J
+        QAAAgHbJPwEIAADQLvknAAEAANol/wQgAABAu+SfAAQAAGiX/BOAAAAA7ZJ/AhAAAKBd8k8AAgAAtEv+
+        CUAAAIB2yT8BCAAA0C75JwABAADaJf8EIAAAQLvknwAEAABol/wTgAAAAO2SfwIQAACgXfJvjGWb97MH
+        AAAArm/Z52/yb4x1O14fh5+zRwAAAK7rGX/Lx3xL/pmZmZmZmVn/xvgDSKSfk/8yO1AAAAAASUVORK5C
+        YII=
 </value>
   </data>
 </root>

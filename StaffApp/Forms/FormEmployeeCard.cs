@@ -17,7 +17,7 @@ namespace StaffApp.Forms
         private DB database;
         private bool editFlag = false;
         private DataTable departmentsTable;
-        private DataTable positionsCodes;
+        private DataTable position;
         private DataRow employee;
 
         public FormEmployeeCard(FormPanelMenu gpf, FormStaff pf, DB db, int id)
@@ -35,7 +35,6 @@ namespace StaffApp.Forms
                 dropDep.Items.Add(dr.Field<string>(1));
             }
             
-
             setEmployeeInfo(id);
         }
 
@@ -150,21 +149,30 @@ namespace StaffApp.Forms
             
                 UInt32 id = departmentsTable.Rows[dropDep.SelectedIndex].Field<UInt32>(0);
 
-                positionsCodes = database.getPositionsByDepartmentCode(id);
+                position = database.getPositionsByDepartmentCode(id);
                 dropPos.Items.Clear();
-                foreach (DataRow dr in positionsCodes.Rows)
-                {
+            
+            if(position.Rows.Count == 0)
+            {
+                laPos.Visible = true;
+                dropPos.Visible = false;
+                return;
+            } 
+            foreach (DataRow dr in position.Rows)
+               {
                     int code = dr.Field<int>(0);
-                    DataTable positionName = database.getPositionByCode(code);
-                    dropPos.Items.Add(positionName.Rows[0].Field<string>(0));
+                    //DataTable positionName = database.getPositionByCode(code);
+                    dropPos.Items.Add(position.Rows[0].Field<string>("name"));
                 }
+            laPos.Visible = false;
+            dropPos.Visible = true;
             dropPos.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             UInt32 depCode = departmentsTable.Rows[dropDep.SelectedIndex].Field<UInt32>(0);
-            int posCode = positionsCodes.Rows[dropPos.SelectedIndex].Field<int>(0);
+            int posCode = position.Rows[dropPos.SelectedIndex].Field<int>("position_code");
 
             DataTable deppostable = database.getDepPosByCodes(depCode, posCode);
 
