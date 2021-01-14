@@ -15,6 +15,7 @@ namespace StaffApp.Forms
     public partial class FormStaff : Form
     {
         private DataTable employees;
+        private string searchText;
 
         public void getEmployes()
         {
@@ -113,6 +114,52 @@ namespace StaffApp.Forms
         {
             //FormPanelMenu d = new FormPanelMenu();
             formParent.OpenChildForm(new FormAddStaff(database, formParent));
+        }
+
+        private void inputSearch_TextChange(object sender, EventArgs e)
+        {
+            searchText = inputSearch.Text;
+            bool isEnabled = !String.IsNullOrWhiteSpace(searchText);
+
+            btnSearch.Enabled = isEnabled;
+            btnCancel.Enabled = isEnabled;
+        }
+
+        
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            searchDataGrid(searchText);
+        }
+
+        private void searchDataGrid(string searchValue)
+        {
+            for (int i = 0; i < bunifuDataGridView1.RowCount; i++)
+            {
+                for (int j = 0; j < bunifuDataGridView1.ColumnCount; j++)
+                {
+                    if (bunifuDataGridView1[j, i].FormattedValue.ToString().ToLower().
+                    Contains(searchValue.Trim().ToLower()))
+                    {
+                        bunifuDataGridView1.CurrentCell = bunifuDataGridView1[0, i];
+                        return;
+                    }
+                }
+            }
+        }
+
+
+        private void inputSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(searchText))
+            {
+                searchDataGrid(searchText);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            searchText = "";
+            inputSearch.Text = searchText;
         }
     }
 }

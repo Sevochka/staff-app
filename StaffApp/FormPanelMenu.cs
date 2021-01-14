@@ -150,7 +150,8 @@ namespace StaffApp
 
         public Boolean isBtnsAreEqual(object sender)
         {
-            return ((IconButton)sender == currentBtn);
+            //return ((IconButton)sender == currentBtn);
+            return false;
         }
 
         private void openLoginForm()
