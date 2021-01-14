@@ -15,6 +15,7 @@ namespace StaffApp.Forms
         FormPanelMenu panelMenu;
         DB database;
         DataTable employees;
+        private string searchText;
         public FormArchive(FormPanelMenu pm, DB db)
         {
             panelMenu = pm;
@@ -39,6 +40,44 @@ namespace StaffApp.Forms
         private void btnArchivePositionsDepartments_Click(object sender, EventArgs e)
         {
             panelMenu.OpenChildForm(new FormPosition(panelMenu, database, false));
+        }
+        private void searchDataGrid(string searchValue)
+        {
+            for (int i = 0; i < dataGridEmployees.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridEmployees.ColumnCount; j++)
+                {
+                    if (dataGridEmployees[j, i].FormattedValue.ToString().ToLower().
+                    Contains(searchValue.Trim().ToLower()))
+                    {
+                        dataGridEmployees.CurrentCell = dataGridEmployees[0, i];
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchText = inputSearch.Text;
+            bool isEnabled = !String.IsNullOrWhiteSpace(searchText);
+
+            btnSearch.Enabled = isEnabled;
+            btnCancel.Enabled = isEnabled;
+        }
+
+        private void inputSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(searchText))
+            {
+                searchDataGrid(searchText);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            searchText = "";
+            inputSearch.Text = searchText;
         }
     }
 }

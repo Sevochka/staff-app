@@ -20,6 +20,9 @@ namespace StaffApp.Forms
         private string SelectedDepartmentName;
         private bool isEditable;
 
+        private string searchStrDepartment;
+        private string searchStrPosition;
+
         public FormPosition(FormPanelMenu parentForm, DB db, Boolean isEdit)
         {
             formParent = parentForm;
@@ -190,6 +193,79 @@ namespace StaffApp.Forms
             string phone = departments.Rows[e.RowIndex].Field<string>(2);
 
             formParent.OpenChildForm(new FormDepartmentCard(formParent, database, depId, name, phone));
+        }
+
+        private void inputSearchDepartment_TextChanged(object sender, EventArgs e)
+        {
+            searchStrDepartment = inputSearchDepartment.Text;
+
+            bool isEnabled = !String.IsNullOrWhiteSpace(searchStrDepartment);
+
+            btnSearchDepartment.Enabled = isEnabled;
+            btnCancelDepartment.Enabled = isEnabled;
+        }
+        private void searchDataGrid(string searchValue, Bunifu.UI.WinForms.BunifuDataGridView dataGridView)
+        {
+            for (int i = 0; i < dataGridView.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridView.ColumnCount; j++)
+                {
+                    if (dataGridView[j, i].FormattedValue.ToString().ToLower().
+                    Contains(searchValue.Trim().ToLower()))
+                    {
+                        dataGridView.CurrentCell = dataGridView[0, i];
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void inputSearchDepartment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(searchStrDepartment))
+            {
+                searchDataGrid(searchStrDepartment, dataGridDepartments);
+            }
+        }
+
+        private void btnSearchDepartment_Click(object sender, EventArgs e)
+        {
+            searchDataGrid(searchStrDepartment, dataGridDepartments);
+        }
+
+        private void btnCancelDepartment_Click(object sender, EventArgs e)
+        {
+            searchStrDepartment = "";
+            inputSearchDepartment.Text = searchStrDepartment;
+        }
+
+        private void inputSearchPosition_TextChanged(object sender, EventArgs e)
+        {
+            searchStrPosition = inputSearchPosition.Text;
+
+            bool isEnabled = !String.IsNullOrWhiteSpace(searchStrPosition);
+
+            btnSearchPosition.Enabled = isEnabled;
+            btnCancelPosition.Enabled = isEnabled;
+        }
+
+        private void inputSearchPosition_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(searchStrPosition))
+            {
+                searchDataGrid(searchStrPosition, dataGridPositions);
+            }
+        }
+
+        private void btnSearchPosition_Click(object sender, EventArgs e)
+        {
+            searchDataGrid(searchStrPosition, dataGridPositions);
+        }
+
+        private void btnCancelPosition_Click(object sender, EventArgs e)
+        {
+            searchStrPosition = "";
+            inputSearchPosition.Text = searchStrPosition;
         }
     }
 }

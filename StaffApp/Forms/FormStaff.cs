@@ -161,5 +161,7 @@ namespace StaffApp.Forms
             searchText = "";
             inputSearch.Text = searchText;
         }
+
+        
     }
 }
