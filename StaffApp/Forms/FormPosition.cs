@@ -64,7 +64,7 @@ namespace StaffApp.Forms
             {
                 return;
             }
-            SelectedDepartmentID = departments.Rows[0].Field<UInt32>(0);
+            SelectedDepartmentID = departments.Rows[0].Field<UInt32>("№");
             SelectedDepartmentName = departments.Rows[0].Field<string>(1);
             DataTable positionsIds = database.getPositionsByDepartmentCode(SelectedDepartmentID);
             dataGridPositions.Rows.Clear();
@@ -72,7 +72,8 @@ namespace StaffApp.Forms
 
             foreach (DataRow dr in positionsIds.Rows)
             {
-                int code = dr.Field<int>(0);
+                uint code = dr.Field<uint>("position_code");
+                MessageBox.Show(code.ToString());
                 DataTable posName = database.getPositionByCode(code);
 
                 object[] values = new object[] {

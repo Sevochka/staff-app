@@ -232,7 +232,7 @@ namespace StaffApp
             return table;
         }
 
-        public DataTable getPositionByCode(int code)
+        public DataTable getPositionByCode(uint code)
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();

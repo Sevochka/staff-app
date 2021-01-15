@@ -142,7 +142,7 @@ namespace StaffApp.Forms
 
             foreach (DataRow dr in positionsIds.Rows)
             {
-                int code = dr.Field<int>(0);
+                uint code = dr.Field<uint>(0);
                 DataTable posName = database.getPositionByCode(code);
                 object[] values = new object[] {
                     posName.Rows[0].Field<string>(0),
