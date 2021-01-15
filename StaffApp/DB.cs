@@ -214,6 +214,19 @@ namespace StaffApp
             return table;
         }
 
+        public DataTable getDepartmenByName(string name)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT department_code FROM `department` WHERE `name` = @uName", this.getConnection());
+            command.Parameters.Add("@uName", MySqlDbType.VarChar).Value = name;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public DataTable getPositionsByDepartmentCode(UInt32 code, bool isHidden = false)
         {
             
@@ -245,6 +258,18 @@ namespace StaffApp
             return table;
         }
 
+        public DataTable getHiddenPositions()
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT p.name as position_name, p.salary, d.department_code, dep.name as department_name, dep.phone as department_phone FROM `position` p JOIN deppos d ON p.position_code = d.position_id JOIN department dep ON dep.department_code = d.department_code AND dep.hidden = 0 WHERE p.hidden = 1", this.getConnection());
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public DataTable getPositionCodeByData(string name, int salary)
         {
             DataTable table = new DataTable();
@@ -259,15 +284,15 @@ namespace StaffApp
             return table;
         }
 
-        public void addDepartment(string name, string phone)
+        public void addDepartment(string name, string phone, bool isHidden = false)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `department` " +
-                "(`name`, `phone`)" +
-                "VALUES (@name, @phone);", this.getConnection());
+                "(`name`, `phone`, `hidden`)" +
+                "VALUES (@name, @phone, @hidden);", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
-
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(isHidden);
 
             this.openConnection();
 

@@ -73,7 +73,7 @@ namespace StaffApp.Forms
             foreach (DataRow dr in positionsIds.Rows)
             {
                 uint code = dr.Field<uint>("position_code");
-                MessageBox.Show(code.ToString());
+               
                 DataTable posName = database.getPositionByCode(code);
 
                 object[] values = new object[] {
@@ -90,6 +90,33 @@ namespace StaffApp.Forms
         {
            
             departments = database.getPretifyDepartments(!isEditable);
+
+            List<uint> departmentsCodes = new List<uint>();
+
+            if (!isEditable)
+            {
+                foreach (DataRow item in departments.Rows)
+                {
+                    departmentsCodes.Add(item.Field<uint>("№"));
+                }
+                var positions = database.getHiddenPositions();
+                foreach (DataRow item in positions.Rows)
+                {
+                    uint departmentCode = uint.Parse(item.Field<int>("department_code").ToString());
+                    if (!departmentsCodes.Contains(departmentCode))
+                    {
+                        object[] values = new object[] {
+                            departmentCode,
+                            item.Field<string>("department_name"),
+                            item.Field<string>("department_phone")
+                        };
+                        departments.Rows.Add(values);
+                        departmentsCodes.Add(departmentCode);
+                    }
+                }
+            }
+            
+
             dataGridDepartments.DataSource = departments;
 
             dataGridDepartments.Columns[0].Width = 50;

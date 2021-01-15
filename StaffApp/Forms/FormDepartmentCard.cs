@@ -137,12 +137,13 @@ namespace StaffApp.Forms
         private void fillPositionGrid()
         {
             DataTable positionsIds = database.getPositionsByDepartmentCode(id);
+            MessageBox.Show(id.ToString());
             dataGridPositions.Rows.Clear();
-
 
             foreach (DataRow dr in positionsIds.Rows)
             {
-                uint code = dr.Field<uint>(0);
+                uint code = dr.Field<uint>("position_code");
+                MessageBox.Show(code.ToString());
                 DataTable posName = database.getPositionByCode(code);
                 object[] values = new object[] {
                     posName.Rows[0].Field<string>(0),
@@ -172,7 +173,14 @@ namespace StaffApp.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            database.updateDepartment(id, inputName.Text, inputPhone.Text);
+            string name = inputName.Text;
+            if (database.getDepartmenByName(name).Rows.Count > 0)
+            {
+                MessageBox.Show("Отдел с названием "+ name + " уже существует!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            database.updateDepartment(id, name, inputPhone.Text);
+            database.addDepartment(name, phone, true);
             setPreviousPage();
         }
     }
