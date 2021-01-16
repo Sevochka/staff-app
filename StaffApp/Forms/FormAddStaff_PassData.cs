@@ -61,6 +61,19 @@ namespace StaffApp.Forms
             department = dep;
 
             InitializeComponent();
+
+            if (!DB.IsEmpty(DB.chosenEmployeeAlreadyWorked))
+            {
+                DataRow emp = DB.chosenEmployeeAlreadyWorked;
+                inputSeries.Text = emp.Field<string>("pass_series");
+                inputNumber.Text = emp.Field<string>("pass_num");
+                inputDate.Value = emp.Field<DateTime>("pass_date");
+                inputBody.Text = emp.Field<string>("pass_body");
+                inputAddress.Text = emp.Field<string>("reg_address");
+
+                DB.chosenEmployeeAlreadyWorked = null;
+                checkInputs();
+            }
         }
 
         private void btnCreateEmp_Click(object sender, EventArgs e)
@@ -126,6 +139,11 @@ namespace StaffApp.Forms
         private void inputAddress_TextChange(object sender, EventArgs e)
         {
             checkInputs();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
         }
     }
 }

@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace StaffApp.Forms
 {
-    public partial class FormArchive : Form
+    public partial class FormAddStaff_HiddenUser : Form
     {
         FormPanelMenu panelMenu;
         DB database;
         DataTable employees;
+        int chosenEmpCode;
         private string searchText;
-        public FormArchive(FormPanelMenu pm, DB db)
+        public FormAddStaff_HiddenUser(FormPanelMenu pm, DB db)
         {
             panelMenu = pm;
             database = db;
@@ -24,22 +25,29 @@ namespace StaffApp.Forms
             employees = database.getEmployees(true);
             dataGridEmployees.DataSource = employees;
             dataGridEmployees.Columns[0].Width = 50;
+
+            if (employees.Rows.Count > 0)
+            {
+                dataGridEmployees.CurrentCell = dataGridEmployees[0, 0];
+                setInputChosen(0);
+            }
         }
 
-        private void dataGridEmployees_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void setInputChosen(int index)
+        {
+            chosenEmpCode = employees.Rows[index].Field<Int32>("№");
+            string name = employees.Rows[index].Field<string>("Имя");
+            string surname = employees.Rows[index].Field<string>("Фамилия");
+
+            inputFullName.Text = surname + " " + name;
+        }
+        private void dataGridEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
-            int empId = employees.Rows[e.RowIndex].Field<Int32>("№");
-            //panelMenu.OpenChildForm(new FormEmployeeCard(formParent, this, database, empId));
-            panelMenu.OpenChildForm(new FormPersonalCard(panelMenu, database, empId));
-        }
-
-        private void btnArchivePositionsDepartments_Click(object sender, EventArgs e)
-        {
-            panelMenu.OpenChildForm(new FormPosition(panelMenu, database, false));
+            setInputChosen(e.RowIndex);
         }
         private void searchDataGrid(string searchValue)
         {
@@ -83,6 +91,17 @@ namespace StaffApp.Forms
         private void btnSearch_Click(object sender, EventArgs e)
         {
             searchDataGrid(searchText);
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            panelMenu.OpenChildForm(new FormAddStaff(database, panelMenu));
+        }
+
+        private void btnCreateEmp_Click(object sender, EventArgs e)
+        {
+            DB.chosenEmployeeAlreadyWorked = database.getEmployeeFullInfo(chosenEmpCode).Rows[0];
+            panelMenu.OpenChildForm(new FormAddStaff(database, panelMenu));
         }
     }
 }

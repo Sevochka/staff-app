@@ -204,6 +204,12 @@
     <Compile Include="FormPanelMenu.Designer.cs">
       <DependentUpon>FormPanelMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAddStaff_HiddenUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddStaff_HiddenUser.Designer.cs">
+      <DependentUpon>FormAddStaff_HiddenUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff_Documents.resx">
       <DependentUpon>FormAddStaff_Documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddStaff_HiddenUser.resx">
+      <DependentUpon>FormAddStaff_HiddenUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddStaff_LaborContract.resx">
       <DependentUpon>FormAddStaff_LaborContract.cs</DependentUpon>

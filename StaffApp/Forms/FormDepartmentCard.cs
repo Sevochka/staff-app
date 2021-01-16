@@ -137,13 +137,13 @@ namespace StaffApp.Forms
         private void fillPositionGrid()
         {
             DataTable positionsIds = database.getPositionsByDepartmentCode(id);
-            MessageBox.Show(id.ToString());
+            
             dataGridPositions.Rows.Clear();
 
             foreach (DataRow dr in positionsIds.Rows)
             {
                 uint code = dr.Field<uint>("position_code");
-                MessageBox.Show(code.ToString());
+                
                 DataTable posName = database.getPositionByCode(code);
                 object[] values = new object[] {
                     posName.Rows[0].Field<string>(0),

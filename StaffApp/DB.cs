@@ -12,8 +12,10 @@ namespace StaffApp
     public class DB
     {
         public static DataRow currentEmployee;
+        public static DataRow chosenEmployeeAlreadyWorked;
         public static string access;
         public static Boolean isLogged = false;
+
 
         readonly MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is-staff");
         public void openConnection()
@@ -35,6 +37,18 @@ namespace StaffApp
         public string convertBoolToStr(bool flag)
         {
             return flag ? "1" : "0";
+        }
+
+        public static bool IsEmpty(DataRow row)
+        {
+            return row == null || row.ItemArray.All(i => IsNullEquivalent(i));
+        }
+
+        public static bool IsNullEquivalent(object value)
+        {
+            return value == null
+                   || value is DBNull
+                   || string.IsNullOrWhiteSpace(value.ToString());
         }
 
         public DataTable getEmployees(Boolean isHidden)
@@ -190,12 +204,12 @@ namespace StaffApp
             return table;
         }
 
-        public DataTable getDepartments()
+        public DataTable getDepartments(bool isHidden = false)
         {
             this.openConnection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT department_code, name FROM `department`", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT department_code, name FROM `department` WHERE hidden = "+convertBoolToStr(isHidden), this.getConnection());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             this.closeConnection();

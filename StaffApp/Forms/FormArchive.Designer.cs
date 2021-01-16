@@ -230,6 +230,7 @@
             this.btnSearch.Size = new System.Drawing.Size(50, 45);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // inputSearch
             // 
