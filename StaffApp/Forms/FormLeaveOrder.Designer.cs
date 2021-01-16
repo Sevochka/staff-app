@@ -44,8 +44,8 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dpCreate = new Bunifu.Framework.UI.BunifuDatepicker();
             this.laEmployee = new Bunifu.UI.WinForms.BunifuLabel();
+            this.dpCreate = new Bunifu.Framework.UI.BunifuDatepicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.dpFinish = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -83,6 +83,23 @@
             this.panel1.Size = new System.Drawing.Size(295, 123);
             this.panel1.TabIndex = 0;
             // 
+            // laEmployee
+            // 
+            this.laEmployee.AutoEllipsis = false;
+            this.laEmployee.AutoSize = false;
+            this.laEmployee.CursorType = null;
+            this.laEmployee.Dock = System.Windows.Forms.DockStyle.Top;
+            this.laEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.laEmployee.ForeColor = System.Drawing.Color.Gainsboro;
+            this.laEmployee.Location = new System.Drawing.Point(0, 0);
+            this.laEmployee.Name = "laEmployee";
+            this.laEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.laEmployee.Size = new System.Drawing.Size(295, 38);
+            this.laEmployee.TabIndex = 3;
+            this.laEmployee.Text = "Дата составления";
+            this.laEmployee.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.laEmployee.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // dpCreate
             // 
             this.dpCreate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -98,23 +115,6 @@
             this.dpCreate.Size = new System.Drawing.Size(234, 55);
             this.dpCreate.TabIndex = 0;
             this.dpCreate.Value = new System.DateTime(2021, 1, 10, 16, 0, 24, 309);
-            // 
-            // laEmployee
-            // 
-            this.laEmployee.AutoEllipsis = false;
-            this.laEmployee.AutoSize = false;
-            this.laEmployee.CursorType = null;
-            this.laEmployee.Dock = System.Windows.Forms.DockStyle.Top;
-            this.laEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laEmployee.ForeColor = System.Drawing.Color.Gainsboro;
-            this.laEmployee.Location = new System.Drawing.Point(0, 0);
-            this.laEmployee.Name = "laEmployee";
-            this.laEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.laEmployee.Size = new System.Drawing.Size(295, 38);
-            this.laEmployee.TabIndex = 3;
-            this.laEmployee.Text = "Дата составления";
-            this.laEmployee.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.laEmployee.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // panel2
             // 
@@ -132,7 +132,7 @@
             this.bunifuLabel1.AutoSize = false;
             this.bunifuLabel1.CursorType = null;
             this.bunifuLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel1.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuLabel1.Name = "bunifuLabel1";
@@ -175,7 +175,7 @@
             this.bunifuLabel2.AutoSize = false;
             this.bunifuLabel2.CursorType = null;
             this.bunifuLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel2.Location = new System.Drawing.Point(0, 0);
             this.bunifuLabel2.Name = "bunifuLabel2";
@@ -303,7 +303,7 @@
             this.inputReason.SelectionLength = 0;
             this.inputReason.SelectionStart = 0;
             this.inputReason.ShortcutsEnabled = true;
-            this.inputReason.Size = new System.Drawing.Size(737, 116);
+            this.inputReason.Size = new System.Drawing.Size(737, 121);
             this.inputReason.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.inputReason.TabIndex = 16;
             this.inputReason.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -390,7 +390,7 @@
             this.inputOsn.SelectionLength = 0;
             this.inputOsn.SelectionStart = 0;
             this.inputOsn.ShortcutsEnabled = true;
-            this.inputOsn.Size = new System.Drawing.Size(737, 114);
+            this.inputOsn.Size = new System.Drawing.Size(737, 138);
             this.inputOsn.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.inputOsn.TabIndex = 16;
             this.inputOsn.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -415,8 +415,8 @@
             this.tbBottom.ColumnCount = 2;
             this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.Controls.Add(this.btnCancel, 1, 0);
-            this.tbBottom.Controls.Add(this.btnSave, 0, 0);
+            this.tbBottom.Controls.Add(this.btnCancel, 0, 0);
+            this.tbBottom.Controls.Add(this.btnSave, 1, 0);
             this.tbBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBottom.Location = new System.Drawing.Point(0, 0);
             this.tbBottom.Name = "tbBottom";
@@ -463,7 +463,7 @@
             this.btnCancel.IdleIconLeftImage = null;
             this.btnCancel.IdleIconRightImage = null;
             this.btnCancel.IndicateFocus = false;
-            this.btnCancel.Location = new System.Drawing.Point(455, 3);
+            this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
             stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             stateProperties9.BorderRadius = 3;
@@ -488,6 +488,7 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCancel.TextMarginLeft = 0;
             this.btnCancel.UseDefaultRadiusAndThickness = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -528,7 +529,7 @@
             this.btnSave.IdleIconLeftImage = null;
             this.btnSave.IdleIconRightImage = null;
             this.btnSave.IndicateFocus = false;
-            this.btnSave.Location = new System.Drawing.Point(3, 3);
+            this.btnSave.Location = new System.Drawing.Point(455, 3);
             this.btnSave.Name = "btnSave";
             stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties11.BorderRadius = 3;

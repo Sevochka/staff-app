@@ -74,7 +74,7 @@ namespace StaffApp
         }
 
 
-        public DataTable getEmployeesShort()
+        public DataTable getEmployeesShort(bool isHidden = false)
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -83,7 +83,7 @@ namespace StaffApp
                 "e.name AS 'Имя', " +
                 "e.surname AS 'Фамилия', " +
                 "e.access AS 'Уровень доступа' " +
-                "FROM `employee` e ", this.getConnection());
+                "FROM `employee` e WHERE e.hidden = "+convertBoolToStr(isHidden), this.getConnection());
             this.openConnection();
 
             adapter.SelectCommand = command;
@@ -98,9 +98,11 @@ namespace StaffApp
             uint department_code, int position_code,
             string series, string number, DateTime date, 
             string body, string address, string access,
-            string password
+            string password,
+            bool isHidden = false
             )
         {
+
             string sqlFormattedDate = date.Date.ToString("yyyy-MM-dd HH:mm:ss");
 
             MySqlCommand command = new MySqlCommand("INSERT INTO `employee` " +
@@ -130,7 +132,7 @@ namespace StaffApp
             command.Parameters.Add("@date", MySqlDbType.VarChar).Value = sqlFormattedDate;
 
             command.Parameters.Add("@access", MySqlDbType.VarChar).Value = access;
-            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = 0;
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(isHidden);
 
             this.openConnection();
 
@@ -405,15 +407,25 @@ namespace StaffApp
             string seniority,
             uint departmentCode,
             int positionCode,
-            int deppos_id
+            int deppos_id,
+            string series,
+            string body,
+            string number,
+            string address,
+            DateTime date
             )
         {
+
+            string sqlFormattedDate = date.Date.ToString("yyyy-MM-dd HH:mm:ss");
+
             MySqlCommand command = new MySqlCommand("UPDATE employee " +
                 "SET name = @name, surname = @surname, " +
                 "patronymic = @patr, sex = @sex, " +
                 "family_status = @family, education = @education, " +
                 "seniority = @seniority, department_code = @departmentCode, " +
-                "position_code = @positionCode, deppos_id = @deppos_id " +
+                "position_code = @positionCode, deppos_id = @deppos_id, pass_series = @series, " +
+                "pass_body = @body, pass_num = @number, reg_address = @address, " +
+                "pass_date = @date " +
                 "WHERE personal_number = @code", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.String).Value = name;
@@ -426,7 +438,14 @@ namespace StaffApp
             command.Parameters.Add("@departmentCode", MySqlDbType.UInt32).Value = departmentCode;
             command.Parameters.Add("@positionCode", MySqlDbType.UInt32).Value = positionCode;
             command.Parameters.Add("@deppos_id", MySqlDbType.UInt32).Value = deppos_id;
-            command.Parameters.Add("@code", MySqlDbType.UInt32).Value = personalCode;
+
+            command.Parameters.Add("@series", MySqlDbType.String).Value = series;
+            command.Parameters.Add("@body", MySqlDbType.String).Value = body;
+            command.Parameters.Add("@number", MySqlDbType.String).Value = number;
+            command.Parameters.Add("@address", MySqlDbType.String).Value = address;
+            command.Parameters.Add("@date", MySqlDbType.String).Value = sqlFormattedDate;
+
+            command.Parameters.Add("@code", MySqlDbType.String).Value = personalCode;
 
             this.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -585,7 +604,7 @@ namespace StaffApp
         {
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT e.personal_number, e.name, e.surname, e.patronymic, p.name as positionName, p.salary, d.name as departmentName, d.phone as departmentPhone FROM employee e INNER JOIN position p ON e.position_code = p.position_code JOIN department d ON e.department_code = d.department_code", this.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT e.personal_number, e.name, e.surname, e.patronymic, p.name as positionName, p.salary, d.name as departmentName, d.phone as departmentPhone FROM employee e INNER JOIN position p ON e.position_code = p.position_code JOIN department d ON e.department_code = d.department_code WHERE e.hidden = 0", this.getConnection());
             this.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);

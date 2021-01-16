@@ -33,6 +33,11 @@ namespace StaffApp
         {
             String loginUser = textBoxLogin.Text;
             String passUser = textBoxPassword.Text;
+            if (String.IsNullOrWhiteSpace(loginUser) || String.IsNullOrWhiteSpace(passUser))
+            {
+                MessageBox.Show("Для входа в систему необходимо заполнить оба поля.", "Ошибка валидации");
+                return;
+            }
 
             DataTable table = new DataTable();
 
@@ -59,7 +64,24 @@ namespace StaffApp
                 MessageBox.Show("Проверьте правильность вводимых данных");
         }
 
+        private void bunifuCheckBox2_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (bunifuCheckBox2.Checked)
+            {
+                textBoxPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '*';
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            bunifuCheckBox2.Checked = !bunifuCheckBox2.Checked;
+        }
+
         //Control buttons
-       
+
     }
 }

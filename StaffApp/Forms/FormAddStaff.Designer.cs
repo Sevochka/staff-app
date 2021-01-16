@@ -92,8 +92,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCreateEmp, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCreateEmp, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -205,7 +205,7 @@
             this.dropPosition.FillDropDown = false;
             this.dropPosition.FillIndicator = false;
             this.dropPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.dropPosition.ForeColor = System.Drawing.Color.Gainsboro;
             this.dropPosition.FormattingEnabled = true;
             this.dropPosition.Icon = null;
@@ -214,11 +214,11 @@
             this.dropPosition.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.dropPosition.ItemBorderColor = System.Drawing.Color.White;
             this.dropPosition.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropPosition.ItemHeight = 26;
+            this.dropPosition.ItemHeight = 32;
             this.dropPosition.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
             this.dropPosition.Location = new System.Drawing.Point(0, 6);
             this.dropPosition.Name = "dropPosition";
-            this.dropPosition.Size = new System.Drawing.Size(315, 32);
+            this.dropPosition.Size = new System.Drawing.Size(315, 38);
             this.dropPosition.TabIndex = 9;
             this.dropPosition.Tag = "0";
             this.dropPosition.Text = "Должность";
@@ -228,12 +228,12 @@
             this.bunifuLabel9.AutoEllipsis = false;
             this.bunifuLabel9.CursorType = null;
             this.bunifuLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel9.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel9.Location = new System.Drawing.Point(3, 339);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel9.Size = new System.Drawing.Size(148, 38);
+            this.bunifuLabel9.Size = new System.Drawing.Size(338, 40);
             this.bunifuLabel9.TabIndex = 13;
             this.bunifuLabel9.Text = "Должность:";
             this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -254,7 +254,7 @@
             this.dropEducation.FillDropDown = false;
             this.dropEducation.FillIndicator = false;
             this.dropEducation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropEducation.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropEducation.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.dropEducation.ForeColor = System.Drawing.Color.Gainsboro;
             this.dropEducation.FormattingEnabled = true;
             this.dropEducation.Icon = null;
@@ -263,7 +263,7 @@
             this.dropEducation.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.dropEducation.ItemBorderColor = System.Drawing.Color.White;
             this.dropEducation.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropEducation.ItemHeight = 26;
+            this.dropEducation.ItemHeight = 32;
             this.dropEducation.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
             this.dropEducation.Items.AddRange(new object[] {
             "Среднее",
@@ -271,7 +271,7 @@
             "Послевузовское"});
             this.dropEducation.Location = new System.Drawing.Point(347, 213);
             this.dropEducation.Name = "dropEducation";
-            this.dropEducation.Size = new System.Drawing.Size(339, 32);
+            this.dropEducation.Size = new System.Drawing.Size(339, 38);
             this.dropEducation.TabIndex = 6;
             this.dropEducation.Tag = "0";
             this.dropEducation.Text = null;
@@ -291,7 +291,7 @@
             this.dropDepartment.FillDropDown = false;
             this.dropDepartment.FillIndicator = false;
             this.dropDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropDepartment.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.dropDepartment.ForeColor = System.Drawing.Color.Gainsboro;
             this.dropDepartment.FormattingEnabled = true;
             this.dropDepartment.Icon = null;
@@ -300,11 +300,11 @@
             this.dropDepartment.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.dropDepartment.ItemBorderColor = System.Drawing.Color.White;
             this.dropDepartment.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropDepartment.ItemHeight = 26;
+            this.dropDepartment.ItemHeight = 38;
             this.dropDepartment.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
             this.dropDepartment.Location = new System.Drawing.Point(347, 297);
             this.dropDepartment.Name = "dropDepartment";
-            this.dropDepartment.Size = new System.Drawing.Size(339, 32);
+            this.dropDepartment.Size = new System.Drawing.Size(339, 44);
             this.dropDepartment.TabIndex = 8;
             this.dropDepartment.Tag = "0";
             this.dropDepartment.Text = "Департамент";
@@ -326,7 +326,7 @@
             this.dropSex.FillDropDown = false;
             this.dropSex.FillIndicator = false;
             this.dropSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropSex.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.dropSex.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.dropSex.ForeColor = System.Drawing.Color.Gainsboro;
             this.dropSex.FormattingEnabled = true;
             this.dropSex.Icon = null;
@@ -335,14 +335,14 @@
             this.dropSex.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.dropSex.ItemBorderColor = System.Drawing.Color.White;
             this.dropSex.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropSex.ItemHeight = 26;
+            this.dropSex.ItemHeight = 32;
             this.dropSex.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
             this.dropSex.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
             this.dropSex.Location = new System.Drawing.Point(347, 129);
             this.dropSex.Name = "dropSex";
-            this.dropSex.Size = new System.Drawing.Size(339, 32);
+            this.dropSex.Size = new System.Drawing.Size(339, 38);
             this.dropSex.TabIndex = 4;
             this.dropSex.Tag = "0";
             this.dropSex.Text = null;
@@ -363,7 +363,7 @@
             this.dropFamily.FillDropDown = false;
             this.dropFamily.FillIndicator = false;
             this.dropFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dropFamily.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dropFamily.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.dropFamily.ForeColor = System.Drawing.Color.Gainsboro;
             this.dropFamily.FormattingEnabled = true;
             this.dropFamily.Icon = null;
@@ -372,14 +372,14 @@
             this.dropFamily.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.dropFamily.ItemBorderColor = System.Drawing.Color.White;
             this.dropFamily.ItemForeColor = System.Drawing.Color.Gainsboro;
-            this.dropFamily.ItemHeight = 26;
+            this.dropFamily.ItemHeight = 32;
             this.dropFamily.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(79)))));
             this.dropFamily.Items.AddRange(new object[] {
             "Не женат",
             "Женат"});
             this.dropFamily.Location = new System.Drawing.Point(347, 171);
             this.dropFamily.Name = "dropFamily";
-            this.dropFamily.Size = new System.Drawing.Size(339, 32);
+            this.dropFamily.Size = new System.Drawing.Size(339, 38);
             this.dropFamily.TabIndex = 5;
             this.dropFamily.Tag = "0";
             this.dropFamily.Text = null;
@@ -389,12 +389,12 @@
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.CursorType = null;
             this.bunifuLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel1.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel1.Location = new System.Drawing.Point(3, 3);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(62, 38);
+            this.bunifuLabel1.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel1.TabIndex = 3;
             this.bunifuLabel1.Text = "Имя:";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -405,12 +405,12 @@
             this.bunifuLabel8.AutoEllipsis = false;
             this.bunifuLabel8.CursorType = null;
             this.bunifuLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel8.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel8.Location = new System.Drawing.Point(3, 297);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(171, 38);
+            this.bunifuLabel8.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel8.TabIndex = 12;
             this.bunifuLabel8.Text = "Департамент:";
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -421,12 +421,12 @@
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.CursorType = null;
             this.bunifuLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel2.Location = new System.Drawing.Point(3, 45);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(123, 38);
+            this.bunifuLabel2.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel2.TabIndex = 4;
             this.bunifuLabel2.Text = "Фамилия:";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -437,12 +437,12 @@
             this.bunifuLabel3.AutoEllipsis = false;
             this.bunifuLabel3.CursorType = null;
             this.bunifuLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel3.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel3.Location = new System.Drawing.Point(3, 87);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(122, 38);
+            this.bunifuLabel3.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel3.TabIndex = 5;
             this.bunifuLabel3.Text = "Отчество:";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -453,12 +453,12 @@
             this.bunifuLabel7.AutoEllipsis = false;
             this.bunifuLabel7.CursorType = null;
             this.bunifuLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel7.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel7.Location = new System.Drawing.Point(3, 255);
             this.bunifuLabel7.Name = "bunifuLabel7";
             this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(71, 38);
+            this.bunifuLabel7.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel7.TabIndex = 9;
             this.bunifuLabel7.Text = "Стаж:";
             this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -469,12 +469,12 @@
             this.bunifuLabel4.AutoEllipsis = false;
             this.bunifuLabel4.CursorType = null;
             this.bunifuLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel4.Location = new System.Drawing.Point(3, 129);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(59, 38);
+            this.bunifuLabel4.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel4.TabIndex = 6;
             this.bunifuLabel4.Text = "Пол:";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -485,12 +485,12 @@
             this.bunifuLabel6.AutoEllipsis = false;
             this.bunifuLabel6.CursorType = null;
             this.bunifuLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel6.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel6.Location = new System.Drawing.Point(3, 213);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel6.Size = new System.Drawing.Size(175, 38);
+            this.bunifuLabel6.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel6.TabIndex = 8;
             this.bunifuLabel6.Text = "Образование:";
             this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -501,12 +501,12 @@
             this.bunifuLabel5.AutoEllipsis = false;
             this.bunifuLabel5.CursorType = null;
             this.bunifuLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel5.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel5.Location = new System.Drawing.Point(3, 171);
             this.bunifuLabel5.Name = "bunifuLabel5";
             this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel5.Size = new System.Drawing.Size(282, 38);
+            this.bunifuLabel5.Size = new System.Drawing.Size(338, 36);
             this.bunifuLabel5.TabIndex = 7;
             this.bunifuLabel5.Text = "Семейное положение:";
             this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -559,7 +559,7 @@
             this.btnCancel.IdleIconLeftImage = null;
             this.btnCancel.IdleIconRightImage = null;
             this.btnCancel.IndicateFocus = false;
-            this.btnCancel.Location = new System.Drawing.Point(359, 3);
+            this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             stateProperties1.BorderRadius = 3;
@@ -579,7 +579,7 @@
             stateProperties2.IconLeftImage = null;
             stateProperties2.IconRightImage = null;
             this.btnCancel.OnPressedState = stateProperties2;
-            this.btnCancel.Size = new System.Drawing.Size(351, 57);
+            this.btnCancel.Size = new System.Drawing.Size(350, 57);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCancel.TextMarginLeft = 0;
@@ -625,7 +625,7 @@
             this.btnCreateEmp.IdleIconLeftImage = null;
             this.btnCreateEmp.IdleIconRightImage = null;
             this.btnCreateEmp.IndicateFocus = false;
-            this.btnCreateEmp.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateEmp.Location = new System.Drawing.Point(359, 3);
             this.btnCreateEmp.Name = "btnCreateEmp";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 3;
@@ -645,7 +645,7 @@
             stateProperties4.IconLeftImage = null;
             stateProperties4.IconRightImage = null;
             this.btnCreateEmp.OnPressedState = stateProperties4;
-            this.btnCreateEmp.Size = new System.Drawing.Size(350, 57);
+            this.btnCreateEmp.Size = new System.Drawing.Size(351, 57);
             this.btnCreateEmp.TabIndex = 10;
             this.btnCreateEmp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCreateEmp.TextMarginLeft = 0;
@@ -693,7 +693,7 @@
             this.inputPatronymic.BorderThickness = 1;
             this.inputPatronymic.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputPatronymic.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputPatronymic.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputPatronymic.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.inputPatronymic.DefaultText = "";
             this.inputPatronymic.Dock = System.Windows.Forms.DockStyle.Top;
             this.inputPatronymic.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -769,7 +769,7 @@
             this.inputSeniority.BorderThickness = 1;
             this.inputSeniority.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputSeniority.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputSeniority.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputSeniority.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.inputSeniority.DefaultText = "";
             this.inputSeniority.Dock = System.Windows.Forms.DockStyle.Top;
             this.inputSeniority.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -845,7 +845,7 @@
             this.inputSurname.BorderThickness = 1;
             this.inputSurname.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputSurname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputSurname.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputSurname.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.inputSurname.DefaultText = "";
             this.inputSurname.Dock = System.Windows.Forms.DockStyle.Top;
             this.inputSurname.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -921,7 +921,7 @@
             this.inputName.BorderThickness = 1;
             this.inputName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.inputName.DefaultText = "";
             this.inputName.Dock = System.Windows.Forms.DockStyle.Top;
             this.inputName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));

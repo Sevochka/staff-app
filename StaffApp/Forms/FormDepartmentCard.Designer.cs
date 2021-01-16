@@ -110,8 +110,8 @@
             this.tbBottom.ColumnCount = 2;
             this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.Controls.Add(this.btnCancel, 1, 0);
-            this.tbBottom.Controls.Add(this.btnSave, 0, 0);
+            this.tbBottom.Controls.Add(this.btnCancel, 0, 0);
+            this.tbBottom.Controls.Add(this.btnSave, 1, 0);
             this.tbBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbBottom.Location = new System.Drawing.Point(0, 543);
             this.tbBottom.Name = "tbBottom";
@@ -219,12 +219,12 @@
             this.bunifuLabel4.AutoEllipsis = false;
             this.bunifuLabel4.CursorType = null;
             this.bunifuLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel4.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel4.Location = new System.Drawing.Point(3, 50);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(134, 43);
+            this.bunifuLabel4.Size = new System.Drawing.Size(359, 41);
             this.bunifuLabel4.TabIndex = 15;
             this.bunifuLabel4.Text = "Телефон:";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -235,12 +235,12 @@
             this.bunifuLabel3.AutoEllipsis = false;
             this.bunifuLabel3.CursorType = null;
             this.bunifuLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel3.ForeColor = System.Drawing.Color.Gainsboro;
             this.bunifuLabel3.Location = new System.Drawing.Point(3, 3);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(147, 43);
+            this.bunifuLabel3.Size = new System.Drawing.Size(359, 41);
             this.bunifuLabel3.TabIndex = 4;
             this.bunifuLabel3.Text = "Название:";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -360,7 +360,7 @@
             this.inputName.BorderThickness = 1;
             this.inputName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 20F);
             this.inputName.DefaultText = "депаратаемнт";
             this.inputName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -436,7 +436,7 @@
             this.inputPhone.BorderThickness = 1;
             this.inputPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.inputPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputPhone.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 15F);
+            this.inputPhone.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 20F);
             this.inputPhone.DefaultText = "+7921236213";
             this.inputPhone.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputPhone.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -533,7 +533,7 @@
             this.btnCancel.IdleIconLeftImage = null;
             this.btnCancel.IdleIconRightImage = null;
             this.btnCancel.IndicateFocus = false;
-            this.btnCancel.Location = new System.Drawing.Point(403, 3);
+            this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             stateProperties1.BorderRadius = 3;
@@ -598,7 +598,7 @@
             this.btnSave.IdleIconLeftImage = null;
             this.btnSave.IdleIconRightImage = null;
             this.btnSave.IndicateFocus = false;
-            this.btnSave.Location = new System.Drawing.Point(3, 3);
+            this.btnSave.Location = new System.Drawing.Point(403, 3);
             this.btnSave.Name = "btnSave";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 3;

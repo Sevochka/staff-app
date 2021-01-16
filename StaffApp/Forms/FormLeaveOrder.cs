@@ -47,9 +47,8 @@ namespace StaffApp.Forms
                         personalNumber, fullName, department, position, reason, osn
                         );
 
-
-            database.removeUser(personalNumber, fullName);
             panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
+            database.removeUser(personalNumber, fullName);
         }
 
         private void inputReason_TextChange(object sender, EventArgs e)
@@ -72,6 +71,11 @@ namespace StaffApp.Forms
             }
 
             btnSave.Enabled = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
         }
     }
 }

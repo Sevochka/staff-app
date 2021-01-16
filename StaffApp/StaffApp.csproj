@@ -46,6 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox">
+      <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
       <HintPath>..\..\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
@@ -282,6 +285,12 @@
     <Compile Include="Forms\FormEmployeeCard.Designer.cs">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormEmployeeCard_PassData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeCard_PassData.Designer.cs">
+      <DependentUpon>FormEmployeeCard_PassData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormLeave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEmployeeCard.resx">
       <DependentUpon>FormEmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEmployeeCard_PassData.resx">
+      <DependentUpon>FormEmployeeCard_PassData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLeave.resx">
       <DependentUpon>FormLeave.cs</DependentUpon>

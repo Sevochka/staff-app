@@ -34,7 +34,7 @@ namespace StaffApp.Forms
             }
             int empId = employees.Rows[e.RowIndex].Field<Int32>("№");
             //panelMenu.OpenChildForm(new FormEmployeeCard(formParent, this, database, empId));
-            panelMenu.OpenChildForm(new FormPersonalCard(panelMenu, database, empId));
+            panelMenu.OpenChildForm(new FormPersonalCard(panelMenu, database, empId, true));
         }
 
         private void btnArchivePositionsDepartments_Click(object sender, EventArgs e)

@@ -46,23 +46,28 @@ namespace StaffApp.Forms
                 String.IsNullOrWhiteSpace(newPass1) ||
                 String.IsNullOrWhiteSpace(newPass2))
             {
-                MessageBox.Show("Прежде чем сохранить, заполните все поля!");
+                MessageBox.Show("Прежде чем сохранить, заполните все поля!", "Ошибка валидации");
                 return;
             }
 
             if (newPass1 != newPass2)
             {
-                MessageBox.Show("Новые пароли не совпадают!");
+                MessageBox.Show("Новые пароли не совпадают!", "Ошибка валидации");
                 return;
             }
 
             if(oldPass != DB.currentEmployee.Field<string>("autorization_pass"))
             {
-                MessageBox.Show("Текущий пароль не такой!");
+                MessageBox.Show("Текущий пароль не такой!", "Ошибка валидации");
                 return;
             }
 
             database.changePassword(newPass1);
+            panelMenu.Reset();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             panelMenu.Reset();
         }
     }

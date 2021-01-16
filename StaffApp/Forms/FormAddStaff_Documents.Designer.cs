@@ -67,8 +67,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCreateEmp, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCreateEmp, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -115,7 +115,7 @@
             this.btnCancel.IdleIconLeftImage = null;
             this.btnCancel.IdleIconRightImage = null;
             this.btnCancel.IndicateFocus = false;
-            this.btnCancel.Location = new System.Drawing.Point(403, 3);
+            this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             stateProperties1.BorderRadius = 3;
@@ -181,7 +181,7 @@
             this.btnCreateEmp.IdleIconLeftImage = null;
             this.btnCreateEmp.IdleIconRightImage = null;
             this.btnCreateEmp.IndicateFocus = false;
-            this.btnCreateEmp.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateEmp.Location = new System.Drawing.Point(403, 3);
             this.btnCreateEmp.Name = "btnCreateEmp";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 3;

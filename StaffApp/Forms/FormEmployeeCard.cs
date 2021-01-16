@@ -162,7 +162,7 @@ namespace StaffApp.Forms
                {
                     int code = dr.Field<int>(0);
                     //DataTable positionName = database.getPositionByCode(code);
-                    dropPos.Items.Add(position.Rows[0].Field<string>("name"));
+                    dropPos.Items.Add(dr.Field<string>("name"));
                 }
             laPos.Visible = false;
             dropPos.Visible = true;
@@ -172,7 +172,7 @@ namespace StaffApp.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             UInt32 depCode = departmentsTable.Rows[dropDep.SelectedIndex].Field<UInt32>(0);
-            int posCode = position.Rows[dropPos.SelectedIndex].Field<int>("position_code");
+            int posCode = int.Parse(position.Rows[dropPos.SelectedIndex].Field<uint>("position_code").ToString());
 
             DataTable deppostable = database.getDepPosByCodes(depCode, posCode);
 
@@ -188,12 +188,10 @@ namespace StaffApp.Forms
 
             int personal_num = employee.Field<int>(0);
 
-            database.updateEmployee(
-                personal_num,
-                name, surname, patr, sex, family, edu, seniority, depCode, posCode, depposId
-                );
-
-            grandParentForm.OpenChildForm(new FormStaff(grandParentForm, database));
+            grandParentForm.OpenChildForm(new FormEmployeeCard_PassData(
+                 personal_num, name, surname, patr, sex, family, edu, seniority, depCode, posCode, depposId,
+                 employee, grandParentForm, database
+                ));
         }
     }
 }

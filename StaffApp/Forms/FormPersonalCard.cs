@@ -14,14 +14,17 @@ namespace StaffApp.Forms
     {
         FormPanelMenu panelMenu;
         DB database;
+        bool backToArchive;
         public FormPersonalCard(
             FormPanelMenu pm,
             DB db,
-            int id
+            int id,
+            bool backToArc = false
             )
         {
             panelMenu = pm;
             database = db;
+            backToArchive = backToArc;
             InitializeComponent();
 
             setEmployeeInfo(id);
@@ -62,6 +65,11 @@ namespace StaffApp.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (backToArchive)
+            {
+                panelMenu.OpenChildForm(new FormArchive(panelMenu, database));
+                return;
+            }
             panelMenu.Reset();
         }
     }
