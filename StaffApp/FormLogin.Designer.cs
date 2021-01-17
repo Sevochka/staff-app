@@ -36,6 +36,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.laConnection = new Bunifu.UI.WinForms.BunifuLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuCheckBox2 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.iconUserLogin = new FontAwesome.Sharp.IconPictureBox();
@@ -92,7 +93,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(261, 41);
             this.textBoxLogin.TabIndex = 7;
-            this.textBoxLogin.Text = "15";
+            this.textBoxLogin.Text = "admin";
             // 
             // textBoxPassword
             // 
@@ -106,7 +107,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(261, 41);
             this.textBoxPassword.TabIndex = 8;
-            this.textBoxPassword.Text = "12345";
+            this.textBoxPassword.Text = "admin";
             // 
             // tableLayoutPanel2
             // 
@@ -137,11 +138,31 @@
             this.panel1.Controls.Add(this.panelPasswordLine);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.textBoxLogin);
+            this.panel1.Controls.Add(this.laConnection);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(422, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(624, 723);
             this.panel1.TabIndex = 12;
+            // 
+            // laConnection
+            // 
+            this.laConnection.AutoEllipsis = false;
+            this.laConnection.AutoSize = false;
+            this.laConnection.CursorType = null;
+            this.laConnection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.laConnection.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.laConnection.ForeColor = System.Drawing.Color.Gainsboro;
+            this.laConnection.Location = new System.Drawing.Point(0, 0);
+            this.laConnection.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.laConnection.Name = "laConnection";
+            this.laConnection.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.laConnection.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.laConnection.Size = new System.Drawing.Size(624, 70);
+            this.laConnection.TabIndex = 24;
+            this.laConnection.Text = "Подключение к серверу";
+            this.laConnection.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.laConnection.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // label2
             // 
@@ -322,5 +343,6 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox2;
         private System.Windows.Forms.Label label2;
+        private Bunifu.UI.WinForms.BunifuLabel laConnection;
     }
 }

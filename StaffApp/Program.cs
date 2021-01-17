@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using StaffApp.Classes;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +21,12 @@ namespace StaffApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             DB database = new DB();
+            ServerData server = DB.server;
+
+            File.WriteAllText("serviceData.json", JsonConvert.SerializeObject(server));
+
+            database.setConnectionData();
+
             Application.Run(new FormPanelMenu(database));
         }
     }

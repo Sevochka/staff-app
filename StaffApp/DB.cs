@@ -1,7 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using StaffApp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +18,28 @@ namespace StaffApp
         public static DataRow chosenEmployeeAlreadyWorked;
         public static string access;
         public static Boolean isLogged = false;
+        public static ServerData server = File.Exists("serviceData.json") ?
+                JsonConvert.DeserializeObject<ServerData>(File.ReadAllText("serviceData.json")) :
+                new ServerData
+                {
+                    host = "",
+                    port = "",
+                    user = "",
+                    pass = "",
+                    adminLogin = "admin",
+                    adminPassword = "admin"
+                };
 
 
-        readonly MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is-staff");
+        //server=localhost;port=3306;username=root;password=root;database=is-staff
+
+        private MySqlConnection connection;
+        public void setConnectionData()
+        {
+            connection = new MySqlConnection("server=" +server.host+";port=" +
+                ""+server.port+";username="+server.user+";password=" +
+                ""+server.pass+";database=is-staff");
+        }
         public void openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)

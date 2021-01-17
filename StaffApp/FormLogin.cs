@@ -1,10 +1,13 @@
 ﻿using FontAwesome.Sharp;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using StaffApp.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +24,18 @@ namespace StaffApp
             InitializeComponent();
             database = db;
             panelMenu = pM;
+
+            try
+            {
+                database.getDepartments();
+                laConnection.Text = "Подключение к серверу стабильное.";
+                laConnection.ForeColor = Color.Green;
+            }
+            catch
+            {
+                laConnection.Text = "Подключение к серверу отсутсвует.";
+                laConnection.ForeColor = Color.Red;
+            }
         }
 
 
@@ -39,6 +54,16 @@ namespace StaffApp
                 return;
             }
 
+            ServerData server = DB.server;
+
+
+            if (loginUser == server.adminLogin && passUser == server.adminPassword)
+            {
+                panelMenu.OpenChildForm(new Forms.FormServiceMenu(panelMenu, database, server));
+                return;
+            }
+
+            
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -48,7 +73,16 @@ namespace StaffApp
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
 
             adapter.SelectCommand = command;
-            adapter.Fill(table);
+            try
+            {
+                adapter.Fill(table);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка подключения к серверу. Воспользуйтесь сервисным меню, введя логин и пароль сервисного администратора!", "Ошибка подключения");
+                return;
+            }
+           
 
             if (table.Rows.Count > 0)
             {
