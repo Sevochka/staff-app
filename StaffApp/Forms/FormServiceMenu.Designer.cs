@@ -152,7 +152,7 @@
             this.tbBottom.Name = "tbBottom";
             this.tbBottom.RowCount = 1;
             this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tbBottom.Size = new System.Drawing.Size(945, 63);
             this.tbBottom.TabIndex = 19;
             // 
@@ -193,7 +193,7 @@
             this.btnSave.IdleIconLeftImage = null;
             this.btnSave.IdleIconRightImage = null;
             this.btnSave.IndicateFocus = false;
-            this.btnSave.Location = new System.Drawing.Point(168, 317);
+            this.btnSave.Location = new System.Drawing.Point(168, 284);
             this.btnSave.Name = "btnSave";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 3;
@@ -257,7 +257,7 @@
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(168, 421);
+            this.bunifuButton1.Location = new System.Drawing.Point(168, 373);
             this.bunifuButton1.Name = "bunifuButton1";
             stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties5.BorderRadius = 3;

@@ -64,8 +64,7 @@
             // btnLeave
             // 
             this.btnLeave.AllowToggling = false;
-            this.btnLeave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLeave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLeave.AnimationSpeed = 200;
             this.btnLeave.AutoGenerateColors = false;
             this.btnLeave.BackColor = System.Drawing.Color.Transparent;
@@ -130,8 +129,7 @@
             // btnReportAllEmployees
             // 
             this.btnReportAllEmployees.AllowToggling = false;
-            this.btnReportAllEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportAllEmployees.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReportAllEmployees.AnimationSpeed = 200;
             this.btnReportAllEmployees.AutoGenerateColors = false;
             this.btnReportAllEmployees.BackColor = System.Drawing.Color.Transparent;

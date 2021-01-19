@@ -388,7 +388,7 @@
             this.Controls.Add(this.btnAgrement);
             this.Controls.Add(this.panel1);
             this.Name = "FormAddStaff_Documents";
-            this.Text = "Добавление сотрудника";
+            this.Text = "Добавление сотрудника - формирование документов №1";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

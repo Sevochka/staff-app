@@ -990,7 +990,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddStaff";
-            this.Text = "Добавление сотрудника";
+            this.Text = "Добавление сотрудника - основные данные";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

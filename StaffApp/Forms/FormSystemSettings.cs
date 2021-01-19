@@ -98,5 +98,7 @@ namespace StaffApp.Forms
             database.clearAllData();
             Application.Exit();
         }
+
+        
     }
 }
