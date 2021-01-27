@@ -99,6 +99,5 @@ namespace StaffApp.Forms
             Application.Exit();
         }
 
-        
     }
 }

@@ -708,6 +708,7 @@
             this.dataGridPositions.TabIndex = 1;
             this.dataGridPositions.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataGridPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPositions_CellContentClick);
+            this.dataGridPositions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPositions_CellDoubleClick);
             // 
             // FormPosition
             // 

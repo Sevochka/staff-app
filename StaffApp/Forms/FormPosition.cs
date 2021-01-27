@@ -14,6 +14,7 @@ namespace StaffApp.Forms
     public partial class FormPosition : Form
     {
         private DataTable departments;
+        private DataTable positions = new DataTable();
         private FormPanelMenu formParent;
         private DB database;
         private uint SelectedDepartmentID;
@@ -28,35 +29,15 @@ namespace StaffApp.Forms
             formParent = parentForm;
             database = db;
             InitializeComponent();
-            dataGridPositions.Columns.Add("Название", "Название");
-            dataGridPositions.Columns.Add("Оклад", "Оклад");
+            positions.Columns.Add("Номер");
+            positions.Columns.Add("Название");
+            positions.Columns.Add("Оклад");
             isEditable = isEdit;
             getDepartments();
            
 
             
-            if (isEditable)
-            {
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                btn.HeaderText = "Удаление";
-                btn.Name = "Удалить";
-                btn.Text = "Удалить";
-                btn.UseColumnTextForButtonValue = true;
-                btn.FlatStyle = FlatStyle.Flat;
-
-                //btn.DefaultCellStyle.ForeColor = Color.White;
-                //btn.DefaultCellStyle.BackColor = Color.Red;
-                btn.DefaultCellStyle.SelectionBackColor = Color.Red;
-                btn.DefaultCellStyle.SelectionForeColor = Color.White;
-                dataGridPositions.Columns.Add(btn);
-                dataGridPositions.Columns[1].Width = 100;
-                dataGridPositions.Columns[2].Width = 180;
-            }
-            else
-            {
-                btnAddDepartment.Visible = false;
-                btnAddPosition.Visible = false;
-            }
+            
             
             //Значение должностей из первого row
 
@@ -77,15 +58,40 @@ namespace StaffApp.Forms
                 DataTable posName = database.getPositionByCode(code);
 
                 object[] values = new object[] {
+                    code,
                     posName.Rows[0].Field<string>(0),
                     posName.Rows[0].Field<int>(1).ToString()
                 };
-                dataGridPositions.Rows.Add(values);
+                positions.Rows.Add(values);
+            }
+            dataGridPositions.DataSource = positions;
+            dataGridPositions.Columns["Номер"].Visible = false;
+
+            if (isEditable)
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.HeaderText = "Удаление";
+                btn.Name = "Удалить";
+                btn.Text = "Удалить";
+                btn.UseColumnTextForButtonValue = true;
+                btn.FlatStyle = FlatStyle.Flat;
+
+                //btn.DefaultCellStyle.ForeColor = Color.White;
+                //btn.DefaultCellStyle.BackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionBackColor = Color.Red;
+                btn.DefaultCellStyle.SelectionForeColor = Color.White;
+                dataGridPositions.Columns.Add(btn);
+              
+                dataGridPositions.Columns["Удалить"].Width = 180;
+            }
+            else
+            {
+                btnAddDepartment.Visible = false;
+                btnAddPosition.Visible = false;
             }
         }
 
         
-
         public void getDepartments()
         {
            
@@ -153,17 +159,22 @@ namespace StaffApp.Forms
 
         private void fillPositionGrid()
         {
-            DataTable positions = database.getPositionsByDepartmentCode(SelectedDepartmentID, !isEditable);
-            dataGridPositions.Rows.Clear();
+            DataTable positionsData = database.getPositionsByDepartmentCode(SelectedDepartmentID, !isEditable);
+            positions.Rows.Clear();
 
-            foreach (DataRow dr in positions.Rows)
+            foreach (DataRow dr in positionsData.Rows)
             {
+
                 object[] values = new object[] {
+                    dr.Field<uint>("position_code"),
                     dr.Field<string>("name"),
                     dr.Field<int>("salary").ToString()
                 };
-                dataGridPositions.Rows.Add(values);
+
+                positions.Rows.Add(values);
             }
+
+            dataGridPositions.DataSource = positions;
         }
         private void dataGridDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -172,6 +183,15 @@ namespace StaffApp.Forms
                 if (MessageBox.Show("Вы уверены, что хотите удалить департамент? Связанные должности так же будут удалены!", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     string depId = dataGridDepartments.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    int count = database.getEmployeesCountByDepartmentCode(uint.Parse(depId));
+                    if (count != 0)
+                    {
+                        MessageBox.Show("Не удалось расформировать отдел. Количество сотрудников: "+count+" " +
+                            "Для того, чтобы расформировать отдел необходимо уволить всех " +
+                            "сотрудников в отделе, для этого перейдите на страницу \"Сотрудники\".", "Ошибка удаления отдела.");
+                        return;
+                    }
+
                     database.deleteAllDepPosByDepartmentCode(depId);
                     database.deleteDepartmentByDepartmentCode(depId);
                     database.deletePositionsByDepartmenCode(depId);
@@ -198,11 +218,19 @@ namespace StaffApp.Forms
             {
                 if (MessageBox.Show("Вы уверены, что хотите удалить должность?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string posName = dataGridPositions.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    string salary = dataGridPositions.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    
-                    DataTable position = database.getPositionCodeByData(posName, int.Parse(salary));
-                    uint positionId = position.Rows[0].Field<uint>(0);
+                    uint positionId = uint.Parse(dataGridPositions.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    string posName = dataGridPositions.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    string salary = dataGridPositions.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                   
+                    int count = database.getEmployeesCountByPositionCode(positionId);
+                    if (count != 0)
+                    {
+                        MessageBox.Show("Не удалось расформировать должность. Количество сотрудников с должностью \""+posName+"\": " + count +". Для того, чтобы расформировать должность необходимо уволить всех " +
+                            "сотрудников с этой должностью, для этого перейдите на страницу \"Сотрудники\".", "Ошибка удаления отдела.");
+                        return;
+                    }
+
                     database.deleteAllDepPosByPositionCode(positionId);
                     database.deletePositionByCode(positionId);
                     fillPositionGrid();
@@ -294,6 +322,19 @@ namespace StaffApp.Forms
         {
             searchStrPosition = "";
             inputSearchPosition.Text = searchStrPosition;
+        }
+
+        private void dataGridPositions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1 || !isEditable)
+            {
+                return;
+            }
+            uint posId = uint.Parse(positions.Rows[e.RowIndex].Field<string>(0));
+            string name = positions.Rows[e.RowIndex].Field<string>("Название");
+            string salary = positions.Rows[e.RowIndex].Field<string>("Оклад");
+
+            formParent.OpenChildForm(new FormPositionCard(formParent, database, posId, name, salary, SelectedDepartmentID, !isEditable));
         }
     }
 }

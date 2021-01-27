@@ -224,7 +224,7 @@
             this.bunifuLabel4.Location = new System.Drawing.Point(3, 50);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(359, 41);
+            this.bunifuLabel4.Size = new System.Drawing.Size(176, 56);
             this.bunifuLabel4.TabIndex = 15;
             this.bunifuLabel4.Text = "Телефон:";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -240,7 +240,7 @@
             this.bunifuLabel3.Location = new System.Drawing.Point(3, 3);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(359, 41);
+            this.bunifuLabel3.Size = new System.Drawing.Size(193, 56);
             this.bunifuLabel3.TabIndex = 4;
             this.bunifuLabel3.Text = "Название:";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopCenter;

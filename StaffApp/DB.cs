@@ -114,6 +114,28 @@ namespace StaffApp
             return table;
         }
 
+        public DataTable getEmployeesByPosition(uint positionCode, Boolean isHidden = false)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT " +
+                "e.personal_number AS '№', " +
+                "e.name AS 'Имя', " +
+                "e.surname AS 'Фамилия', " +
+                "d.name as 'Отдел' " +
+                "FROM `employee` e " +
+                "JOIN department d ON e.department_code = d.department_code " +
+                "WHERE e.hidden = @hidden AND e.position_code = @code" , this.getConnection());
+            this.openConnection();
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(isHidden);
+            command.Parameters.Add("@code", MySqlDbType.VarChar).Value = positionCode;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public void addEmployee(string name, string surname, string patronymic, string sex, 
             string family, string education, 
             int seniority, int deppos_code, 
@@ -209,7 +231,6 @@ namespace StaffApp
             int persNumber
             )
         {
-
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
@@ -345,14 +366,15 @@ namespace StaffApp
             this.closeConnection();
         }
 
-        public void addPosition(string name, int salary)
+        public void addPosition(string name, int salary, bool hidden = false)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `position` " +
-                "(`name`, `salary`)" +
-                "VALUES (@name, @salary);", this.getConnection());
+                "(`name`, `salary`, `hidden`)" +
+                "VALUES (@name, @salary, @hidden);", this.getConnection());
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@salary", MySqlDbType.Int32).Value = salary;
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(hidden);
            
 
             this.openConnection();
@@ -368,15 +390,15 @@ namespace StaffApp
             this.closeConnection();
         }
 
-        public void addDepPos(uint departmentId, uint positionId)
+        public void addDepPos(uint departmentId, uint positionId, bool hidden = false)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `deppos` " +
-                "(`department_code`, `position_id`)" +
-                "VALUES (@departmentId, @positionId);", this.getConnection());
+                "(`department_code`, `position_id`, `hidden`)" +
+                "VALUES (@departmentId, @positionId, @hidden);", this.getConnection());
 
             command.Parameters.Add("@departmentId", MySqlDbType.UInt32).Value = departmentId;
             command.Parameters.Add("@positionId", MySqlDbType.UInt32).Value = positionId;
-
+            command.Parameters.Add("@hidden", MySqlDbType.VarChar).Value = convertBoolToStr(hidden);
 
             this.openConnection();
 
@@ -481,6 +503,7 @@ namespace StaffApp
             this.closeConnection();
         }
 
+
         public DataTable getDepPosByCodes(uint departmentCode, int positionCode)
         {
             DataTable table = new DataTable();
@@ -540,6 +563,27 @@ namespace StaffApp
             if (command.ExecuteNonQuery() == 1)
             {
               
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
+            this.closeConnection();
+        }
+
+        public void updatePosition(uint code, string name, string salary)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE position " +
+                "SET name = @name, salary = @salary WHERE " +
+                "position_code = @code", this.getConnection());
+
+            command.Parameters.Add("@name", MySqlDbType.String).Value = name;
+            command.Parameters.Add("@salary", MySqlDbType.String).Value = salary;
+            command.Parameters.Add("@code", MySqlDbType.UInt32).Value = code;
+            this.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+
             }
             else
             {
@@ -632,6 +676,32 @@ namespace StaffApp
             adapter.Fill(table);
             this.closeConnection();
             return table;
+        }
+
+        public int getEmployeesCountByDepartmentCode(uint departmentCode)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT department_code FROM employee WHERE department_code = @Code AND hidden = 0", this.getConnection());
+            command.Parameters.Add("@Code", MySqlDbType.UInt32).Value = departmentCode;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table.Rows.Count;
+        }
+
+        public int getEmployeesCountByPositionCode(uint positionCode)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT position_code FROM employee WHERE position_code = @Code AND hidden = 0", this.getConnection());
+            command.Parameters.Add("@Code", MySqlDbType.UInt32).Value = positionCode;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table.Rows.Count;
         }
     }
 }

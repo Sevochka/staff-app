@@ -265,6 +265,12 @@
     <Compile Include="Forms\FormChangePassword.Designer.cs">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormPositionCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPositionCard.Designer.cs">
+      <DependentUpon>FormPositionCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormServiceChangeServAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPosition.resx">
       <DependentUpon>FormPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPositionCard.resx">
+      <DependentUpon>FormPositionCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormServiceChangeServAdmin.resx">
       <DependentUpon>FormServiceChangeServAdmin.cs</DependentUpon>

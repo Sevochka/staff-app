@@ -126,7 +126,6 @@ namespace StaffApp
                 btnPosition.Visible = true;
                 btnStaff.Visible = true;
                 btnMenu.Visible = true;
-                
             }
             if (access == "USER")
             {
