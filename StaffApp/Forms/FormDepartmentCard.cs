@@ -173,15 +173,42 @@ namespace StaffApp.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string name = inputName.Text;
-            if (database.getDepartmenByName(name).Rows.Count > 0)
+            string nameNew = inputName.Text;
+            string phoneNew = inputPhone.Text;
+            if(phoneNew.Length != 12)
             {
-                MessageBox.Show("Отдел с названием "+ name + " уже существует!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("В номере телефона должно быть 12 символов!", "Ошибка валидации");
                 return;
             }
-            database.updateDepartment(id, name, inputPhone.Text);
+           
+
+            if (database.getDepartmenByName(nameNew).Rows.Count > 0)
+            {
+                MessageBox.Show("Отдел с названием "+ nameNew + " уже существует!", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            database.updateDepartment(id, nameNew, phoneNew);
             database.addDepartment(name, phone, true);
             setPreviousPage();
+        }
+
+        private void inputPhone_TextChanged(object sender, EventArgs e)
+        {
+
+            string phoneText = inputPhone.Text;
+            
+            try
+            {
+                if (phoneText[0] != '+' || phoneText[1] != '7')
+                {
+                    inputPhone.Text = "+7";
+                }
+            }
+            catch (Exception)
+            {
+                inputPhone.Text = "+7";
+            }
+            
         }
     }
 }
