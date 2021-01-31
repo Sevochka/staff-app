@@ -276,6 +276,59 @@ namespace StaffApp
             Process.Start(newFilePath);
         }
 
+        static public void CreateMoveOrder(
+           DateTime currentDate,
+           int personal_number, 
+           string fullName, 
+           string departmentOld, 
+           string positionOld, 
+           string departmentNew,
+           string positionNew,
+           string fullNameMain
+            )
+        {
+
+            string formattedCreationDate = currentDate.Date.ToString("dd.MM.yyyy");
+            
+
+            var valuesToFill = new TemplateEngine.Docx.Content(
+                new FieldContent("DATE", formattedCreationDate),
+                new FieldContent("FIO", fullName),
+                new FieldContent("NUMBER", personal_number.ToString()),
+                new FieldContent("S_DEP", departmentOld),
+                new FieldContent("POS", positionOld),
+                new FieldContent("T_DEP", departmentNew),
+                new FieldContent("POS2", positionNew),
+                new FieldContent("FIO2", fullNameMain)
+             );
+
+            string destinationFolderPath = @"D:\Documents\Сотрудники\" + fullName;
+            string templatePath = @"D:\Documents Templates\Приказ о перемещении.docx";
+            string newFilePath = @"D:\Documents\Сотрудники\" + fullName + "\\Приказ о перемещении от "+ formattedCreationDate + ".docx";
+
+            if (!Directory.Exists(destinationFolderPath))
+            {
+                Directory.CreateDirectory(destinationFolderPath);
+            }
+
+            if (File.Exists(newFilePath))
+            {
+                File.Delete(newFilePath);
+            }
+
+            File.Copy(templatePath, newFilePath);
+
+            using (var outputDocument = new TemplateProcessor(newFilePath)
+                .SetRemoveContentControls(true))
+            {
+                outputDocument.FillContent(valuesToFill);
+                outputDocument.SaveChanges();
+            }
+
+            Process.Start(newFilePath);
+        }
+
+
     }
 
 

@@ -222,7 +222,6 @@ namespace StaffApp.Forms
                     string posName = dataGridPositions.Rows[e.RowIndex].Cells[2].Value.ToString();
                     string salary = dataGridPositions.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                   
                     int count = database.getEmployeesCountByPositionCode(positionId);
                     if (count != 0)
                     {

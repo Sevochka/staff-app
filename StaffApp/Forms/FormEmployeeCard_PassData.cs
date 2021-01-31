@@ -76,12 +76,14 @@ namespace StaffApp.Forms
             string address = inputAddress.Text;
             DateTime date = inputDate.Value;
 
+
             database.updateEmployee(
                personal_num,
                name, surname, patr, sex, family, edu, 
                seniority, depCode, posCode, depposId,
                series, body, number, address, date
                );
+
 
             database.addEmployee(
                 employee.Field<string>("name"),
@@ -92,7 +94,7 @@ namespace StaffApp.Forms
                 employee.Field<string>("education"),
                 employee.Field<int>("seniority"),
                 employee.Field<int>("deppos_id"),
-                 uint.Parse(employee.Field<int>("department_code").ToString()),
+                uint.Parse(employee.Field<int>("department_code").ToString()),
                 employee.Field<int>("position_code"),
                 employee.Field<string>("pass_series"),
                 employee.Field<string>("pass_num"),
@@ -103,6 +105,29 @@ namespace StaffApp.Forms
                 "hidden", true
                 );
 
+            DataTable oldPosition = database.getPositionByCode(uint.Parse(employee.Field<int>("position_code").ToString()));
+            DataTable oldDepartment = database.getDepartmentByCode(uint.Parse(employee.Field<int>("department_code").ToString()));
+
+            DataTable newPosition = database.getPositionByCode(uint.Parse(posCode.ToString()));
+            DataTable newDepartment = database.getDepartmentByCode(depCode);
+
+            if (employee.Field<int>("deppos_id") != depCode ||
+                  employee.Field<int>("position_code") != posCode)
+            {
+                Documents.CreateMoveOrder(
+                    DateTime.Now,
+                    personal_num,
+                    surname + " " + name + " " + patr,
+                    oldDepartment.Rows[0].Field<string>("name"),
+                    oldPosition.Rows[0].Field<string>("name"),
+                    newDepartment.Rows[0].Field<string>("name"),
+                    newPosition.Rows[0].Field<string>("name"),
+                    DB.currentEmployee.Field<string>("surname") +
+                    " " + DB.currentEmployee.Field<string>("name") +
+                    " " + DB.currentEmployee.Field<string>("patronymic")
+                    );
+
+            }
             panelMenu.OpenChildForm(new FormStaff(panelMenu, database));
         }
 

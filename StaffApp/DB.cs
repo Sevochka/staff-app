@@ -317,6 +317,19 @@ namespace StaffApp
             return table;
         }
 
+        public DataTable getDepartmentByCode(uint code)
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlCommand command = new MySqlCommand("SELECT name FROM `department` WHERE `department_code` = @uCode", this.getConnection());
+            command.Parameters.Add("@uCode", MySqlDbType.VarChar).Value = code;
+            this.openConnection();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            this.closeConnection();
+            return table;
+        }
+
         public DataTable getHiddenPositions()
         {
             DataTable table = new DataTable();
