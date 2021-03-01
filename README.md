@@ -17,3 +17,4 @@
 * Документация - [[gdrive]](https://drive.google.com/drive/folders/1ESdocSGFJx_zQeS_wAoSSIbHOCfwws6G?usp=sharing)
 * Лабораторные работы - [[gdrive]](https://drive.google.com/drive/folders/1l8WhNbqBWlm1M9LqYO6mC5KtlzdLJX4j?usp=sharing)
 * Комплект поставки - [[gdrive]](https://drive.google.com/file/d/19fLIQyeZRL1MZGl2t4kNkDuRQZXEncvr/view?usp=sharing)
+* Видео-презентация для защиты - [[youtube]](https://youtu.be/1tKPhCgPJ8k
